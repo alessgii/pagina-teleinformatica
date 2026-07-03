@@ -1,0 +1,100 @@
+/* ==========================================
+   ESTILOS DE LA GALERÍA
+   ========================================== */
+
+/* Contenedor que centra todo (mismo ancho que tu footer-inner) */
+.gallery-wrapper {
+    max-width: 1100px;
+    margin: 4rem auto; /* Centra horizontalmente y da espacio arriba/abajo */
+    padding: 0 2.5rem; /* Mismo padding lateral que el footer para alinear */
+    min-height: 60vh; /* Empuja el footer hacia abajo si hay pocas fotos */
+}
+
+/* Encabezado de la galería */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-header h2 {
+    font-family: var(--font-base, sans-serif);
+    color: var(--navy, #111827); /* Usa tu variable navy, o un gris oscuro por defecto */
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-header p {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* Cuadrícula adaptativa */
+.gallery-grid {
+    display: grid;
+    /* Esto hace la magia: crea columnas de mínimo 280px y máximo 1 fracción. 
+       Si no caben, bajan a la siguiente línea automáticamente */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Contenedor individual de cada imagen */
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden; /* Evita que la imagen se salga al hacer el efecto zoom */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    background: var(--navy); /* Fondo por si la imagen tarda en cargar */
+}
+
+/* Estilo de la imagen */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/3; /* Mantiene todas las fotos con la misma proporción (rectangular) */
+    object-fit: cover; /* Recorta la foto suavemente para que llene el espacio sin aplastarse */
+    display: block;
+    transition: transform 0.3s ease;
+}
+/* Asegura que la imagen no se desborde */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    display: block;
+}
+
+/* Estilos para el contenedor de la descripción */
+.gallery-caption {
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #f9f9f9; /* Un fondo gris claro opcional */
+    border-radius: 0 0 8px 8px; /* Redondea solo la parte inferior */
+}
+
+/* Estilos para el título de la imagen */
+.gallery-caption h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Estilos para el texto de la descripción */
+.gallery-caption p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Efecto hover: zoom sutil al pasar el mouse */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   RESPONSIVE DE LA GALERÍA
+   ========================================== */
+@media (max-width: 900px) {
+    .gallery-wrapper {
+        padding: 0 1.25rem; /* Ajuste para tablets, igual que tu footer */
+    }
+}
