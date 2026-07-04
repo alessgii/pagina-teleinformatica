@@ -9,25 +9,6 @@
     --texto-oscuro: #062d52;
 }
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: white;
-    color: var(--texto-oscuro);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .main {
     flex: 1;
     padding: 60px 40px 80px;
@@ -148,7 +129,7 @@ body {
 }
 
 /* Estado vacío */
-.horario > p {
+.horario > .aviso {
     padding: 50px 30px;
     text-align: center;
     font-size: 0.95rem;
@@ -161,7 +142,7 @@ body {
     gap: 10px;
 }
 
-.horario > p::before {
+.horario > .aviso::before {
     content: '📋';
     font-size: 2.2rem;
     display: block;
@@ -169,7 +150,7 @@ body {
     opacity: 0.7;
 }
 
-/* Tabla del horario (para uso futuro) */
+/* Tabla del horario */
 .horario table {
     width: 100%;
     border-collapse: collapse;
