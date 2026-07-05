@@ -1,12 +1,10 @@
-<!-- Este es el footer -->
-<!-- Copiar este bloque completo en cualquier pagina nueva-->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
 
       <div class="footer-brand">
         <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.1rem">
-          <a href="#" class="footer-logo">
+          <a href="index.php?page=inicio" class="footer-logo">
             <img src="public/img/INTEL.png" class="f-logo-img" alt="INTEL">
           </a>
         </div>
@@ -27,16 +25,16 @@
       <div class="footer-col">
         <h4>Plataforma</h4>
         <ul>
-          <li><a href="#">Malla Curricular</a></li>
-          <li><a href="#">Academia</a></li>
-          <li><a href="#">Foro Estudiantil</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="index.php?page=malla_curricular">Malla Curricular</a></li>
+          <li><a href="index.php?page=inicio">Academia</a></li>
+          <li><a href="index.php?page=foro">Foro Estudiantil</a></li>
+          <li><a href="#">Blogs</a></li> <!--Agregar enlace a la sección de blogs-->
+          <li><a href="#">Eventos</a></li> <!--- Agregar enlace a la sección de eventos-->
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Soporte</h4>
+        <h4>Soporte</h4> <!-- Otras partes que se necesitaran integrar en el futuro, como soporte, preguntas frecuentes, reglamento escolar, contacto y aviso de privacidad.-->
         <ul>
           <li><a href="#">Ayuda y Soporte</a></li>
           <li><a href="#">Preguntas Frecuentes</a></li>
@@ -55,13 +53,13 @@
       </div>
       <div class="social-row">
         <a href="https://cucsur.udg.mx/" target="_blank" title="Pagina-CUCSur" class="Externo-icon"><img
-            src="public/img/Externo.png" alt="Externo"></a>
+            src="public/img/footer/Externo.png" alt="Externo"></a>
         <a href="https://www.instagram.com/teleinformaticacucostasur?igsh=OW9nM3c0ZjVudGp1" target="_blank"
-          title="Instagram" class="Instagram-icon"><img src="public/img/Instagram.png" alt="Instagram"></a>
+          title="Instagram" class="Instagram-icon"><img src="public/img/footer/Instagram.png" alt="Instagram"></a>
         <a href="https://github.com/Teleinformatica-CuCostaSur" target="_blank" title="Github" class="Github-icon"><img
-            src="public/img/Github.png" alt="Github"></a>
+            src="public/img/footer/Github.png" alt="Github"></a>
         <a href="https://www.facebook.com/CUCostaSur" target="_blank" title="Facebook" class="Facebook-icon"><img
-            src="public/img/Facebook.png" alt="Facebook"></a>
+            src="public/img/footer/Facebook.png" alt="Facebook"></a>
       </div>
     </div>
   </div>

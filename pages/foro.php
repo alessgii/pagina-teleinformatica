@@ -1,13 +1,11 @@
-<link rel="stylesheet" href="public/css/pages/blog-global.css">
-<link rel="stylesheet" href="public/css/pages/foro.css">
-
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/foro.css">
 
 <div class="wrap">
 
   <div class="toolbar">
     <div class="toolbar-left">
       <h1>Foro Estudiantil</h1>
-
+      
     </div>
     <div class="filters">
       <button class="f-btn active">Recientes</button>

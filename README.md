@@ -10,9 +10,9 @@ Para poder ver los cambios de tus diseños en tiempo real junto con el Navbar y 
 
 ### Pasos para configurar en Windows (XAMPP):
 1. **Descarga/Clona este repositorio** dentro de tu carpeta de proyectos de XAMPP (normalmente en `C:\xampp\htdocs\`).
-2. Asegúrate de que la carpeta del proyecto tenga un nombre limpio en minúsculas (ejemplo: `web-carrera`).
+2. Asegúrate de que la carpeta del proyecto tenga un nombre limpio en minúsculas (ejemplo: `pagina-teleinformatica`).
 3. Abre el **XAMPP Control Panel** y enciende el módulo de **Apache** (botón *Start*).
-4. Abre tu navegador web e ingresa a: `http://localhost/nombre-de-tu-carpeta/` (ejemplo: `http://localhost/web-carrera/`).
+4. Abre tu navegador web e ingresa a: `http://localhost/pagina-teleinformatica/` (ejemplo: `http://localhost/web-carrera/`).
 
 *Nota: No se preocupen por configurar bases de datos ni MariaDB, la conexión está desactivada temporalmente para la fase de diseño estático. Les va a cargar a la primera.*
 
@@ -29,8 +29,8 @@ Para evitar que tu código rompa el diseño global de la página, debes seguir e
 
 ### 2. Todo en MINÚSCULAS
 El servidor final corre en Linux. **Está estrictamente prohibido usar mayúsculas o espacios** en los nombres de archivos, carpetas o extensiones.
-* ❌ `Malla-Curricular.html` | `mi foto.JPG`
-* `malla-curricular.php` | `mifoto.jpg`
+* ❌ `malla_curricular.html` | `mi foto.JPG`
+* `malla_curricular.php` | `mifoto.jpg`
 
 ### 3. Código Modular
 Dado que el `index.php` principal ya envuelve tu página con el `<head>`, `<body>`, `Navbar` y `Footer` globales, **TU ARCHIVO NO DEBE LLEVAR ESTAS ETIQUETAS**.

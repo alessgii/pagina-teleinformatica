@@ -78,7 +78,7 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
 ?>
 
 <!-- Estilos de esta pagina -->
-<link rel="stylesheet" href="public/css/pages/consulta_horarios.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/consulta_horarios.css">
 <section class="main">
     <h1>Consulta tu horario de clases</h1>
     <h3>Selecciona tu semestre y grupo para poder ver tu horario.</h3>
@@ -86,7 +86,7 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
     <!-- Filtro por grupos -->
     <div class="filtro">
         <form method="GET">
-            <input type="hidden" name="page" value="consulta-de-horarios">
+            <input type="hidden" name="page" value="consulta_de_horarios">
             <label for="semestre">Semestre:</label>
             <select name="semestre" id="semestre">
                 <option value="" disabled selected>Selecciona</option>

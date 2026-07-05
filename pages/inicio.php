@@ -1,7 +1,4 @@
-<!-- <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="public/css/pages/inicio.css">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="public/css/font-awesome/font-awesome.min.css"> -->
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/inicio.css">
 
 <p class="descripcionInicio">
     El programa educativo de Ingeniería en Teleinformática se presenta como una opción de
@@ -16,13 +13,13 @@
             <div id="slideshow" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" class=>
                     <div class="carousel-item active">
-                        <img src="public/img/alumnosintel.jpeg" class="w-100 imgCarrusel">
+                        <img src="public/img/inicio/alumnosintel.jpeg" class="w-100 imgCarrusel">
                     </div>
                     <div class="carousel-item">
-                        <img src="public/img/carrera.jpg" class="w-100 imgCarrusel">
+                        <img src="public/img/inicio/carrera.jpg" class="w-100 imgCarrusel">
                     </div>
                     <div class="carousel-item">
-                        <img src="public/img/tallermantenimiento.jpeg" class="w-100 imgCarrusel">
+                        <img src="public/img/inicio/tallermantenimiento.jpeg" class="w-100 imgCarrusel">
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#slideshow"
                         data-bs-slide="prev">
@@ -62,8 +59,8 @@
                     <div class="cont1">
                         <a href="#" class="link_titulo_pag_princi">
                             <div class="contenedor_imagenes">
-                                <img class="img_perfil" src="public/img/perfil.png" alt="">
-                                <img class="img_hoverPer" src="public/img/perfilLight.png" alt="">
+                                <img class="img_perfil" src="public/img/inicio/perfil.png" alt="">
+                                <img class="img_hoverPer" src="public/img/inicio/perfilLight.png" alt="">
                             </div>
                             <p class="titulo_pag_princi">Perfil de la carrera</p>
                             <p class="desc_pag_princi">Sobre la carrera de Ing. Teleinformática</p>
@@ -75,10 +72,10 @@
             <div class="col-sm-3">
                 <div class="caja">
                     <div class="cont1">
-                        <a href="index.php?page=malla-curricular" class="link_titulo_pag_princi">
+                        <a href="index.php?page=malla_curricular" class="link_titulo_pag_princi">
                             <div class="contenedor_imagenes">
-                                <img class="img_vis" src="public/img/vision.png" alt="">
-                                <img class="img_hoverVis" src="public/img/visionLight.png" alt="">
+                                <img class="img_vis" src="public/img/inicio/vision.png" alt="">
+                                <img class="img_hoverVis" src="public/img/inicio/visionLight.png" alt="">
                             </div>
                             <p class="titulo_pag_princi">Visualización curricular</p>
                             <p class="desc_pag_princi">¡Consulta nuestras materias!</p>
@@ -90,10 +87,10 @@
             <div class="col-sm-3">
                 <div class="caja">
                     <div class="cont1">
-                        <a href="index.php?page=consulta-de-horarios" class="link_titulo_pag_princi">
+                        <a href="index.php?page=consulta_de_horarios" class="link_titulo_pag_princi">
                             <div class="contenedor_imagenes">
-                                <img class="img_hora" src="public/img/horario.png" alt="">
-                                <img class="img_hoverHor" src="public/img/horarioLight.png" alt="">
+                                <img class="img_hora" src="public/img/inicio/horario.png" alt="">
+                                <img class="img_hoverHor" src="public/img/inicio/horarioLight.png" alt="">
                             </div>
                             <p class="titulo_pag_princi">Horarios de clases</p>
                             <p class="desc_pag_princi">Mira nuestros horarios de clases</p>
@@ -107,8 +104,8 @@
                     <div class="cont1">
                         <a href="#" class="link_titulo_pag_princi">
                             <div class="contenedor_imagenes">
-                                <img class="img_dir" src="public/img/directorio.png" alt="">
-                                <img class="img_hoverDir" src="public/img/directorioLight.png" alt="">
+                                <img class="img_dir" src="public/img/inicio/directorio.png" alt="">
+                                <img class="img_hoverDir" src="public/img/inicio/directorioLight.png" alt="">
                             </div>
                             <p class="titulo_pag_princi">Directorio académico</p>
                             <p class="desc_pag_princi">¿Quieres saber sobre nuestros docentes?</p>
@@ -125,22 +122,22 @@
             Galería
         </p>
         <div class="foto">
-            <img src="public/img/img1.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img1.jpeg" class="fotoGal" alt="">
         </div>
         <div class="foto">
-            <img src="public/img/img2.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img2.jpeg" class="fotoGal" alt="">
         </div>
         <div class="foto">
-            <img src="public/img/img3.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img3.jpeg" class="fotoGal" alt="">
         </div>
         <div class="foto">
-            <img src="public/img/img4.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img4.jpeg" class="fotoGal" alt="">
         </div>
         <div class="foto">
-            <img src="public/img/img5.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img5.jpeg" class="fotoGal" alt="">
         </div>
         <div class="foto">
-            <img src="public/img/img6.jpeg" class="fotoGal" alt="">
+            <img src="public/img/inicio/img6.jpeg" class="fotoGal" alt="">
         </div>
     </section>
     <!-- Fin de secccion galeria -->
@@ -158,7 +155,7 @@
                                 Se gana el torneo de minisumo
                             </p>
                             <div class="img_noticias">
-                                <img src="public/img/ganminisumo.jpeg" alt="">
+                                <img src="public/img/inicio/ganminisumo.jpeg" alt="">
                             </div>
                         </div>
                     </div>
@@ -168,7 +165,7 @@
                         <div class="noticia1">
                             <p>INTEL y Mecatrónica juntos</p>
                             <div class="img_noticias">
-                                <img src="public/img/ingenierias.jpeg" alt="">
+                                <img src="public/img/inicio/ingenierias.jpeg" alt="">
                             </div>
                         </div>
                     </div>
@@ -180,7 +177,7 @@
                         <div class="noticia1">
                             <p>Se anuncia el periodo ordinario y el periodo extraordinario</p>
                             <div class="img_noticias">
-                                <img src="public/img/fechas_Calif.jpeg" alt="">
+                                <img src="public/img/inicio/fechas_Calif.jpeg" alt="">
                             </div>
                         </div>
                     </div>
@@ -208,6 +205,7 @@
 
 
 </section>
+
 <!-- Fin section.main -->
 <script src="public/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="public/js/jquery-3.7.1.min.js"></script>
