@@ -1,109 +1,29 @@
-$(document).ready(function () {
-    $('.navbar').each(function (index, elemento) {
-        $(this).css({
-            'top': '-200px'
-        });
+document.addEventListener('DOMContentLoaded', function () {
 
-        $(this).animate({
-            top: '0'
-        }, 2000 + (index * 500));
+  // Revelado progresivo al hacer scroll 
+  var singles = document.querySelectorAll('.reveal');
+  var groups = document.querySelectorAll('.reveal-stagger');
+  var revealItems = Array.prototype.slice.call(singles);
+  groups.forEach(function (group) {
+    Array.prototype.slice.call(group.children).forEach(function (child, i) {
+      child.classList.add('reveal-item');
+      child.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms';
+      revealItems.push(child);
     });
+  });
 
-    $('.navbar-nav .nav-link').on('click', function(){
-        $('.navbar-collapse').collapse('hide');
-    });
-
-    if ($(window).width() > 500) {
-        $('header .descripcionInicio').css({
-            opacity: 0,
-            marginTop: 0
-        });
-
-        $('header .descripcionInicio').animate({
-            opacity: 1,
-            marginTop: '10%'
-        }, 1500);
-
-        $('.caja').css({
-            opacity: 0,
-            marginTop: 0
-        });
-
-        $('.caja').animate({
-            opacity: 1,
-            marginTop: '-20%'
-        }, 1500);
-    }
-
-    $('#btn-contenido').on('click', function (e) {
-        e.preventDefault();
-        var destino = $('#pag_princi').offset().top;
-        $('html, body').animate({ scrollTop: destino }, 500);
-    });
-
-    $('#btn-galeria').on('click', function (e) {
-        e.preventDefault();
-        var destino = $('#galeria').offset().top;
-        $('html, body').animate({ scrollTop: destino }, 500);
-    });
-
-    $('#btn-noticias').on('click', function (e) {
-        e.preventDefault();
-        var destino = $('#noticias').offset().top;
-        $('html, body').animate({ scrollTop: destino }, 500);
-    });
-
-    $('#btn-contacto').on('click', function (e) {
-        e.preventDefault();
-        var destino = $('#contacto').offset().top;
-        $('html, body').animate({ scrollTop: destino }, 500);
-    });
-
-
-
-    var $elementos = $('.pag_princi');
-
-    $elementos.css({
-        opacity: 0,
-        marginTop: '0%'
-    });
-
-    var observador = new IntersectionObserver(function (entradas, elObservador) {
-        entradas.forEach(function (entrada) {
-
-            if (entrada.isIntersecting) {
-
-                $(entrada.target).animate({
-                    opacity: 1,
-                    marginTop: '20%'
-                }, 1500);
-
-                elObservador.unobserve(entrada.target);
-            }
-        });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.3 
-    });
-
-    $elementos.each(function () {
-        observador.observe(this);
-    });
-
-    $('#btn-dark-mode').on('click', function(e) {
-        e.preventDefault();
-        
-        $('body').toggleClass('dark-mode');
-        
-        var icono = $(this).find('i');
-        
-        if($('body').hasClass('dark-mode')){
-            icono.removeClass('fa-moon-o').addClass('fa-sun-o');
-            $(this).html('<i class="fa fa-sun-o"></i> Modo Claro');
-        } else {
-            icono.removeClass('fa-sun-o').addClass('fa-moon-o');
-            $(this).html('<i class="fa fa-moon-o"></i> Modo Oscuro');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
         }
-    });
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealItems.forEach(function (el) { io.observe(el); });
+  } else {
+    revealItems.forEach(function (el) { el.classList.add('in'); });
+  }
 
 });

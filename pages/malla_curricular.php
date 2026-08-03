@@ -1,7 +1,7 @@
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/malla_curricular.css">
   
     <section class="hero">
-      <h1>Malla <span>Curricular</span></h1>
+      <h1>Malla Curricular</h1>
       <p class="hero-sub">Explora nuestro programa educativo especializado en redes, telecomunicaciones y programación.
         Ocho semestres de formación profesional de alto nivel.</p>
 
@@ -487,5 +487,6 @@
 
         </div>
       </div>
-
     </main>
+
+    <script src="public/js/malla_curricular.js"></script>

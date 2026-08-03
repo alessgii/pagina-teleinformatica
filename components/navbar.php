@@ -26,11 +26,10 @@
       <li class="nav-item" id="ni-inicio">
         <button class="nav-btn" onclick="toggleNav('ni-inicio')">Inicio <span class="chev">▾</span></button>
         <div class="dropdown">
-          <a href="index.php?page=inicio"><span class="dot"></span>Noticias</a>
+          <a href="index.php?page=noticias"><span class="dot"></span>Noticias</a>
           <a href="index.php?page=galeria"><span class="dot"></span>Galería</a>
           <a href="index.php?page=inicio"><span class="dot"></span>Sobre Nosotros</a>
           <a href="#"><span class="dot"></span>Showcase de Proyectos</a> <!-- Agregar enlace a la sección de showcase-->
-          <a href="#"><span class="dot"></span>Eventos</a> <!-- Agregar enlace a la sección de eventos-->
         </div>
       </li>
 

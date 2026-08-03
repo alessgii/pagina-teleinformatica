@@ -13,7 +13,8 @@ $valid_pages = [
     'consulta_de_horarios',
     'malla_curricular',
     'foro',
-    'galeria'
+    'galeria',
+    'noticias'
 ];
 
 $is404 = !in_array($page, $valid_pages);
@@ -42,6 +43,10 @@ switch ($page) {
 
     case 'galeria':
         include 'pages/galeria.php';
+        break;
+
+    case 'noticias':
+        include 'pages/noticias.php';
         break;
 
     default:

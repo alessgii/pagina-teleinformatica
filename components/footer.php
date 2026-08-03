@@ -29,7 +29,7 @@
           <li><a href="index.php?page=inicio">Academia</a></li>
           <li><a href="index.php?page=foro">Foro Estudiantil</a></li>
           <li><a href="#">Blogs</a></li> <!--Agregar enlace a la sección de blogs-->
-          <li><a href="#">Eventos</a></li> <!--- Agregar enlace a la sección de eventos-->
+          <li><a href="index.php?page=noticias">Noticias</a></li> 
         </ul>
       </div>
 
