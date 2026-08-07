@@ -10,16 +10,18 @@ $resultado = [];
 $dias_semana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
 $horas_formateadas = ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM"];
 
+// Cuadrícula del horario: $grid[dia][indice_de_hora] = datos de la clase
+// Se construye a partir de $resultado para poder pintar la tabla como
+// días (columnas) x franjas horarias (filas).
+$grid = [];
 
 if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
     $busqueda_activa = true;
     $semestre = $_GET["semestre"];
     $grupo = $_GET["grupo"];
 
-    // intentamos hacer la consulta
     try {
 
-        // consulta SQL
         $query = "SELECT 
                     h.dia, 
                     m.nombre AS materia, 
@@ -69,6 +71,47 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
         }
         unset($clase);
 
+        // Construcción de la cuadrícula (días x franjas horarias) ---
+        // Por cada clase calculamos en qué franja empieza y cuántas franjas
+        // ocupa (rowspan), para soportar tanto clases de una hora como de
+        // varias horas seguidas, y dejar en blanco los espacios sin clase.
+        // Nota: se asume que hora_inicio/hora_fin caen en horas exactas
+        // (1:00, 2:00, etc.), igual que $horas_formateadas.
+        foreach ($resultado as $clase) {
+            $dia = $clase['dia'];
+
+            $inicio_ts = strtotime($clase['hora_inicio']);
+            $fin_ts = strtotime($clase['hora_fin']);
+
+            if ($inicio_ts === false || $fin_ts === false) {
+                continue;
+            }
+
+            $duracion_horas = (int) round(($fin_ts - $inicio_ts) / 3600);
+            $duracion_horas = max(1, $duracion_horas);
+
+            $indice_inicio = ((int) date('G', $inicio_ts)) - 13;
+
+            if ($indice_inicio < 0 || $indice_inicio >= count($horas_formateadas)) {
+                continue;
+            }
+
+            $grid[$dia][$indice_inicio] = [
+                'tipo' => 'inicio',
+                'materia' => $clase['materia'],
+                'salon' => $clase['salon'],
+                'maestro' => $clase['maestro'],
+                'rowspan' => $duracion_horas,
+            ];
+
+            for ($i = 1; $i < $duracion_horas; $i++) {
+                $idx = $indice_inicio + $i;
+                if ($idx < count($horas_formateadas)) {
+                    $grid[$dia][$idx] = ['tipo' => 'ocupado'];
+                }
+            }
+        }
+
     } catch (PDOException $e) {
         die("Error en la consulta SQL: " . $e->getCode());
 
@@ -115,37 +158,47 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
     <div class="horario">
         <?php if ($busqueda_activa): ?>
             <?php if (!empty($resultado)): ?>
-                <!-- Tabla 2 -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>DIA</th>
-                            <th>HORA</th>
-                            <th>MATERIA</th>
-                            <th>SALON</th>
-                            <th>MAESTRO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($resultado as $row): ?>
+                <!-- Cuadrícula semanal: columnas = días, filas = franjas horarias -->
+                <div class="tabla-scroll">
+                    <table class="tabla-horario">
+                        <thead>
                             <tr>
-                                <td><?php echo htmlspecialchars($row['dia']); ?> </td>
-                                <td><?php echo htmlspecialchars($row['hora_inicio']); ?> </td>
-                                <td><?php echo htmlspecialchars($row['materia']); ?> </td>
-                                <td><?php echo htmlspecialchars($row['salon']); ?> </td>
-                                <td><?php echo htmlspecialchars($row['maestro']); ?> </td>
+                                <th class="celda-hora">Hora</th>
+                                <?php foreach ($dias_semana as $dia): ?>
+                                    <th><?php echo $dia; ?></th>
+                                <?php endforeach; ?>
                             </tr>
-
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-
-                <?php echo ($resultado['dia']); ?>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($horas_formateadas as $idx => $hora_label): ?>
+                                <tr>
+                                    <td class="celda-hora"><?php echo $hora_label; ?></td>
+                                    <?php foreach ($dias_semana as $dia): ?>
+                                        <?php if (isset($grid[$dia][$idx])): ?>
+                                            <?php $celda = $grid[$dia][$idx]; ?>
+                                            <?php if ($celda['tipo'] === 'inicio'): ?>
+                                                <td class="celda-clase" rowspan="<?php echo $celda['rowspan']; ?>">
+                                                    <span
+                                                        class="clase-materia"><?php echo htmlspecialchars($celda['materia']); ?></span>
+                                                    <span class="clase-salon">
+                                                        <?php echo htmlspecialchars($celda['salon']); ?></span>
+                                                </td>
+                                            <?php endif; ?>
+                                        
+                                        <?php else: ?>
+                                            <td class="celda-vacia" aria-hidden="true"></td>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             <?php else: ?>
                 <p class="aviso">No existe horario registrado para ese grupo</p>
             <?php endif; ?>
         <?php else: ?>
-            <p class="aviso">Selecciona un semestre y un grupo para consultar su horario.</p>"
+            <p class="aviso">Selecciona un semestre y un grupo para consultar su horario.</p>
         <?php endif; ?>
     </div>
 </section>

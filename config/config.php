@@ -1,3 +1,3 @@
 <?php
 
-define('BASE_URL', 'http://localhost/pagina-teleinformatica/');
+define('BASE_URL', '/pagina-teleinformatica/');
