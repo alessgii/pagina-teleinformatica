@@ -2,3 +2,4 @@ config/conn.php
 *.sql
 pages/p.php
 .idea/
+desktop.ini
