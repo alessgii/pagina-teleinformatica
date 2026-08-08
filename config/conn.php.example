@@ -1,6 +1,6 @@
 <?php
 
-// Pendiente: crear un archivo especial para las credenciales de acceso a la BD.
+// Pendiente: crear un .env para las credenciales de acceso a la BD.
 
 $host     = 'localhost'; 
 $db       = '';

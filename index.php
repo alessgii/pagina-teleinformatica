@@ -1,60 +1,32 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once("config/config.php");
 
-$page = isset($_GET['page']) ? $_GET['page'] : 'inicio';
+$raw_page = $_GET['page'] ?? 'inicio';
+$page = trim($raw_page, '/'); 
 
-$valid_pages = [
-    'inicio',
-    'consulta_de_horarios',
-    'malla_curricular',
-    'foro',
-    'galeria',
-    'noticias'
+if (empty($page)) {
+    $page = 'inicio';
+}
+
+$routes = [
+    'inicio'               => 'pages/inicio.php',
+    'consulta_de_horarios' => 'pages/consulta_horarios.php',
+    'malla_curricular'     => 'pages/malla_curricular.php',
+    'foro'                 => 'pages/foro.php',
+    'galeria'              => 'pages/galeria.php',
+    'noticias'             => 'pages/noticias.php',
 ];
 
-$is404 = !in_array($page, $valid_pages);
+$is404 = !array_key_exists($page, $routes);
 
 if (!$is404) {
     include 'components/navbar.php';
-}
-
-switch ($page) {
-
-    case 'inicio':
-        include 'pages/inicio.php';
-        break;
-
-    case 'consulta_de_horarios':
-        include 'pages/consulta_horarios.php';
-        break;
-
-    case 'malla_curricular':
-        include 'pages/malla_curricular.php';
-        break;
-
-    case 'foro':
-        include 'pages/foro.php';
-        break;
-
-    case 'galeria':
-        include 'pages/galeria.php';
-        break;
-
-    case 'noticias':
-        include 'pages/noticias.php';
-        break;
-
-    default:
-        include 'pages/404.php';
-        break;
-}
-
-if (!$is404) {
+    include $routes[$page];
     include 'components/footer.php';
+} else {
+    include 'pages/404.php';
 }
-?>
