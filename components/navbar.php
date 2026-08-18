@@ -72,20 +72,36 @@
         </svg>
       </button>
       <div class="user-dropdown" id="user-dd">
-        <div class="user-no-found">
-          <div class="user-avatar-lg">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-            </svg>
+        <?php if (isset($_SESSION['user'])): ?>
+          <div class="user-no-found">
+            <div class="user-avatar-lg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+              </svg>
+            </div>
+            <strong><?php echo htmlspecialchars($_SESSION['user']['name']); ?></strong>
+            <p><?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
           </div>
-          <strong>Usuario no encontrado</strong>
-          <p>Inicia sesión para acceder a tu cuenta</p>
-        </div>
-        <div class="auth-btns">
-          <a href="#" class="btn-login">Iniciar sesión</a>
-          <a href="#" class="btn-register">Registrarse</a>
-        </div>
+          <div class="auth-btns">
+            <a href="index.php?page=logout" class="btn-login">Cerrar sesión</a>
+          </div>
+        <?php else: ?>
+          <div class="user-no-found">
+            <div class="user-avatar-lg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+              </svg>
+            </div>
+            <strong>Usuario no encontrado</strong>
+            <p>Inicia sesión para acceder a tu cuenta</p>
+          </div>
+          <div class="auth-btns">
+            <a href="index.php?page=login" class="btn-login">Iniciar sesión</a>
+            <a href="index.php?page=register" class="btn-register">Registrarse</a>
+          </div>
+        <?php endif; ?>
         <a href="#" class="support-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
           ⓘ Ayuda y Soporte

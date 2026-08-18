@@ -1,0 +1,230 @@
+/* ===== Página de Registro (diseño propio, tarjeta centrada) ===== */
+
+.register-page {
+    min-height: 100dvh;
+    display: flex;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow-x: clip;
+    background: linear-gradient(150deg, var(--navy-mid) 0%, var(--navy) 55%, #0a2f55 100%);
+}
+
+/* Glows de fondo */
+.bg__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0;
+    animation: glowIn 2s ease-out forwards;
+    pointer-events: none;
+}
+
+.bg__glow--green {
+    width: 380px;
+    height: 380px;
+    background: var(--green);
+    top: -110px;
+    left: -90px;
+}
+
+.bg__glow--cyan {
+    width: 440px;
+    height: 440px;
+    background: var(--turq-acc);
+    bottom: -130px;
+    right: -110px;
+}
+
+@keyframes glowIn {
+    from { opacity: 0; }
+    to { opacity: .25; }
+}
+
+/* --- Tarjeta centrada (margin:auto permite scroll si el contenido es más alto que la pantalla) --- */
+.register-card {
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    width: 100%;
+    max-width: 26rem;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .35);
+    animation: cardIn .9s cubic-bezier(.22, 1, .36, 1) .15s both;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* --- Encabezado --- */
+.register-card__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.register-card__logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.register-card__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    color: var(--text);
+}
+
+.register-card__subtitle {
+    margin-top: .5rem;
+    font-size: .875rem;
+    line-height: 1.6;
+    color: #71717a;
+}
+
+/* --- Formulario --- */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.register-field {
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+}
+
+.register-label {
+    font-size: .875rem;
+    font-weight: 500;
+    color: #52525b;
+}
+
+.register-input-wrap {
+    position: relative;
+}
+
+.register-input {
+    width: 100%;
+    padding: .625rem .875rem;
+    border: 1px solid #d4d4d8;
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: .875rem;
+    color: var(--text);
+    background: #ffffff;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.register-input--icon {
+    padding-right: 2.75rem;
+}
+
+.register-input::placeholder {
+    color: #a1a1aa;
+}
+
+.register-input:focus {
+    outline: none;
+    border-color: var(--turq-acc);
+    box-shadow: 0 0 0 3px rgba(0, 174, 204, .15);
+}
+
+.register-input--error,
+.register-input--error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, .12);
+}
+
+.register-input-icon,
+.register-toggle-password {
+    position: absolute;
+    right: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    color: #a1a1aa;
+}
+
+.register-toggle-password {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color .15s;
+}
+
+.register-toggle-password:hover {
+    color: var(--navy);
+}
+
+/* --- Estados --- */
+.register-error {
+    background: #fef2f2;
+    color: #ef4444;
+    padding: .875rem 1rem;
+    border-radius: .5rem;
+    font-size: .875rem;
+}
+
+/* --- Botón --- */
+.register-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+    padding: .75rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    background: var(--green);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: .875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+}
+
+.register-submit:hover {
+    background: var(--green-lt);
+}
+
+.register-submit:active {
+    transform: scale(.99);
+}
+
+.register-submit:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+.register-footer {
+    text-align: center;
+    font-size: .875rem;
+    color: #52525b;
+}
+
+.register-link {
+    font-weight: 700;
+    color: var(--turq-acc);
+    text-decoration: none;
+    transition: opacity .15s;
+}
+
+.register-link:hover {
+    opacity: .8;
+}
