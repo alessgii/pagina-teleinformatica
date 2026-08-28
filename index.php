@@ -19,6 +19,8 @@ $routes = [
     'foro'                 => 'pages/foro.php',
     'galeria'              => 'pages/galeria.php',
     'noticias'             => 'pages/noticias.php',
+    'academia'             => 'pages/academia.php',
+    'showcase'             => 'pages/showcase.php',
 ];
 
 $is404 = !array_key_exists($page, $routes);

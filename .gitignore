@@ -3,3 +3,4 @@ config/conn.php
 pages/p.php
 .idea/
 desktop.ini
+node_modules/

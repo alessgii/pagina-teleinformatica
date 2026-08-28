@@ -7,7 +7,7 @@
   <title>Teleinformatica</title>
 
   <link rel="shorcut icon" type="image/x-icon" href="public/img/favicon.ico">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/global.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/tailwind/output.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/navbar.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/footer.css">
 
