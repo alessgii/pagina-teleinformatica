@@ -1,0 +1,317 @@
+.hero {
+  position: relative;
+  z-index: 50;
+  background: var(--bg);
+  padding: 4.5rem 2.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: var(--font-base);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--green);
+  margin-bottom: .9rem;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-mid);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Buscar por semestre */
+.sem-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
+.sem-btn {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: .78rem 1.4rem;
+  font-family: var(--font-base);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(13, 43, 78, .18);
+}
+
+.sem-btn:hover {
+  background: var(--navy-mid);
+  box-shadow: 0 6px 24px rgba(13, 43, 78, .25);
+}
+
+.sem-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 235px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .5rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity .22s, transform .22s;
+  z-index: 9999;
+}
+
+.sem-dropdown.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  animation: slideDown .22s ease both;
+}
+
+.sem-dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-mid);
+  font-size: .875rem;
+  transition: background .15s, color .15s;
+}
+
+.sem-dropdown a:hover {
+  background: var(--green-pale);
+  color: var(--green);
+}
+
+/* Malla */
+.curriculum {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .5rem 2.5rem 4rem;
+}
+
+.semester-block {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 80px;
+}
+
+.sem-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-lt);
+}
+
+.sem-number {
+  font-family: var(--font-base);
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+  letter-spacing: -2px;
+  flex-shrink: 0;
+}
+
+.sem-info h2 {
+  font-family: var(--font-base);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: .2rem;
+}
+
+.sem-info p {
+  font-size: .875rem;
+  color: var(--text-muted);
+}
+
+/* Materias */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 1.1rem;
+}
+
+.course-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.35rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--turq-acc));
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 158, 128, .3);
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .22rem .6rem;
+  border-radius: 100px;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .35px;
+  white-space: nowrap;
+}
+
+.badge-opt {
+  background: var(--turq-pale);
+  color: var(--turq-acc);
+  border: 1px solid rgba(26, 110, 181, .2);
+}
+
+.badge-oblig {
+  background: var(--green-pale);
+  color: var(--green);
+  border: 1px solid rgba(0, 158, 128, .25);
+}
+
+.badge-electiva {
+  background: #fff8e8;
+  color: #c07800;
+  border: 1px solid rgba(192, 120, 0, .2);
+}
+
+.badge-comun {
+  background: #f6e8ff;
+  color: #5a00c0;
+  border: 1px solid rgba(138, 0, 192, .2);
+}
+
+/* Codigo */
+.code-chip {
+  font-family: var(--font-base);
+  font-size: .65rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: .18rem .5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.course-card h3 {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.course-card p {
+  font-size: .82rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Prerrequisito */
+.prereq {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .76rem;
+  color: #b05a00;
+  background: #fff3e4;
+  border: 1px solid rgba(176, 90, 0, .2);
+  border-radius: 8px;
+  padding: .32rem .6rem;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding-top: .5rem;
+  border-top: 1px solid var(--border-lt);
+}
+
+.credits {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+
+/* tipos de materia */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .8rem;
+  color: var(--text-mid);
+}
+
+@media (max-width: 900px) {
+
+  .hero,
+  .curriculum {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

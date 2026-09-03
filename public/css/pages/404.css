@@ -1,0 +1,66 @@
+.error404 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background:
+        radial-gradient(circle at top, rgba(0, 174, 204, 0.08), transparent 35%),
+        var(--bg);
+}
+
+.error404_content {
+    max-width: 620px;
+    text-align: center;
+    animation: fadeInUp .5s ease;
+}
+
+.error404_code {
+    display: block;
+    font-size: clamp(6rem, 18vw, 12rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--navy);
+    opacity: .15;
+    letter-spacing: -6px;
+    margin-bottom: 1rem;
+}
+
+.error404_title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.error404_text {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.error404_tips {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    text-align: left;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.error404_tips p {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: .8rem;
+}
+
+.error404_tips ul {
+    padding-left: 1.2rem;
+}
+
+.error404_tips li {
+    color: var(--text-mid);
+    margin-bottom: .6rem;
+    line-height: 1.6;
+}

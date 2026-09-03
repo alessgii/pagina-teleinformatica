@@ -1,0 +1,104 @@
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+
+@source "index.php";
+@source "pages/academia.php";
+@source "pages/consulta_horarios.php";
+@source "pages/foro.php";
+@source "pages/galeria.php";
+@source "pages/inicio.php";
+@source "pages/malla_curricular.php";
+@source "pages/noticias.php";
+@source "pages/showcase.php";
+@source "components/footer.php";
+@source "components/navbar.php";
+
+/* 1. Variables Globales */
+@theme {
+  --font-poppins: 'Poppins', sans-serif;
+
+  /* Paleta de colores */
+  --color-navy: #094074;
+  --color-navy-mid: #042b50;
+  --color-green: #40ce02;
+  --color-green-lt: #39b803;
+  --color-green-pale: #e6f7f3;
+  --color-turq-acc: #00aecc;
+  --color-turq-pale: #e8f1fb;
+  --color-white-custom: #fffff2;
+
+  /* Fondos y Textos */
+  --color-bg-main: #f4f7fb;
+  --color-bg-card: #ffffff;
+  --color-bg-nav: #ffffff;
+  --color-text-main: #0d2b4e;
+  --color-text-mid: #3a567a;
+  --color-text-muted: #7a94b0;
+
+  /* Bordes */
+  --color-border-main: #d5e2ef;
+  --color-border-lt: #e8f0f9;
+
+  /* Radios y Sombras */
+  --radius-custom: 14px;
+  --shadow-custom: 0 4px 20px rgba(13, 43, 78, 0.09);
+  --shadow-custom-lg: 0 8px 36px rgba(13, 43, 78, 0.14);
+
+  /* Animaciones */
+  --animate-fade-in-up: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fadeIn 0.3s ease both;
+  --animate-slide-down: slideDown 0.3s ease both;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Poppins */
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-poppins);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    min-height: 100vh;
+  }
+}
+
+.page-clip {
+  overflow-x: clip;
+}

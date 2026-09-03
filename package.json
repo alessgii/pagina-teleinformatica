@@ -1,0 +1,27 @@
+{
+  "name": "pagina-teleinformatica",
+  "version": "1.0.0",
+  "description": "Este es el repositorio central con la arquitectura del proyecto unificada. Ya está todo automatizado con un sistema de rutas dinámicas en PHP para que **no tengan que preocuparse por pegar el Navbar ni el Footer** en cada página; el servidor lo hace solo.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./public/css/tailwind/input.css -o ./public/css/tailwind/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alessgii/pagina-teleinformatica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alessgii/pagina-teleinformatica/issues"
+  },
+  "homepage": "https://github.com/alessgii/pagina-teleinformatica#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3"
+  }
+}
