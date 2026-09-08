@@ -8,11 +8,13 @@ $busqueda_activa = false;
 //guardar el horario
 $resultado = [];
 $dias_semana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
-$horas_formateadas = ["1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM"];
+
+// Franja por defecto: vespertino (1:00 PM a 9:00 PM)
+$hora_base_min = 13; // 1:00 PM
+$hora_base_max = 21; // 9:00 PM
+$horas_formateadas = [];
 
 // Cuadrícula del horario: $grid[dia][indice_de_hora] = datos de la clase
-// Se construye a partir de $resultado para poder pintar la tabla como
-// días (columnas) x franjas horarias (filas).
 $grid = [];
 
 if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
@@ -23,22 +25,22 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
     try {
 
         $query = "SELECT 
-                    h.dia, 
-                    m.nombre AS materia, 
-                    prof.nombre AS maestro, 
-                    s.nombre AS salon, 
-                    h.hora_inicio, 
-                    h.hora_fin
-                  FROM horario h
-                  INNER JOIN grupo g ON h.grupo_id = g.id
-                  INNER JOIN materia m ON h.materia_id = m.id
-                  INNER JOIN maestro prof ON h.maestro_id = prof.id
-                  INNER JOIN salon s ON h.salon_id = s.id
-                  WHERE g.semester = :semestre AND g.letter = :grupo
-                  ORDER BY h.dia, h.hora_inicio";
+                    h.day_of_week AS dia, 
+                    m.subject_name AS materia, 
+                    prof.full_name AS maestro, 
+                    s.room_number AS salon, 
+                    h.start_time AS hora_inicio, 
+                    h.end_time AS hora_fin
+                  FROM schedules h
+                  INNER JOIN student_groups g ON h.group_id = g.group_id
+                  INNER JOIN semesters sem ON g.semester_id = sem.semester_id
+                  INNER JOIN subjects m ON h.subject_id = m.subject_id
+                  INNER JOIN teachers prof ON h.teacher_id = prof.teacher_id
+                  INNER JOIN classrooms s ON h.classroom_id = s.classroom_id
+                  WHERE sem.semester_number = :semestre AND g.letter = :grupo
+                  ORDER BY h.day_of_week, h.start_time";
 
         $stmt = $pdo->prepare($query);
-
 
         $stmt->bindParam(':semestre', $semestre);
         $stmt->bindParam(':grupo', $grupo);
@@ -46,8 +48,29 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($resultado as &$clase) {
+        // Si hay materias antes de la 1:00 PM o después de las 9:00 PM, ajustamos el rango
+        foreach ($resultado as $c) {
+            $h_ini = (int) date('G', strtotime($c['hora_inicio']));
+            $h_fin = (int) ceil(strtotime($c['hora_fin']) / 3600);
+            $fin_hour = (int) date('G', strtotime($c['hora_fin']));
+            // Si termina en punto (ej. 10:00), la última franja iniciada es 9:00
+            $minutos_fin = (int) date('i', strtotime($c['hora_fin']));
+            $h_fin_slot = ($minutos_fin > 0) ? $fin_hour : max($h_ini, $fin_hour - 1);
 
+            if ($h_ini < $hora_base_min) {
+                $hora_base_min = $h_ini;
+            }
+            if ($h_fin_slot > $hora_base_max) {
+                $hora_base_max = $h_fin_slot;
+            }
+        }
+
+        // Generar etiquetas de horas dinámicamente según el rango calculado
+        for ($h = $hora_base_min; $h <= $hora_base_max; $h++) {
+            $horas_formateadas[] = date("g:00 A", strtotime("$h:00:00"));
+        }
+
+        foreach ($resultado as &$clase) {
             switch ($clase['dia']) {
                 case 1:
                     $clase['dia'] = "Lunes";
@@ -66,17 +89,11 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
                     break;
                 default:
                     break;
-
             }
         }
         unset($clase);
 
-        // Construcción de la cuadrícula (días x franjas horarias) ---
-        // Por cada clase calculamos en qué franja empieza y cuántas franjas
-        // ocupa (rowspan), para soportar tanto clases de una hora como de
-        // varias horas seguidas, y dejar en blanco los espacios sin clase.
-        // Nota: se asume que hora_inicio/hora_fin caen en horas exactas
-        // (1:00, 2:00, etc.), igual que $horas_formateadas.
+        // Construcción de la cuadrícula (días x franjas horarias)
         foreach ($resultado as $clase) {
             $dia = $clase['dia'];
 
@@ -90,7 +107,7 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
             $duracion_horas = (int) round(($fin_ts - $inicio_ts) / 3600);
             $duracion_horas = max(1, $duracion_horas);
 
-            $indice_inicio = ((int) date('G', $inicio_ts)) - 13;
+            $indice_inicio = ((int) date('G', $inicio_ts)) - $hora_base_min;
 
             if ($indice_inicio < 0 || $indice_inicio >= count($horas_formateadas)) {
                 continue;
@@ -114,7 +131,11 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
 
     } catch (PDOException $e) {
         die("Error en la consulta SQL: " . $e->getCode());
-
+    }
+} else {
+    // Si no hay búsqueda, mostramos el rango estándar de la tarde
+    for ($h = $hora_base_min; $h <= $hora_base_max; $h++) {
+        $horas_formateadas[] = date("g:00 A", strtotime("$h:00:00"));
     }
 }
 
@@ -132,21 +153,23 @@ if (isset($_GET["semestre"]) && isset($_GET["grupo"])) {
             <input type="hidden" name="page" value="consulta_de_horarios">
             <label for="semestre">Semestre:</label>
             <select name="semestre" id="semestre">
-                <option value="" disabled selected>Selecciona</option>
-                <option value="1">Primero</option>
-                <option value="2">Segundo</option>
-                <option value="3">Tercero</option>
-                <option value="4">Cuarto</option>
-                <option value="5">Quinto</option>
-                <option value="6">Sexto</option>
-                <option value="7">Septimo</option>
-                <option value="8">Octavo</option>
+                <option value="" disabled <?php echo !isset($_GET['semestre']) ? 'selected' : ''; ?>>Selecciona</option>
+                <?php
+                $nombres_semestres = [
+                    1 => "Primero", 2 => "Segundo", 3 => "Tercero", 4 => "Cuarto",
+                    5 => "Quinto", 6 => "Sexto", 7 => "Septimo", 8 => "Octavo"
+                ];
+                foreach ($nombres_semestres as $num => $nombre): ?>
+                    <option value="<?php echo $num; ?>" <?php echo (isset($_GET['semestre']) && $_GET['semestre'] == $num) ? 'selected' : ''; ?>>
+                        <?php echo $nombre; ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
             <label for="grupo">Grupo</label>
             <select name="grupo" id="grupo">
-                <option value="" disabled selected>Selecciona</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
+                <option value="" disabled <?php echo !isset($_GET['grupo']) ? 'selected' : ''; ?>>Selecciona</option>
+                <option value="A" <?php echo (isset($_GET['grupo']) && $_GET['grupo'] === 'A') ? 'selected' : ''; ?>>A</option>
+                <option value="B" <?php echo (isset($_GET['grupo']) && $_GET['grupo'] === 'B') ? 'selected' : ''; ?>>B</option>
             </select>
             <button>Consultar</button>
         </form>
