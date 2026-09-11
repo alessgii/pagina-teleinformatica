@@ -24,22 +24,22 @@
       <div class="flex flex-col">
         <h4 class="text-xs font-bold uppercase text-[var(--color-green-lt)] mb-4">Plataforma</h4>
         <ul class="flex flex-col gap-2">
-          <li><a href="index.php?page=malla_curricular" class="text-sm text-gray-400 hover:text-white">Malla Curricular</a></li>
-          <li><a href="index.php?page=inicio" class="text-sm text-gray-400 hover:text-white">Academia</a></li>
-          <li><a href="index.php?page=foro" class="text-sm text-gray-400 hover:text-white">Foro Estudiantil</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Blogs</a></li> <!--Agregar enlace a la sección de blogs-->
-          <li><a href="index.php?page=noticias" class="text-sm text-gray-400 hover:text-white">Noticias</a></li> 
+          <li><a href="index.php?page=malla_curricular" class="text-sm text-gray-400 hover:text-white no-underline">Malla Curricular</a></li>
+          <li><a href="index.php?page=inicio" class="text-sm text-gray-400 hover:text-white no-underline">Academia</a></li>
+          <li><a href="index.php?page=foro" class="text-sm text-gray-400 hover:text-white no-underline">Foro Estudiantil</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Blogs</a></li> <!--Agregar enlace a la sección de blogs-->
+          <li><a href="index.php?page=noticias" class="text-sm text-gray-400 hover:text-white no-underline">Noticias</a></li> 
         </ul>
       </div>
 
       <div class="flex flex-col">
         <h4 class="text-xs font-bold uppercase text-[var(--color-green-lt)] mb-4">Soporte</h4> <!-- Otras partes que se necesitaran integrar en el futuro, como soporte, preguntas frecuentes, reglamento escolar, contacto y aviso de privacidad.-->
         <ul class="flex flex-col gap-2">
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Ayuda y Soporte</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Preguntas Frecuentes</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Reglamento Escolar</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Contacto</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white">Aviso de Privacidad</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Ayuda y Soporte</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Preguntas Frecuentes</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Reglamento Escolar</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Contacto</a></li>
+          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Aviso de Privacidad</a></li>
         </ul>
       </div>
 
