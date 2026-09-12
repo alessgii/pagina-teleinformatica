@@ -1,37 +1,48 @@
-/* cascada en boton de semestres */
+document.addEventListener("DOMContentLoaded", () => {
 
-function toggleSemDd() {
+  const btn = document.getElementById("sem-btn");
   const dd = document.getElementById("sem-dd");
   const chev = document.getElementById("sem-chev");
 
-  if (!dd) return;
+  if (!btn || !dd) return;
 
-  const isOpen = dd.classList.toggle("open");
+  function openDd() {
+    dd.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
 
-  if (chev) {
-    chev.style.transform = isOpen ? "rotate(180deg)" : "";
-  }
-}
-
-/* scroll en semestres */
-
-function goTo(id) {
-  const semDd = document.getElementById("sem-dd");
-  const chev = document.getElementById("sem-chev");
-
-  if (semDd) semDd.classList.remove("open");
-  if (chev) chev.style.transform = "";
-
-  const section = document.getElementById(id);
-
-  if (section) {
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    if (chev) {
+      chev.style.transform = "rotate(180deg)";
+    }
   }
 
-  return false; 
-  
-}
+  function closeDd() {
+    dd.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
 
+    if (chev) {
+      chev.style.transform = "rotate(0deg)";
+    }
+  }
+
+  function isOpen() {
+    return dd.classList.contains("open");
+  }
+
+  window.toggleSemDd = function () {
+    isOpen() ? closeDd() : openDd();
+  };
+
+  window.goTo = function (id) {
+    closeDd();
+
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+});
