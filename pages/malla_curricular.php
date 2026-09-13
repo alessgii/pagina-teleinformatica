@@ -1,492 +1,2050 @@
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/pages/malla_curricular.css">
+<section class="text-center z-50 bg-bg-main px-5 pt-12 pb-10 md:px-10 md:pt-[4.5rem] md:pb-12 max-w-6xl mx-auto">
+  <h1 class="font-poppins-bold text-4xl sm:text-4xl lg:text-5xl text-navy tracking-tight leading-tight">
+    Malla Curricular
+  </h1>
+  <p class="text-base sm:text-lg text-text-mid leading-relaxed mb-6 md:mb-8">
+    Explora nuestro programa educativo especializado en redes, telecomunicaciones y programación.
+  </p>
+
+  <div class="relative inline-block z-[100]">
+    <a href="#" id="sem-btn" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="sem-dd"
+      class="inline-flex items-center gap-3 bg-green text-white select-none rounded-xl py-3 px-6 font-poppins text-sm font-semibold cursor-pointer hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border"
+      onclick="toggleSemDd(); return false;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      Buscar por semestre
+      <svg id="sem-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        class="transition-transform duration-200 ml-1">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </a>
+
+    <div class="absolute top-full mt-2.5 left-0 w-60 bg-bg-card border border-border-main rounded-custom p-2 shadow-custom-lg opacity-0 pointer-events-none -translate-y-1.5 transition duration-200 z-[9999] [&.open]:opacity-100 [&.open]:pointer-events-auto [&.open]:translate-y-0 [&.open]:animate-slide-down"
+      id="sem-dd">
+
+      <a href="#sem1" onclick="goTo('sem1')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>1er
+          Semestre</span></a>
+
+      <a href="#sem2" onclick="goTo('sem2')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>2do
+          Semestre</span></a>
+
+      <a href="#sem3" onclick="goTo('sem3')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>3er
+          Semestre</span></a>
+
+      <a href="#sem4" onclick="goTo('sem4')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>4to
+          Semestre</span></a>
+
+      <a href="#sem5" onclick="goTo('sem5')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>5to
+          Semestre</span></a>
+
+      <a href="#sem6" onclick="goTo('sem6')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>6to
+          Semestre</span></a>
+
+      <a href="#sem7" onclick="goTo('sem7')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>7mo
+          Semestre</span></a>
+
+      <a href="#sem8" onclick="goTo('sem8')"
+        class="flex items-center justify-between py-2.5 px-4 rounded-lg no-underline text-text-mid text-sm transition duration-150 hover:bg-green-pale hover:text-green"><span>8vo
+          Semestre</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-5 pt-2 pb-12 md:px-10 md:pb-16">
+
+  <div class="justify-center flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-10 py-3 px-4 md:py-4 md:px-5 bg-bg-card border border-border-main rounded-custom">
+    <span>Tipos de materia:</span>
+    <span class="flex items-center gap-2 text-xs text-text-mid"><span
+        class="inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">EO</span>
+      Especializante Obligatoria</span>
+    <span class="flex items-center gap-2 text-xs text-text-mid"><span
+        class="inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">OA</span>
+      Optativa Abierta</span>
+    <span class="flex items-center gap-2 text-xs text-text-mid"><span
+        class="inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">BPO</span>
+      Basica Particular Obligatoria</span>
+    <span class="flex items-center gap-2 text-xs text-text-mid"><span
+        class="inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">BCO</span>
+      Basica Comun Obligatoria</span>
+  </div>
+
+  <!-- PRIMER SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem1">
+  <div class="flex items-center md:items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+    <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+      01
+    </div>
+    <div>
+      <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Primer Semestre</h2>
+      <p class="text-sm text-text-muted">
+        Introducción a la teleinformática y tecnologías básicas · 9 materias
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+    <!-- Tarjeta 1 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col justify-between sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div>
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            TU173
+          </span>
+        </div>
+        <h3 class="mt-6 sm:mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de Comunicación Oral y Escrita
+        </h3>
+        <p class="mt-4 sm:mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug">
+          Seminario para fortalecer expresión oral, redacción académica y comunicación profesional.
+        </p>
+      </div>
+
+      <div class="mt-5 sm:mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+      </div>
+    </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+          BPO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN245
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Fundamentos de Creatividad y Desarrollo
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos de código limpio, ordenado y eficiente aplicando buenas prácticas.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 5 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          TU169
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Inglés Técnico I
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla lectura, escritura y comunicación oral mediante textos técnicos en inglés.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 7 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+          OA
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN250
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Taller de Instrumentación
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce componentes electrónicos básicos y su funcionamiento en circuitos analógicos y digitales.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+          OA
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN281
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Manejo de Programación de Multimedia
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos de programación aplicados al desarrollo de proyectos multimedia.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN227
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Fundamentos de Computación
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce historia, arquitectura y funcionamiento de los sistemas computacionales modernos.
+        </p>
+
+      <div class="mt-6 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 9 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 7 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN222
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Álgebra y Geometría
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza álgebra y geometría mediante fundamentos aplicados a problemas matemáticos.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 9 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 8 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN253
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Seminario de APTO I
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza conocimientos y habilidades de teleinformática para mejorar tu desempeño académico.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 4 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 9 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+          OA
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN252
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Taller de Redes
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos de redes mediante configuración y administración de sistemas conectados.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- SEGUNDO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem2">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        02
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Segundo Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Redes y programación básicas · 8 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          TU170
+        </span>
+      </div>
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Inglés Técnico II
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla lectura, documentación y comunicación oral enfocadas en inglés técnico.
+        </p>
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>Requiere Inglés Técnico I
+        </div>
+      <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 7 créditos
+        </span>
+        </div>
+    </div>
+
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+          OA
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN248
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Curso de Internet
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende creación de páginas web mediante tecnologías y herramientas fundamentales.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 5 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+          BPO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN238
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Programación Imperativa
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende programación imperativa usando estructuras de control, funciones y algoritmos.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Fundamentos de C.
+        </div>
+      <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN252
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Teleinformática
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce fundamentos de teleinformática, redes, protocolos y servicios de comunicación.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN228
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Electrónica Analógica
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce componentes y fundamentos de electrónica analógica para desarrollar circuitos funcionales.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN236
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Redes de Computo I
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos, protocolos y servicios para implementar y administrar redes de cómputo.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 7 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN223
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Teoría del Cálculo I
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza cálculo diferencial mediante conceptos de derivación aplicados a problemas matemáticos.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Álgebra y Geometría
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 13 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 8 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN254
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Seminario de APTO II
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza conocimientos de teleinformática para mejorar tus habilidades y desempeño académico.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO I
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 4 créditos
+        </span>
+        </div>
+    </div>
+
+    </div> 
+  </div>
+
+    <!-- TERCER SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem3">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        03
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Tercer Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Redes, programación y electrónica digital · 8 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          TU172
+        </span>
+      </div>
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Cultura Deportiva
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende la importancia del deporte y actividad física para mantener hábitos saludables.
+        </p>
+      <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN279
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Ciencia y Tecnología
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce avances científicos y tecnológicos que han influido en el desarrollo social.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 5 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+          BPO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN265
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Fundamentos de Programación Orientada a Objetos
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende conceptos y principios fundamentales de programación orientada a objetos.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Programación I.
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN265
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Tecnologías de la Información
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Utiliza herramientas tecnológicas para desarrollar proyectos audiovisuales atractivos y funcionales.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN229
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Electrónica Digital
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos de electrónica para desarrollar y comprender circuitos digitales.
+        </p>
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Electrónica A.
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN237
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Redes de Cómputo II
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos, protocolos y servicios necesarios para desarrollar redes de cómputo.
+        </p>
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Redes de C. I
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 7 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN224
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Teoría del Cálculo II
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza cálculo integral mediante conceptos de integración aplicados a problemas matemáticos.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Teoría del C. I
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 13 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 8 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN255
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Seminario de APTO III
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza conocimientos de teleinformática para mejorar tus habilidades y desempeño académico.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO II
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 4 créditos
+        </span>
+        </div>
+    </div>
+
+    </div> 
+  </div>
+
+  <!-- CUARTO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem4">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        04
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Cuarto Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Redes, programación y electrónica digital · 8 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          TU171
+        </span>
+      </div>
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Arte y Cultura
+      </h3> 
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende cómo arte y cultura contribuyen al desarrollo de la sociedad.
+        </p>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 3 créditos
+        </span>
+        </div>
+    </div>
+
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+          BPO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN226
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Administración General I
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende principios básicos para administrar recursos y procesos de forma correcta.
+        </p>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 5 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN226
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Fundamentos de Estructura de Datos
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos para diseñar, desarrollar y organizar bases de datos correctamente.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Programación I.
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+          BPO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN287
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Teleinformática II
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce fundamentos de teleinformática, redes, protocolos y servicios de comunicación.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Teleinformática I
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 11 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN230
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Electrónica Digital II
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos de electrónica para desarrollar y comprender circuitos digitales.
+        </p>
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Electrónica D. I
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN285
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Redes de Cómputo III
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos, protocolos y servicios necesarios para desarrollar redes de cómputo.
+        </p>
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Redes de C. II
+        </div>
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 8 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 7 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+          BCO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN225
+        </span>
+      </div>
+
+      <h3 class="mt-6 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Teoría del Cálculo III
+      </h3>
+      <p class="mt-4 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza cálculo integral mediante conceptos de integración aplicados a problemas matemáticos.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Teoría del C. II
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 13 créditos
+        </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta 8 -->
+    <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+          EO
+        </span>
+        <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+          IN256
+        </span>
+      </div>
+
+      <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+        Seminario de APTO IV
+      </h3>
+      <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Refuerza conocimientos de teleinformática para mejorar tus habilidades y desempeño académico.
+        </p>
+
+      <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO III
+        </div>
+
+      <div class="mt-5 flex items-center pt-2 border-t border-border-lt">
+        <span class="flex items-center gap-1 text-xs text-text-muted">
+          ◴ 4 créditos
+        </span>
+        </div>
+    </div>
+
+    </div> 
+  </div>
+
   
-    <section class="hero">
-      <h1>Malla Curricular</h1>
-      <p class="hero-sub">Explora nuestro programa educativo especializado en redes, telecomunicaciones y programación.
-        Ocho semestres de formación profesional de alto nivel.</p>
 
-      <div class="sem-wrapper">
-        <button class="sem-btn" onclick="toggleSemDd()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-          Buscar por semestre
-          <svg id="sem-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" style="transition:.25s;margin-left:.2rem">
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        </button>
-        <div class="sem-dropdown" id="sem-dd">
-          <a href="#sem1" onclick="goTo('sem1')"><span>1er Semestre</span></a>
-          <a href="#sem2" onclick="goTo('sem2')"><span>2do Semestre</span></a>
-          <a href="#sem3" onclick="goTo('sem3')"><span>3er Semestre</span></a>
-          <a href="#sem4" onclick="goTo('sem4')"><span>4to Semestre</span></a>
-          <a href="#sem5" onclick="goTo('sem5')"><span>5to Semestre</span></a>
-          <a href="#sem6" onclick="goTo('sem6')"><span>6to Semestre</span></a>
-          <a href="#sem7" onclick="goTo('sem7')"><span>7mo Semestre</span></a>
-          <a href="#sem8" onclick="goTo('sem8')"><span>8vo Semestre</span></a>
-        </div>
+
+
+  <!-- QUINTO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem5">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        05
       </div>
-    </section>
-
-    <main class="curriculum">
-
-      <div class="legend">
-        <span>Tipos de materia:</span>
-        <span class="legend-item"><span class="badge badge-oblig">EO</span> Especializante Obligatoria</span>
-        <span class="legend-item"><span class="badge badge-opt">OA</span> Optativa Abierta</span>
-        <span class="legend-item"><span class="badge badge-electiva">BPA</span> Basica Particular Obligatoria</span>
-        <span class="legend-item"><span class="badge badge-comun">BCO</span> Basica Comun Obligatoria</span>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Quinto Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Sistemas, redes y fundamentos tecnológicos · 8 materias
+        </p>
       </div>
+    </div>
 
-      <div class="semester-block" id="sem1">
-        <div class="sem-header">
-          <div class="sem-number">01</div>
-          <div class="sem-info">
-            <h2>Primer Semestre</h2>
-            <p>Introducción a la teleinformática y ciencias básicas · 6 materias</p>
-          </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN235
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-comun">BCO</span><span class="code-chip">TU173</span></div>
-            <h3>Seminario de Comunicación Oral y Escrita</h3>
-            <p>Estudio y aplicación de técnicas de expresión, redacción académica y comunicación asertiva profesional.
-            </p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">TU169</span></div>
-            <h3>Inglés Técnico I</h3>
-            <p>Desarrollo de habilidades de lectura y comprensión de manuales, documentación y textos técnicos en
-              inglés.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN238</span></div>
-            <h3>Programación Imperativa</h3>
-            <p>Fundamentos de lógica algorítmica, estructuras de control lineales y programación estructurada en C o
-              lenguajes base.</p>
-            <div class="card-footer"><span class="credits">◴ 7 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">IN222</span></div>
-            <h3>Álgebra y Geometría</h3>
-            <p>Modelado matemático elemental, vectores, matrices, sistemas de ecuaciones lineales y geometría analítica.
-            </p>
-            <div class="card-footer"><span class="credits">◴ 8 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN282</span></div>
-            <h3>Matemáticas Discretas para Teleinformática</h3>
-            <p>Conjuntos, lógica proposicional, teoría de grafos, árboles y estructuras matemáticas clave para redes de
-              datos.</p>
-            <div class="card-footer"><span class="credits">◴ 11 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">IN223</span></div>
-            <h3>Teoría del Cálculo I</h3>
-            <p>Límites, continuidad, derivadas, optimización de funciones y aplicaciones fundamentales del cálculo
-              diferencial.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Fundamentos de Sistemas Operativos
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende conceptos esenciales de sistemas operativos, procesos, memoria, archivos y administración de recursos.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem2">
-        <div class="sem-header">
-          <div class="sem-number">02</div>
-          <div class="sem-info">
-            <h2>Segundo Semestre</h2>
-            <p>Profundización en lenguajes, instrumentación y cálculo avanzado · 6 materias</p>
-          </div>
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+            BPO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            CA103
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">TU170</span></div>
-            <h3>Inglés Técnico II</h3>
-            <p>Inglés enfocado en la redacción técnica, traducción y terminología avanzada de telecomunicaciones.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Inglés Técnico I</div>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN250</span></div>
-            <h3>Taller de Instrumentación</h3>
-            <p>Uso de multímetros, osciloscopios, generadores de señales y medición de parámetros eléctricos básicos.
-            </p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">CA</span><span class="code-chip">IN244</span></div>
-            <h3>Introducción a los Lenguajes Visuales</h3>
-            <p>Desarrollo de software con interfaces gráficas de usuario (GUI), eventos y programación orientada a
-              objetos visual.</p>
-            <div class="card-footer"><span class="credits">◴ 9 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">IN224</span></div>
-            <h3>Teoría del Cálculo II</h3>
-            <p>Cálculo integral, métodos de integración, series, sucesiones y aplicaciones geométricas de la integral.
-            </p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Cálculo I</div>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EO</span><span class="code-chip">IN227</span></div>
-            <h3>Fundamentos de Computación</h3>
-            <p>Arquitectura básica del computador, sistemas numéricos, hardware esencial y conceptos operativos raíz.
-            </p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN248</span></div>
-            <h3>Curso de Internet</h3>
-            <p>Historia de la red, servicios web globales, uso de protocolos iniciales y navegación segura avanzada.</p>
-            <div class="card-footer"><span class="credits">◴ 3 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Administración General II
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende principios administrativos para planear, organizar y controlar recursos dentro de una organización.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Administración G. I
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem3">
-        <div class="sem-header">
-          <div class="sem-number">03</div>
-          <div class="sem-info">
-            <h2>Tercer Semestre</h2>
-            <p>Redes esenciales, electrónica analógica y cálculo multivariado · 5 materias</p>
-          </div>
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN234
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">ED</span><span class="code-chip">IN236</span></div>
-            <h3>Redes de Cómputo I</h3>
-            <p>Conceptos clave de comunicación de datos, Modelo OSI, capas físicas, medios de transmisión y
-              direccionamiento IP básico.</p>
-            <div class="card-footer"><span class="credits">◴ 11 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN249</span></div>
-            <h3>Taller de Electrónica Analógica</h3>
-            <p>Análisis de circuitos con diodos, transistores, amplificadores operacionales y fuentes de alimentación
-              continuas.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">IN225</span></div>
-            <h3>Teoría del Cálculo III</h3>
-            <p>Cálculo multivariable, derivadas parciales, integrales múltiples, campos vectoriales y teoremas de Green,
-              Stokes y Gauss.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Cálculo II</div>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN245</span></div>
-            <h3>Fundamentos de Creatividad y Desarrollo</h3>
-            <p>Dinámicas de innovación, metodologías creativas y formulación de ideas orientadas a soluciones
-              tecnológicas disruptivas.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">TU172</span></div>
-            <h3>Cultura Deportiva</h3>
-            <p>Promoción de la salud integral, actividades recreativas, acondicionamiento físico y trabajo en equipo
-              disciplinar.</p>
-            <div class="card-footer"><span class="credits">◴ 3 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Fundamentos de Sistemas de Información
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce los fundamentos de sistemas de información y su aplicación en organizaciones y procesos.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Fundamentos de E.D.
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 11 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem4">
-        <div class="sem-header">
-          <div class="sem-number">04</div>
-          <div class="sem-info">
-            <h2>Cuarto Semestre</h2>
-            <p>Enrutamiento intermedio, lógica digital y física avanzada · 5 materias</p>
-          </div>
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN271
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">ED</span><span class="code-chip">IN237</span></div>
-            <h3>Redes de Cómputo II</h3>
-            <p>Protocolos de enrutamiento estático y dinámico, conmutación (switching), VLANs, STP y seguridad en
-              puertos.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Redes de Cómputo I</div>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN251</span></div>
-            <h3>Taller de Electrónica Digital</h3>
-            <p>Sistemas numéricos binarios, álgebra de Boole, diseño de circuitos lógicos combinacionales y
-              secuenciales, memorias.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">IN261</span></div>
-            <h3>Matemática Avanzada</h3>
-            <p>Transformadas de Laplace, series de Fourier, variables complejas y ecuaciones diferenciales para
-              ingeniería.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Cálculo III</div>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN274</span></div>
-            <h3>Fundamentos de Internet</h3>
-            <p>Arquitectura global de la gran red, asignación regional de IPs (RIRs), DNS raíz y servicios troncales de
-              Internet.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BCO</span><span class="code-chip">TU175</span></div>
-            <h3>Arte y Cultura</h3>
-            <p>Apreciación e historia de las manifestaciones culturales y su impacto social en el entorno humano global.
-            </p>
-            <div class="card-footer"><span class="credits">◴ 3 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Redes Inalámbricas y Emergentes
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende tecnologías inalámbricas y emergentes para diseñar, configurar y administrar redes modernas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem5">
-        <div class="sem-header">
-          <div class="sem-number">05</div>
-          <div class="sem-info">
-            <h2>Quinto Semestre</h2>
-            <p>Redes WAN, microcontroladores y fundamentos de sistemas operativos · 5 materias</p>
-          </div>
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN251
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN285</span></div>
-            <h3>Redes de Cómputo III</h3>
-            <p>Redes corporativas complejas, enlaces WAN, Frame Relay, encapsulamientos PPP y seguridad perimetral de
-              red básica.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Redes de Cómputo II</div>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN252</span></div>
-            <h3>Taller de Arquitectura de Microprocesadores</h3>
-            <p>Programación de sistemas embebidos, arquitectura interna de CPUs, registros y código ensamblador directo
-              de microcontroladores.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN235</span></div>
-            <h3>Fundamentos de Sistemas Operativos</h3>
-            <p>Estructura de kernels, administración de procesos, hilos de ejecución, gestión de memoria interna y
-              sistemas de archivos.</p>
-            <div class="card-footer"><span class="credits">◴ 4 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN262</span></div>
-            <h3>Análisis de Señales y Sistemas</h3>
-            <p>Teoría matemática de señales continuas y discretas, muestreo, distorsión, convolución y transformaciones
-              de frecuencia.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN242</span></div>
-            <h3>Seguridad y Legislación</h3>
-            <p>Leyes informáticas de protección de datos, delitos cibernéticos, marcos normativos, confidencialidad y
-              políticas de seguridad.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Arquitectura de Computadoras
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende componentes, organización y funcionamiento interno de las computadoras y sus sistemas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Electronica D. II
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem6">
-        <div class="sem-header">
-          <div class="sem-number">06</div>
-          <div class="sem-info">
-            <h2>Sexto Semestre</h2>
-            <p>Administración avanzada de SO, enrutamiento avanzado y microondas · 4 materias</p>
-          </div>
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN272
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">BPO</span><span class="code-chip">IN253</span></div>
-            <h3>Taller de Sistemas Operativos Avanzados</h3>
-            <p>Configuración integral y despliegue de servidores corporativos en plataformas Unix/Linux y Windows
-              Server.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN266</span></div>
-            <h3>Teoría y Tecnología de Rutas</h3>
-            <p>Arquitecturas de enrutamiento empresarial avanzado, BGP, OSPF multinárea, balanceo de cargas y políticas
-              de ruteo.</p>
-            <div class="prereq"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>Requiere Redes de Cómputo III</div>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN264</span></div>
-            <h3>Líneas de Transmisión y Microondas</h3>
-            <p>Estudio de guías de onda, propagación electromagnética de alta frecuencia, acoplamiento de antenas y
-              enlaces satelitales.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN263</span></div>
-            <h3>Diseño e Implementación de Sistemas Informáticos</h3>
-            <p>Ciclos de vida del software, diseño arquitectónico, diagramado estructural y desarrollo modular enfocado
-              a soluciones de red.</p>
-            <div class="card-footer"><span class="credits">◴ 8 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de Investigación
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla habilidades para buscar, analizar y presentar información mediante procesos de investigación.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem7">
-        <div class="sem-header">
-          <div class="sem-number">07</div>
-          <div class="sem-info">
-            <h2>Séptimo Semestre</h2>
-            <p>Gestión de redes, telefonía IP e ingeniería de proyectos · 4 materias</p>
-          </div>
+      <!-- Tarjeta 7 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN261
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN268</span></div>
-            <h3>Administración de Redes</h3>
-            <p>Marcos de gobernanza informática, protocolos de monitoreo (SNMP), aprovisionamiento, SLA y auditoría de
-              tráfico activo.</p>
-            <div class="card-footer"><span class="credits">◴ 8 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN265</span></div>
-            <h3>Sistemas de Telefonía y Conmutación</h3>
-            <p>Redes telefónicas tradicionales (PSTN), protocolos de señalización, arquitecturas de conmutación y bases
-              troncales.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN240</span></div>
-            <h3>Ingeniería de Proyectos</h3>
-            <p>Planeación metodológica, estimación financiera, viabilidad técnica y dirección integral de obras e
-              infraestructura en TI.</p>
-            <div class="card-footer"><span class="credits">◴ 8 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN241</span></div>
-            <h3>Seminario de Investigación</h3>
-            <p>Metodología científica, estructuración del protocolo de tesis o diseño inicial del proyecto terminal de
-              titulación.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Matemática Avanzada
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aplica conceptos matemáticos avanzados para resolver problemas relacionados con la teleinformática.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Teoria del C. III
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
         </div>
       </div>
 
-      <div class="semester-block" id="sem8">
-        <div class="sem-header">
-          <div class="sem-number">08</div>
-          <div class="sem-info">
-            <h2>Octavo Semestre</h2>
-            <p>Convergencia tecnológica e innovación en proyectos integradores · 3 materias</p>
-          </div>
+      <!-- Tarjeta 8 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN257
+          </span>
         </div>
-        <div class="cards-grid">
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN267</span></div>
-            <h3>Redes de Nueva Generación</h3>
-            <p>Convergencia total de datos, voz y video. Redes definidas por software (SDN), IPv6 nativo y arquitecturas
-              elásticas multimedia.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">EQ</span><span class="code-chip">IN269</span></div>
-            <h3>Sistemas de Telecomunicaciones Integradas</h3>
-            <p>Integración de centrales telefónicas de Voz sobre IP (VoIP), troncales SIP, redes de fibra óptica de
-              última milla y seguridad unificada.</p>
-            <div class="card-footer"><span class="credits">◴ 13 créditos</span></div>
-          </div>
-
-          <div class="course-card">
-            <div class="card-top"><span class="badge badge-oblig">DA</span><span class="code-chip">IN244</span></div>
-            <h3>Aprendizaje de Proyectos Básicos</h3>
-            <p>Fase final integradora. Desarrollo técnico práctico del prototipo de ingeniería o validación final de
-              sistemas instalados.</p>
-            <div class="card-footer"><span class="credits">◴ 5 créditos</span></div>
-          </div>
-
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de APTO V
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos y habilidades de teleinformática mediante actividades prácticas y académicas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO IV
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 4 créditos
+          </span>
         </div>
       </div>
-    </main>
 
-    <script src="public/js/malla_curricular.js"></script>
+    </div>
+  </div>
+
+  <!-- SEXTO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem6">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        06
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Sexto Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Programación, comunicación y sistemas distribuidos · 9 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN269
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Tecnología Cliente Servidor
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende la comunicación entre clientes y servidores mediante tecnologías utilizadas en aplicaciones distribuidas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-amber-200 text-amber-500 border border-amber-300">
+            BPO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN273
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Curso Programación Avanzada en Internet
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla aplicaciones avanzadas para internet utilizando programación, servicios y tecnologías web.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN233
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Introducción a la Ingeniería Económica
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce principios económicos para evaluar costos, beneficios y alternativas en proyectos tecnológicos.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN270
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Tecnología de la Comunicación I
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos de tecnologías de comunicación y su aplicación en sistemas teleinformáticos.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN264
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Fundamentos de Programación de Sistemas
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla fundamentos de programación orientados a sistemas, procesos y recursos computacionales.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Arquitectura de C.
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN244
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Aprendizaje de Proyectos Básicos
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Desarrolla habilidades mediante proyectos básicos que integran conocimientos técnicos y prácticos.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 13 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 7 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN267
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Sistemas Operativos Abiertos
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce características, administración y funcionamiento de sistemas operativos abiertos y sus herramientas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 11 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 8 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN258
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de APTO VI
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos y habilidades de teleinformática mediante actividades prácticas y académicas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO V
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 4 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 9 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN263
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Diseño de Sistemas Distribuidos
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende principios para diseñar sistemas distribuidos eficientes, escalables y capaces de trabajar colaborativamente.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SÉPTIMO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem7">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        07
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Séptimo Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Software, redes y gestión tecnológica · 9 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN268
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Ingeniería de Software
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende procesos y herramientas para planear, desarrollar, probar y mantener software de calidad.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            CP179
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Planeación de Proyectos de Inversión
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce técnicas para planear, evaluar y organizar proyectos de inversión tecnológica.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            EJ200
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Ética Profesional
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Reflexiona sobre principios éticos y responsabilidades profesionales dentro del ámbito tecnológico.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN280
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Tecnología de la Comunicación II
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Profundiza en tecnologías de comunicación aplicadas a sistemas y redes teleinformáticas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Tecnologías de la C. I
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN247
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Teoría y Tecnología de Rutas
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Comprende fundamentos de enrutamiento y tecnologías utilizadas para conectar diferentes redes.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN244
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Introducción a los Lenguajes Visuales
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce fundamentos de lenguajes visuales para desarrollar interfaces y aplicaciones interactivas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 7 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN278
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Probabilidad y Estadística
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aplica conceptos de probabilidad y estadística para analizar datos y resolver problemas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Algebra y Geometria
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 8 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN259
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de APTO VII
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos y habilidades de teleinformática mediante actividades prácticas y académicas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO VI
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 4 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 9 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN284
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Bases de Datos Distribuidas
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos para diseñar, administrar y utilizar bases de datos distribuidas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- OCTAVO SEMESTRE -->
+  <div class="mb-10 md:mb-14 scroll-mt-20" id="sem8">
+    <div class="flex items-end gap-3 md:gap-5 mb-5 md:mb-7 pb-3 md:pb-4 border-b-2 border-border-lt">
+      <div class="font-poppins text-[2.5rem] md:text-7xl font-extrabold text-border-main leading-none tracking-tight shrink-0">
+        08
+      </div>
+      <div>
+        <h2 class="font-poppins text-xl md:text-2xl font-bold text-navy mb-1">Octavo Semestre</h2>
+        <p class="text-sm text-text-muted">
+          Proyecto terminal, auditoría y tecnologías avanzadas · 8 materias
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+
+      <!-- Tarjeta 1 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN276
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de Proyecto Terminal
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Integra conocimientos adquiridos para planear, desarrollar y presentar un proyecto terminal.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 11 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-purple-200 text-purple-500 border border-purple-300">
+            BCO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            EJ199
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de Propiedad Intelectual
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce principios de propiedad intelectual aplicados a proyectos, desarrollos e innovaciones tecnológicas.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN262
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Fundamentos de Auditoría Informática
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aprende fundamentos para evaluar controles, seguridad y cumplimiento dentro de sistemas informáticos.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN283
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Tecnología de la Comunicación III
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Profundiza en tecnologías avanzadas de comunicación aplicadas a redes y sistemas teleinformáticos.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Tecnología de la C. II
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN274
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Fundamentos de Internet II
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Amplía conocimientos sobre servicios, tecnologías y funcionamiento de internet y sus aplicaciones.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 5 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN282
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Matemáticas Discretas para Teleinformática
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Aplica estructuras discretas para resolver problemas relacionados con computación y teleinformática.
+        </p>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 11 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 7 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-turq-pale text-turq-acc border border-turq-acc/25">
+            OA
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN286
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Sistemas de Control
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Conoce principios de sistemas de control para analizar, modelar y automatizar procesos.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Matematica Avanzada
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 8 créditos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 8 -->
+      <div class="bg-bg-card border border-border-main rounded-custom p-4 flex flex-col sm:aspect-square shadow-custom transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-[12px] inline-flex items-center py-1 px-2.5 rounded-full text-2xs font-bold uppercase tracking-wide whitespace-nowrap bg-green-pale text-green border border-green/25">
+            EO
+          </span>
+          <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
+            IN260
+          </span>
+        </div>
+        <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
+          Seminario de APTO VIII
+        </h3>
+        <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
+          Fortalece conocimientos y habilidades de teleinformática mediante actividades prácticas y académicas.
+        </p>
+        <div class="mt-3 flex items-center gap-1.5 text-xs text-amber-500 bg-amber-200 border border-amber-300 rounded-lg py-1.5 px-2.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Requiere Seminario de APTO VII
+        </div>
+        <div class="mt-3 flex items-center pt-2 border-t border-border-lt">
+          <span class="flex items-center gap-1 text-xs text-text-muted">
+            ◴ 4 créditos
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+  <a href="https://cucsur.udg.mx/sites/default/files/adjuntos/manual-de-titulacion-teleinformatica-25.pdf" target="_blank"
+     class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
+    Manual de Titulación
+  </a>
+  <a href="https://cucsur.udg.mx/sites/default/files/adjuntos/plan-de-estudios-intel-2025.pdf" target="_blank"
+     class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-border-main text-base font-medium rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+    Plan de Estudios
+  </a>
+</div>
+
+</section>
+
+<script src="<?php echo BASE_URL; ?>public/js/malla_curricular.js"></script>

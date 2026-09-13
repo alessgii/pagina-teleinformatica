@@ -1,13 +1,13 @@
 @import "tailwindcss/theme.css";
 @import "tailwindcss/utilities.css";
 
-@source "index.php";
+@source "../../../index.php";
 @source "pages/academia.php";
 @source "pages/consulta_horarios.php";
 @source "pages/foro.php";
 @source "pages/galeria.php";
-@source "pages/inicio.php";
-@source "pages/malla_curricular.php";
+@source "../../../pages/inicio.php";
+@source "../../../pages/malla_curricular.php";
 @source "pages/noticias.php";
 @source "pages/showcase.php";
 @source "components/footer.php";
@@ -84,6 +84,14 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 900;
+  font-style: bold;
+}
+
 
 /* Base */
 @layer base {
