@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/*Recursos globales*/
+
+:root {
+    /* Paleta de colores */
+    --navy: #094074;
+    --navy-mid: #042b50;
+    --green: #40ce02;
+    --green-lt: #39b803;
+    --green-pale: #e6f7f3;
+    --turq-acc: #00aecc;
+    --turq-pale: #e8f1fb;
+    --white: #fffff2;
+
+    /* Fondos */
+    --bg: #f4f7fb;
+    --bg-card: #ffffff;
+    --bg-nav: #ffffff;
+
+    /* Texto */
+    --text: #0d2b4e;
+    --text-mid: #3a567a;
+    --text-muted: #7a94b0;
+
+    /* Bordes */
+    --border: #d5e2ef;
+    --border-lt: #e8f0f9;
+
+    /* Forma y sombras */
+    --radius: 14px;
+    --shadow: 0 4px 20px rgba(13, 43, 78, .09);
+    --shadow-lg: 0 8px 36px rgba(13, 43, 78, .14);
+
+    /* Fuentes */
+    --font-base: 'Poppins', sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-base);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.page-clip {
+    overflow-x: clip;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fadeinup {
+    animation: fadeInUp .45s ease both;
+}
