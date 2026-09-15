@@ -8,7 +8,7 @@
 
   <link rel="shorcut icon" type="image/x-icon" href="public/img/favicon.ico">
 
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/output.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/tailwind/output.css">
 
 </head>
 
@@ -18,7 +18,7 @@
   <nav class="sticky top-0 z-50 flex items-center justify-between h-16 px-2 sm:px-10 bg-[var(--color-navy)] border-b border-[var(--color-border-main)] shadow-sm gap-1">
     
     <!-- Logo más pequeño en celular (w-24) y normal en PC (sm:w-36) -->
-    <a href="index.php?page=inicio" class="flex items-center shrink-0">
+    <a href="inicio" class="flex items-center shrink-0">
       <img src="public/img/INTEL.png" class="w-24 sm:w-36 h-auto object-contain" alt="INTEL">
     </a>
 

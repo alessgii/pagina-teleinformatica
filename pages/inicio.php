@@ -482,7 +482,8 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -505,7 +506,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -517,7 +519,7 @@
             Segundo Semestre
           </h3>
           <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Refuerza tus conocimientos en programación y redes, y aprende a desarrollar programas y sistemas de 
+            Refuerza tus conocimientos en programación y redes, y aprende a desarrollar programas y sistemas de
             información.
           </p>
         </div>
@@ -528,7 +530,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -540,7 +543,7 @@
             Tercer Semestre
           </h3>
           <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Enfocado en el desarrollo y administración de redes, asi como programación enfocada en objetos 
+            Enfocado en el desarrollo y administración de redes, asi como programación enfocada en objetos
             y sistemas electronicos digitales.
           </p>
         </div>
@@ -551,7 +554,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -563,7 +567,7 @@
             Cuarto Semestre
           </h3>
           <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Basado en un desarrollo de redes más complejo, las bases de datos, y ciberseguridad, así como la 
+            Basado en un desarrollo de redes más complejo, las bases de datos, y ciberseguridad, así como la
             administración de sistemas.
           </p>
         </div>
@@ -574,7 +578,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -597,7 +602,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -620,7 +626,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -632,7 +639,7 @@
             Septimo Semestre
           </h3>
           <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Enfocado diseño y desarrollo de software, bases de datos distribuidas, etica profesional 
+            Enfocado diseño y desarrollo de software, bases de datos distribuidas, etica profesional
             y enrutamiento de redes.
           </p>
         </div>
@@ -643,7 +650,8 @@
         </div>
       </div>
 
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -652,7 +660,7 @@
             </span>
           </div>
           <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-              Octavo Semestre
+            Octavo Semestre
           </h3>
           <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
             Aquí desarrollarás tu proyecto final, aprenderas sistemas de control, auditoria informatica
@@ -665,7 +673,7 @@
           </span>
         </div>
       </div>
-    
+
     </div>
     <div class="mt-8 sm:mt-12 text-center">
       <a href="<?php echo BASE_URL; ?>malla_curricular.php?page=malla_curricular"
@@ -691,14 +699,17 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
       <!-- Queda pendiente el como se abriran las noticias (pagina externa o una tarjeta)-->
-      <div class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
         <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/ganminisumo.jpeg" alt="Torneo de minisumo" loading="lazy" class="w-full h-full object-cover">
+          <img src="public/img/inicio/ganminisumo.jpeg" alt="Torneo de minisumo" loading="lazy"
+            class="w-full h-full object-cover">
         </div>
         <div class="p-5 flex flex-col flex-1 justify-between gap-3">
           <div>
             <div class="mb-3">
-              <span class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+              <span
+                class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
                 Competencias
               </span>
             </div>
@@ -706,20 +717,24 @@
               Se gana el torneo de minisumo
             </h3>
             <p class="text-xs text-text-muted leading-relaxed mb-0">
-              Estudiantes del programa se llevan el primer lugar con un robot diseñado y programado íntegramente en los laboratorios del centro universitario.
+              Estudiantes del programa se llevan el primer lugar con un robot diseñado y programado íntegramente en los
+              laboratorios del centro universitario.
             </p>
           </div>
         </div>
       </div>
 
-      <div class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
         <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/ingenierias.jpeg" alt="Colaboración en ingenierías" loading="lazy" class="w-full h-full object-cover">
+          <img src="public/img/inicio/ingenierias.jpeg" alt="Colaboración en ingenierías" loading="lazy"
+            class="w-full h-full object-cover">
         </div>
         <div class="p-5 flex flex-col flex-1 justify-between gap-3">
           <div>
             <div class="mb-3">
-              <span class="font-poppins text-[12px] bg-purple-200 text-purple-500 border border-purple-300 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+              <span
+                class="font-poppins text-[12px] bg-purple-200 text-purple-500 border border-purple-300 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
                 Vinculación
               </span>
             </div>
@@ -733,14 +748,17 @@
         </div>
       </div>
 
-      <div class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
         <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/fechas_Calif.jpeg" alt="Fechas de calificaciónes" loading="lazy" class="w-full h-full object-cover">
+          <img src="public/img/inicio/fechas_Calif.jpeg" alt="Fechas de calificaciónes" loading="lazy"
+            class="w-full h-full object-cover">
         </div>
         <div class="p-5 flex flex-col flex-1 justify-between gap-3">
           <div>
             <div class="mb-3">
-              <span class="font-poppins text-[12px] bg-turq-pale text-turq-acc border border-turq-acc/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+              <span
+                class="font-poppins text-[12px] bg-turq-pale text-turq-acc border border-turq-acc/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
                 Aviso escolar
               </span>
             </div>
@@ -748,7 +766,8 @@
               Periodo ordinario y extraordinario
             </h3>
             <p class="text-xs text-text-muted leading-relaxed mb-0">
-              Ya están publicadas las fechas de calificación del ciclo. Consulta el calendario para no perder ningún trámite.
+              Ya están publicadas las fechas de calificación del ciclo. Consulta el calendario para no perder ningún
+              trámite.
             </p>
           </div>
         </div>
@@ -766,44 +785,57 @@
     </div>
 
   </div>
-</section>  
+</section>
 
 <!-- GALERIA -->
 <section class="py-12 sm:py-16 bg-bg-main" id="galeria">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-navy">Así se vive la carrera</h2>
       <p class="mt-2 text-sm sm:text-base text-text-muted">
         Laboratorios, proyectos, torneos y trabajo en equipo dentro y fuera del aula.
       </p>
-    </div> 
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
-      <div class="relative sm:col-span-2 sm:row-span-2 rounded-custom overflow-hidden group shadow-custom h-64 sm:h-auto">
-        <img src="public/img/inicio/alumnosintel.jpeg" alt="Comunidad INTEL" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Comunidad INTEL</span>
+      <div
+        class="relative sm:col-span-2 sm:row-span-2 rounded-custom overflow-hidden group shadow-custom h-64 sm:h-auto">
+        <img src="public/img/inicio/alumnosintel.jpeg" alt="Comunidad INTEL" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Comunidad
+          INTEL</span>
       </div>
       <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img1.jpeg" alt="Laboratorio" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Laboratorio</span>
+        <img src="public/img/galeria/img1.jpeg" alt="Laboratorio" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Laboratorio</span>
       </div>
       <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img3.jpeg" alt="Robótica" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
+        <img src="public/img/galeria/img3.jpeg" alt="Robótica" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
       </div>
       <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/inicio/tallermantenimiento.jpeg" alt="Taller" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
+        <img src="public/img/inicio/tallermantenimiento.jpeg" alt="Taller" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
       </div>
       <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img5.jpeg" alt="Trabajo en equipo" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Programación</span>
+        <img src="public/img/galeria/img5.jpeg" alt="Trabajo en equipo" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Programación</span>
       </div>
     </div>
 
     <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>galeria.php?page=galeria" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <a href="<?php echo BASE_URL; ?>galeria.php?page=galeria"
+        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         Descubre más en nuestra galería
         <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
           <path d="M5 12h14M13 6l6 6-6 6" />
