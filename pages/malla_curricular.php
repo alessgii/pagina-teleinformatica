@@ -1244,11 +1244,11 @@
             BCO
           </span>
           <span class="font-poppins text-[12px] text-text-muted bg-bg-main border border-border-main py-1 px-2 rounded-md whitespace-nowrap">
-            IN272
+            IN244
           </span>
         </div>
         <h3 class="mt-5 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-          Seminario de Investigación
+          Aprendizaje de Proyectos Básicos
         </h3>
         <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-snug flex-1">
           Desarrolla habilidades para buscar, analizar y presentar información mediante procesos de investigación.

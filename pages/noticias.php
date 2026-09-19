@@ -1,56 +1,45 @@
 <main class="max-w-[1180px] mx-auto px-5 md:px-8 pt-[clamp(28px,5vw,56px)] pb-16 animate-fade-in-up">
 
     <header class="mb-8">
-        <p class="text-xs font-semibold tracking-widest uppercase text-turq-acc mb-2">
+        <p class="text-xs font-semibold tracking-widest uppercase text-navy  mb-2">
             Ingeniería en Teleinformática · CUCSUR-UDG
         </p>
         <h1 class="text-[clamp(1.7rem,3.6vw,2.3rem)] font-extrabold text-navy mb-2.5">
             Noticias
         </h1>
-        <p class="text-text-mid text-base max-w-[560px] leading-relaxed mb-8">
+        <p class="text-text-mid text-base max-w-[560px] leading-relaxed">
             Entérate de los logros, alianzas y avisos más importantes de la carrera.
         </p>
     </header>
 
-    <div class="flex flex-wrap items-center justify-between gap-4 bg-bg-card border border-border-main rounded-[var(--radius-custom)] px-[18px] py-[14px] shadow-[var(--shadow-custom)] mb-8 max-sm:flex-col max-sm:items-stretch">
-
-        <label class="flex items-center gap-2.5 flex-[1_1_240px] max-w-[340px] max-sm:max-w-none bg-bg-main border border-border-main rounded-full px-4 py-2 transition-[border-color,box-shadow] duration-200 ease-out focus-within:border-turq-acc focus-within:shadow-[0_0_0_3px_var(--color-turq-pale)]">
-            <svg class="w-[17px] h-[17px] shrink-0 fill-none stroke-text-muted stroke-2 [stroke-linecap:round]" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="11" cy="11" r="7"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input
-                type="search"
-                placeholder="Buscar noticias..."
-                aria-label="Buscar noticias"
-                class="border-none bg-transparent outline-none w-full font-[var(--font-poppins)] text-[.92rem] text-text-main placeholder:text-text-muted"
-            >
-        </label>
-
-        <div class="flex items-center flex-wrap gap-2 max-sm:w-full" role="group" aria-label="Ordenar noticias">
-            <span class="text-[.85rem] text-text-muted mr-1">Ordenar por:</span>
+    <!-- Barra de búsqueda y orden -->
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-bg-card border border-border-main rounded-[var(--radius-custom)] px-[18px] py-[14px] shadow-[var(--shadow-custom)] mb-8">
+        <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto" role="group" aria-label="Ordenar noticias">
+            <span class="w-full sm:w-auto text-[.85rem] text-text-muted sm:mr-1">Ordenar por:</span>
             <button
                 type="button"
-                class="font-[var(--font-poppins)] text-[.85rem] font-semibold text-white bg-navy border border-navy rounded-full px-4 py-[7px] cursor-pointer transition-[background,color,border-color] duration-200 ease-out max-sm:flex-1 max-sm:text-center"
+                class="flex-1 sm:flex-none text-center text-[.85rem] font-semibold text-white bg-navy border border-navy rounded-full px-4 py-[7px] cursor-pointer transition-[background,color,border-color] duration-200 ease-out"
                 data-orden="recientes"
             >Más recientes</button>
             <button
-                type="button"
-                class="font-[var(--font-poppins)] text-[.85rem] font-semibold text-text-mid bg-bg-main border border-border-main rounded-full px-4 py-[7px] cursor-pointer transition-[background,color,border-color] duration-200 ease-out hover:border-turq-acc hover:text-navy max-sm:flex-1 max-sm:text-center"
+                type="button"           
+                class="flex-1 sm:flex-none text-center text-[.85rem] font-semibold text-text-mid bg-bg-main border border-border-main rounded-full px-4 py-[7px] cursor-pointer transition-[background,color,border-color] duration-200 ease-out hover:border-turq-acc hover:text-navy"
                 data-orden="relevantes"
             >Más relevantes</button>
         </div>
 
     </div>
 
-    <section class="grid grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-6 max-sm:grid-cols-1" aria-label="Listado de noticias">
+    <!-- Tarjetas: 1 col móvil · 2 col tablet · 3 col escritorio -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Listado de noticias">
 
-        <article class="flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)] md:last:col-span-2 max-sm:last:col-span-1">
+        <article class="group flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)]">
             <div class="relative aspect-[16/10] overflow-hidden">
                 <img
                     src="public/img/inicio/ganminisumo.jpeg"
                     alt="Equipo ganador del torneo de minisumo"
-                    class="w-full h-full object-cover block transition-transform duration-[400ms] ease-out group-hover:scale-105"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-105"
                 >
                 <span class="absolute top-3 left-3 text-[.72rem] font-bold uppercase tracking-[.03em] px-3 py-[5px] rounded-full bg-green-pale text-green-lt">
                     Logros
@@ -69,12 +58,13 @@
             </div>
         </article>
 
-        <article class="flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)] md:last:col-span-2 max-sm:last:col-span-1">
+        <article class="group flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)]">
             <div class="relative aspect-[16/10] overflow-hidden">
                 <img
                     src="public/img/inicio/ingenierias.jpeg"
                     alt="Alumnos de Teleinformática y Mecatrónica"
-                    class="w-full h-full object-cover block transition-transform duration-[400ms] ease-out"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-105"
                 >
                 <span class="absolute top-3 left-3 text-[.72rem] font-bold uppercase tracking-[.03em] px-3 py-[5px] rounded-full bg-turq-pale text-turq-acc">
                     Alianzas
@@ -93,12 +83,13 @@
             </div>
         </article>
 
-        <article class="flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)] md:last:col-span-2 max-sm:last:col-span-1">
+        <article class="group flex flex-col bg-bg-card border border-border-main rounded-[var(--radius-custom)] overflow-hidden shadow-[var(--shadow-custom)] transition-[transform,box-shadow] duration-[220ms] ease-out hover:-translate-y-[5px] hover:shadow-[var(--shadow-custom-lg)]">
             <div class="relative aspect-[16/10] overflow-hidden">
                 <img
                     src="public/img/inicio/fechas_Calif.jpeg"
                     alt="Fechas de periodo ordinario y extraordinario"
-                    class="w-full h-full object-cover block transition-transform duration-[400ms] ease-out"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-105"
                 >
                 <span class="absolute top-3 left-3 text-[.72rem] font-bold uppercase tracking-[.03em] px-3 py-[5px] rounded-full bg-navy text-white">
                     Avisos
