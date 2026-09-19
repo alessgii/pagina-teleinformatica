@@ -5,3 +5,4 @@ pages/p.php
 desktop.ini
 node_modules/
 .bob/
+public/css/tailwind/output.css
