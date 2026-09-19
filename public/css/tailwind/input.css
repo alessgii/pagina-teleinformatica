@@ -2,16 +2,18 @@
 @import "tailwindcss/utilities.css";
 
 @source "../../../index.php";
-@source "pages/academia.php";
-@source "pages/consulta_horarios.php";
-@source "pages/foro.php";
-@source "pages/galeria.php";
+@source "../../../pages/academia.php";
+@source "../../../pages/consulta_horarios.php";
+@source "../../../pages/foro.php";
+@source "../../../pages/galeria.php";
 @source "../../../pages/inicio.php";
 @source "../../../pages/malla_curricular.php";
-@source "pages/noticias.php";
-@source "pages/showcase.php";
-@source "components/footer.php";
-@source "components/navbar.php";
+@source "../../../pages/noticias.php";
+@source "../../../pages/showcase.php";
+@source "../../../pages/404.php";
+@source "../../../components/footer.php";
+@source "../../../components/navbar.php";
+
 
 /* 1. Variables Globales */
 @theme {
