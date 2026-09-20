@@ -38,6 +38,7 @@ class AuthController {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['role_id'] = $user['role_id'];
         $_SESSION['full_name'] = $user['full_name'];
+        $_SESSION['institutional_email'] = $user['institutional_email'];
 
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode([
@@ -103,6 +104,7 @@ class AuthController {
             $_SESSION['user_id'] = $userId;
             $_SESSION['role_id'] = $roleId;
             $_SESSION['full_name'] = $fullName;
+            $_SESSION['institutional_email'] = $email;
 
             http_response_code(201);
             header('Content-Type: application/json; charset=utf-8');

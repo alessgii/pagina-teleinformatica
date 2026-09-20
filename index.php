@@ -3,6 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once("config/config.php");
 
 $raw_page = $_GET['page'] ?? 'inicio';
@@ -20,6 +24,8 @@ $routes = [
     'galeria'              => 'pages/galeria.php',
     'noticias'             => 'pages/noticias.php',
     'academia'             => 'pages/academia.php',
+    'becas'                => 'pages/academia.php',
+    'blogs'                => 'pages/noticias.php',
     'showcase'             => 'pages/showcase.php',
     'login'                => 'pages/login.php',
     'register'             => 'pages/register.php',

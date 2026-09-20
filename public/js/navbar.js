@@ -13,16 +13,17 @@ function toggleNav(id) {
   }
 }
 
-function toggleUser() {
-  const dd = document.getElementById("user-dd");
+function toggleUser(e) {
+  if (e) e.stopPropagation();
+  const container = document.getElementById("user-menu-container");
 
-  if (!dd) return;
+  if (!container) return;
 
-  const isOpen = dd.classList.contains("open");
+  const isOpen = container.classList.contains("open");
   closeAll();
 
   if (!isOpen) {
-    dd.classList.add("open");
+    container.classList.add("open");
   }
 }
 
@@ -31,10 +32,9 @@ function closeAll() {
     .querySelectorAll(".nav-item.open")
     .forEach((item) => item.classList.remove("open"));
 
-  const userDd = document.getElementById("user-dd");
-
-  if (userDd) {
-    userDd.classList.remove("open");
+  const userContainer = document.getElementById("user-menu-container");
+  if (userContainer) {
+    userContainer.classList.remove("open");
   }
 }
 
@@ -44,3 +44,21 @@ document.addEventListener("click", (e) => {
     closeAll();
   }
 });
+
+/* Cerrar sesión y redirigir a inicio */
+async function logoutUser() {
+  const baseUrl = window.BASE_URL || '/pagina-teleinformatica/';
+  try {
+    await fetch(`${baseUrl}api/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (err) {
+    console.error('Error al cerrar sesión:', err);
+  } finally {
+    window.location.href = `${baseUrl}inicio`;
+  }
+}
+
