@@ -3,6 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once("config/config.php");
 
 $raw_page = $_GET['page'] ?? 'inicio';
@@ -10,6 +14,23 @@ $page = trim($raw_page, '/');
 
 if (empty($page)) {
     $page = 'inicio';
+}
+
+if ($page === 'logout') {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $_SESSION = [];
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    session_destroy();
+    header("Location: " . BASE_URL . "inicio");
+    exit;
 }
 
 $routes = [
@@ -20,15 +41,25 @@ $routes = [
     'galeria'              => 'pages/galeria.php',
     'noticias'             => 'pages/noticias.php',
     'academia'             => 'pages/academia.php',
+    'becas'                => 'pages/academia.php',
+    'blogs'                => 'pages/noticias.php',
     'showcase'             => 'pages/showcase.php',
+    'login'                => 'pages/login.php',
+    'register'             => 'pages/register.php',
 ];
 
 $is404 = !array_key_exists($page, $routes);
 
+$standalone_pages = ['login', 'register'];
+
 if (!$is404) {
-    include 'components/navbar.php';
-    include $routes[$page];
-    include 'components/footer.php';
+    if (in_array($page, $standalone_pages)) {
+        include $routes[$page];
+    } else {
+        include 'components/navbar.php';
+        include $routes[$page];
+        include 'components/footer.php';
+    }
 } else {
     include 'pages/404.php';
 }

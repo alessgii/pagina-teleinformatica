@@ -4,8 +4,8 @@
 
       <!-- Marca -->
       <div class="col-span-2 flex flex-col md:col-span-1">
-        <a href="index.php?page=inicio" class="self-start mb-3 md:mb-4">
-          <img src="public/img/INTEL.png" class="w-36 md:w-48 h-auto object-contain" alt="INTEL">
+        <a href="<?php echo BASE_URL; ?>inicio" class="self-start mb-3 md:mb-4">
+          <img src="<?php echo BASE_URL; ?>public/img/INTEL.png" class="w-36 md:w-48 h-auto object-contain" alt="INTEL">
         </a>
         <p class="text-[.82rem] md:text-sm text-gray-400 leading-relaxed max-w-[440px] md:max-w-none">
           Plataforma académica oficial del programa de Ingeniería en Teleinformática en la universidad CUCSur. Formando profesionales para la próxima era digital.
@@ -27,23 +27,21 @@
       <div class="order-1 flex flex-col md:order-none">
         <h4 class="text-xs font-bold uppercase text-[var(--color-green-lt)] mb-3 md:mb-4">Plataforma</h4>
         <ul class="flex flex-col gap-2.5 md:gap-2 m-0 p-0 list-none">
-          <li><a href="index.php?page=malla_curricular" class="text-sm text-gray-400 hover:text-white no-underline">Malla Curricular</a></li>
-          <li><a href="index.php?page=inicio" class="text-sm text-gray-400 hover:text-white no-underline">Academia</a></li>
-          <li><a href="index.php?page=foro" class="text-sm text-gray-400 hover:text-white no-underline">Foro Estudiantil</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Blogs</a></li> <!--Agregar enlace a la sección de blogs-->
-          <li><a href="index.php?page=noticias" class="text-sm text-gray-400 hover:text-white no-underline">Noticias</a></li>
+          <li><a href="<?php echo BASE_URL; ?>malla_curricular" class="text-sm text-gray-400 hover:text-white no-underline">Malla Curricular</a></li>
+          <li><a href="<?php echo BASE_URL; ?>academia" class="text-sm text-gray-400 hover:text-white no-underline">Academia</a></li>
+          <li><a href="<?php echo BASE_URL; ?>foro" class="text-sm text-gray-400 hover:text-white no-underline">Foro Estudiantil</a></li>
+          <li><a href="<?php echo BASE_URL; ?>noticias" class="text-sm text-gray-400 hover:text-white no-underline">Blogs & Noticias</a></li>
         </ul>
       </div>
 
       <!-- Soporte -->
       <div class="order-2 flex flex-col md:order-none">
-        <h4 class="text-xs font-bold uppercase text-[var(--color-green-lt)] mb-3 md:mb-4">Soporte</h4> <!-- Otras partes que se necesitaran integrar en el futuro, como soporte, preguntas frecuentes, reglamento escolar, contacto y aviso de privacidad.-->
+        <h4 class="text-xs font-bold uppercase text-[var(--color-green-lt)] mb-3 md:mb-4">Soporte</h4>
         <ul class="flex flex-col gap-2.5 md:gap-2 m-0 p-0 list-none">
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Ayuda y Soporte</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Preguntas Frecuentes</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Reglamento Escolar</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Contacto</a></li>
-          <li><a href="#" class="text-sm text-gray-400 hover:text-white no-underline">Aviso de Privacidad</a></li>
+          <li><a href="<?php echo BASE_URL; ?>inicio" class="text-sm text-gray-400 hover:text-white no-underline">Ayuda y Soporte</a></li>
+          <li><a href="<?php echo BASE_URL; ?>inicio" class="text-sm text-gray-400 hover:text-white no-underline">Preguntas Frecuentes</a></li>
+          <li><a href="<?php echo BASE_URL; ?>malla_curricular" class="text-sm text-gray-400 hover:text-white no-underline">Plan de Estudios</a></li>
+          <li><a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="text-sm text-gray-400 hover:text-white no-underline">Horarios de Clase</a></li>
         </ul>
       </div>
 
@@ -58,17 +56,17 @@
       </div>
 
       <div class="flex gap-2">
-        <a href="https://cucsur.udg.mx/" target="_blank" title="Pagina-CUCSur" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="public/img/footer/Externo.png" class="w-4 h-4 opacity-70" alt="Externo"></a>
-        <a href="https://www.instagram.com/teleinformaticacucostasur?igsh=OW9nM3c0ZjVudGp1" target="_blank" title="Instagram" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="public/img/footer/Instagram.png" class="w-4 h-4 opacity-70" alt="Instagram"></a>
-        <a href="https://github.com/Teleinformatica-CuCostaSur" target="_blank" title="Github" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="public/img/footer/Github.png" class="w-4 h-4 opacity-70" alt="Github"></a>
-        <a href="https://www.facebook.com/CUCostaSur" target="_blank" title="Facebook" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="public/img/footer/Facebook.png" class="w-4 h-4 opacity-70" alt="Facebook"></a>
+        <a href="https://cucsur.udg.mx/" target="_blank" title="Pagina-CUCSur" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="<?php echo BASE_URL; ?>public/img/footer/Externo.png" class="w-4 h-4 opacity-70" alt="Externo"></a>
+        <a href="https://www.instagram.com/teleinformaticacucostasur?igsh=OW9nM3c0ZjVudGp1" target="_blank" title="Instagram" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="<?php echo BASE_URL; ?>public/img/footer/Instagram.png" class="w-4 h-4 opacity-70" alt="Instagram"></a>
+        <a href="https://github.com/Teleinformatica-CuCostaSur" target="_blank" title="Github" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="<?php echo BASE_URL; ?>public/img/footer/Github.png" class="w-4 h-4 opacity-70" alt="Github"></a>
+        <a href="https://www.facebook.com/CUCostaSur" target="_blank" title="Facebook" class="flex items-center justify-center w-9 h-9 md:w-8 md:h-8 rounded border border-gray-600 text-gray-400 hover:text-[var(--color-green-lt)] hover:border-[var(--color-green-lt)]"><img src="<?php echo BASE_URL; ?>public/img/footer/Facebook.png" class="w-4 h-4 opacity-70" alt="Facebook"></a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="public/js/navbar.js"></script>
-<script src="public/js/menu-movil.js"></script>
+<script src="<?php echo BASE_URL; ?>public/js/navbar.js"></script>
+<script src="<?php echo BASE_URL; ?>public/js/menu-movil.js"></script>
 
 </body>
 

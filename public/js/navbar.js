@@ -13,16 +13,17 @@ function toggleNav(id) {
   }
 }
 
-function toggleUser() {
-  const dd = document.getElementById("user-dd");
+function toggleUser(e) {
+  if (e) e.stopPropagation();
+  const container = document.getElementById("user-menu-container");
 
-  if (!dd) return;
+  if (!container) return;
 
-  const isOpen = dd.classList.contains("open");
+  const isOpen = container.classList.contains("open");
   closeAll();
 
   if (!isOpen) {
-    dd.classList.add("open");
+    container.classList.add("open");
   }
 }
 
@@ -31,10 +32,9 @@ function closeAll() {
     .querySelectorAll(".nav-item.open")
     .forEach((item) => item.classList.remove("open"));
 
-  const userDd = document.getElementById("user-dd");
-
-  if (userDd) {
-    userDd.classList.remove("open");
+  const userContainer = document.getElementById("user-menu-container");
+  if (userContainer) {
+    userContainer.classList.remove("open");
   }
 }
 
@@ -44,3 +44,14 @@ document.addEventListener("click", (e) => {
     closeAll();
   }
 });
+
+/* Cerrar sesión y redirigir a inicio */
+function logoutUser(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  const baseUrl = window.BASE_URL || '/pagina-teleinformatica/';
+  window.location.href = baseUrl + 'logout';
+}
+
