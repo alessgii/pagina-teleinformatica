@@ -46,19 +46,12 @@ document.addEventListener("click", (e) => {
 });
 
 /* Cerrar sesión y redirigir a inicio */
-async function logoutUser() {
-  const baseUrl = window.BASE_URL || '/pagina-teleinformatica/';
-  try {
-    await fetch(`${baseUrl}api/logout`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  } catch (err) {
-    console.error('Error al cerrar sesión:', err);
-  } finally {
-    window.location.href = `${baseUrl}inicio`;
+function logoutUser(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
+  const baseUrl = window.BASE_URL || '/pagina-teleinformatica/';
+  window.location.href = baseUrl + 'logout';
 }
 
