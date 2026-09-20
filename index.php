@@ -21,14 +21,22 @@ $routes = [
     'noticias'             => 'pages/noticias.php',
     'academia'             => 'pages/academia.php',
     'showcase'             => 'pages/showcase.php',
+    'login'                => 'pages/login.php',
+    'register'             => 'pages/register.php',
 ];
 
 $is404 = !array_key_exists($page, $routes);
 
+$standalone_pages = ['login', 'register'];
+
 if (!$is404) {
-    include 'components/navbar.php';
-    include $routes[$page];
-    include 'components/footer.php';
+    if (in_array($page, $standalone_pages)) {
+        include $routes[$page];
+    } else {
+        include 'components/navbar.php';
+        include $routes[$page];
+        include 'components/footer.php';
+    }
 } else {
     include 'pages/404.php';
 }
