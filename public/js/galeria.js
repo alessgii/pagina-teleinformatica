@@ -1,28 +1,12 @@
-const CATEGORIES = [
-  {id:'todos', label:'Todos'},
-  {id:'eventos', label:'Eventos'},
-  {id:'practicas', label:'Prácticas'},
-  {id:'proyectos', label:'Proyectos'},
-  {id:'aulas', label:'Aulas'},
-  {id:'instalaciones', label:'Instalaciones'},
-  {id:'vida-estudiantil', label:'Vida estudiantil'},
-];
 
-const PHOTOS = [
-  {src:'public/img/inicio/ganminisumo.jpeg', cats:['eventos'], title:'Torneo de minisumo', desc:'El equipo de Teleinformática compite con un robot diseñado y programado en los laboratorios del centro.'},
-  {src:'public/img/inicio/ingenierias.jpeg', cats:['eventos'], title:'INTEL y Mecatrónica', desc:'Colaboración entre ingenierías para integrar redes de sensores en sistemas automatizados.'},
-  {src:'public/img/inicio/tallermantenimiento.jpeg', cats:['practicas'], title:'Taller de mantenimiento', desc:'Diagnóstico y reparación de equipo de cómputo en el taller del centro.'},
-  {src:'public/img/galeria/img3.jpeg', cats:['practicas'], title:'Mantenimiento de equipos', desc:'Práctica de mantenimiento preventivo y correctivo sobre equipo de red.'},
-  {src:'public/img/galeria/img9.jpeg', cats:['practicas'], title:'Reparación de celulares', desc:'Práctica de diagnóstico y reparación de dispositivos móviles.'},
-  {src:'public/img/galeria/img1.jpeg', cats:['proyectos'], title:'Redes de cómputo', desc:'Proyecto de diseño e implementación de una red de cómputo.'},
-  {src:'public/img/galeria/img2.jpeg', cats:['proyectos','aulas'], title:'Verilog', desc:'Práctica de diseño digital con lenguaje de descripción de hardware Verilog.'},
-  {src:'public/img/galeria/img4.jpeg', cats:['proyectos'], title:'Reloj digital', desc:'Proyecto de electrónica digital: reloj construido sobre protoboard.'},
-  {src:'public/img/galeria/img5.jpeg', cats:['proyectos'], title:'Kali Linux', desc:'Práctica de ciberseguridad y auditoría de redes con Kali Linux.'},
-  {src:'public/img/galeria/img6.jpeg', cats:['proyectos'], title:'Proyectos de electrónica', desc:'Prototipo de electrónica desarrollado por estudiantes del programa.'},
-  {src:'public/img/galeria/img7.jpeg', cats:['proyectos'], title:'Programación en Lua', desc:'Proyecto de programación aplicada usando el lenguaje Lua.'},
-  {src:'public/img/galeria/img8.jpeg', cats:['proyectos'], title:'Redes de cómputo II', desc:'Segunda práctica de configuración y administración de redes.'},
-  {src:'public/img/inicio/alumnosintel.jpeg', cats:['vida-estudiantil','aulas'], title:'Comunidad INTEL', desc:'Estudiantes del programa trabajando en equipo dentro del laboratorio.'},
-];
+/**
+ * Variables globales de la galería.
+ * Se inicializan vacías y se llenan de forma asíncrona con los datos 
+ * obtenidos de la base de datos a través de la API (api/galeria.php).
+ */
+let CATEGORIES = [];
+let PHOTOS = [];
+
 
 const grid = document.getElementById('galGrid');
 const filterRow = document.getElementById('filterRow');
@@ -48,21 +32,30 @@ function countFor(catId){
   return PHOTOS.filter(p => p.cats.includes(catId)).length;
 }
 
-/* Oculta las categorías que todavía no tienen fotos */
-const VISIBLE_CATEGORIES = CATEGORIES.filter(c => c.id === 'todos' || countFor(c.id) > 0);
 
 /* ---------- Filtros ---------- */
+/**
+ * Construye dinámicamente los botones de filtro en la interfaz.
+ * Solo muestra la opción 'Todos' y aquellas categorías que tengan al menos una foto en la BD.
+ */
 function buildFilters(){
-  filterRow.innerHTML = VISIBLE_CATEGORIES.map(c => `
+  // 1. Ocultar botones de categorías vacías (mantiene 'todos' o las que tengan count > 0)
+  const visibleCategories = CATEGORIES.filter(c => c.id === 'todos' || countFor(c.id) > 0);
+
+  // 2. Renderizar la estructura HTML de los botones con el total de fotos asociadas
+  filterRow.innerHTML = visibleCategories.map(c => `
     <button type="button" data-cat="${c.id}" aria-pressed="false">
       ${c.label}
       <span class="${CNT_BASE}">${countFor(c.id)}</span>
     </button>
   `).join('');
 
+  // 3. Registrar el evento 'click' en cada botón para detonar el filtrado dinámico
   filterRow.querySelectorAll('button[data-cat]').forEach(btn => {
     btn.addEventListener('click', () => applyFilter(btn.dataset.cat));
   });
+
+  // 4. Aplicar estilos visuales al estado activo (sin forzar scroll automático al cargar)
   updateFilters(false);
 }
 
@@ -296,5 +289,37 @@ document.addEventListener('keydown', e => {
   }
 });
 
-buildFilters();
-renderGrid();
+/* ---------- Carga dinámica de datos desde la API ---------- */
+/**
+ * Consulta el endpoint PHP mediante un fetch asíncrono para obtener
+ * las categorías y fotografías almacenadas en la base de datos MySQL.
+ */
+async function loadGalleryData() {
+  try {
+    // 1. Realizar la petición API
+    const response = await fetch('public/api/galeria.php')
+
+    // 2.Respuesta en formato JSON
+    const data = await response.json();
+
+    
+    if (data.success) {
+      // Asignar la información devuelta a las variables globales
+      CATEGORIES = data.categories;
+      PHOTOS = data.photos;
+
+      // Generar los botones de filtrado y la cuadrícula de fotos en la interfaz
+      buildFilters();
+      renderGrid();
+    } else {
+      // Notificar en consola si el servidor reporta un fallo interno
+      console.error('Error reportado por el servidor:', data.message);
+    }
+  } catch (error) {
+    // Capturar y notificar errores de red o fallo en la conexión con la API
+    console.error('Error al conectar con la API de la galería:', error);
+  }
+}
+
+// La carga de datos inmediatamente al interpretarse el script
+loadGalleryData();
