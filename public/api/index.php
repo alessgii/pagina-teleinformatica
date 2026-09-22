@@ -8,6 +8,7 @@ header('X-Content-Type-Options: nosniff');
 require_once __DIR__ . '/../../config/conn.php';
 require_once __DIR__ . '/../../src/Models/User.php';
 require_once __DIR__ . '/../../src/Controllers/AuthController.php';
+require_once __DIR__ . '/../../src/Controllers/GalleryController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -18,6 +19,7 @@ $path = rtrim($path, '/');
 
 $userModel = new User($pdo);
 $authController = new AuthController($userModel);
+$galleryController = new GalleryController($pdo);
 
 switch ($path) {
     // =====================================================
@@ -47,6 +49,18 @@ switch ($path) {
         } else {
             http_response_code(405);
             echo json_encode(['success' => false, 'message' => 'Método no permitido.']);
+        }
+        break;
+
+    // =====================================================
+    // 2. GALLERY
+    // =====================================================
+    case '/api/galeria':
+        if ($method === 'GET') {
+            $galleryController->getGaleria();
+        } else {
+            http_response_code(405);
+            echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET.']);
         }
         break;
 

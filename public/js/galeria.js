@@ -294,32 +294,29 @@ document.addEventListener('keydown', e => {
  * Consulta el endpoint PHP mediante un fetch asíncrono para obtener
  * las categorías y fotografías almacenadas en la base de datos MySQL.
  */
+const BASE_URL = window.APP_CONFIG?.baseUrl || '/pagina-teleinformatica/';
+
 async function loadGalleryData() {
   try {
-    // 1. Realizar la petición API
-    const response = await fetch('public/api/galeria.php')
+    const response = await fetch(`${BASE_URL}api/galeria`);
 
-    // 2.Respuesta en formato JSON
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} al consultar la galería`);
+    }
+
     const data = await response.json();
 
-    
     if (data.success) {
-      // Asignar la información devuelta a las variables globales
       CATEGORIES = data.categories;
       PHOTOS = data.photos;
-
-      // Generar los botones de filtrado y la cuadrícula de fotos en la interfaz
       buildFilters();
       renderGrid();
     } else {
-      // Notificar en consola si el servidor reporta un fallo interno
       console.error('Error reportado por el servidor:', data.message);
     }
   } catch (error) {
-    // Capturar y notificar errores de red o fallo en la conexión con la API
     console.error('Error al conectar con la API de la galería:', error);
   }
 }
 
-// La carga de datos inmediatamente al interpretarse el script
 loadGalleryData();
