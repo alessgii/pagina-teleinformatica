@@ -118,4 +118,9 @@
   </div>
 </div>
 
+<script>
+  window.APP_CONFIG = {
+    baseUrl: "<?php echo defined('BASE_URL') ? BASE_URL : '/pagina-teleinformatica/'; ?>"
+  };
+</script>
 <script src="<?php echo BASE_URL; ?>public/js/galeria.js"></script>
