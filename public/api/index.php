@@ -9,6 +9,8 @@ require_once __DIR__ . '/../../config/conn.php';
 require_once __DIR__ . '/../../src/Models/User.php';
 require_once __DIR__ . '/../../src/Controllers/AuthController.php';
 require_once __DIR__ . '/../../src/Controllers/GalleryController.php';
+require_once __DIR__ . '/../../src/Models/Feedback.php';
+require_once __DIR__ . '/../../src/Controllers/FeedbackController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -20,6 +22,8 @@ $path = rtrim($path, '/');
 $userModel = new User($pdo);
 $authController = new AuthController($userModel);
 $galleryController = new GalleryController($pdo);
+$feedbackModel = new Feedback($pdo);
+$feedbackController = new FeedbackController($feedbackModel);
 
 switch ($path) {
     // =====================================================
@@ -61,6 +65,18 @@ switch ($path) {
         } else {
             http_response_code(405);
             echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET.']);
+        }
+        break;
+
+    // =====================================================
+    // 3. UX FEEDBACK
+    // =====================================================
+    case '/api/feedback':
+        if ($method === 'POST') {
+            $feedbackController->store();
+        } else {
+            http_response_code(405);
+            echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza POST.']);
         }
         break;
 

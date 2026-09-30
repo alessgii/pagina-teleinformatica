@@ -55,7 +55,7 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
 
     <!-- Logo -->
     <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center shrink-0" aria-label="Ir al inicio">
-      <img src="<?php echo BASE_URL; ?>public/img/INTEL.png" class="w-24 sm:w-36 h-auto object-contain" alt="INTEL">
+      <img src="<?php echo BASE_URL; ?>public/img/INTEL_White.png" class="w-24 sm:w-auto h-10 object-contain" alt="INTEL">
     </a>
 
     <!-- ===== Menú de escritorio (oculto en celular) ===== -->
@@ -178,6 +178,13 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
                   </svg>
                   <span>Comunidad & Foro</span>
                 </a>
+                <a href="<?php echo BASE_URL; ?>feedback" class="flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[#3a567a] rounded-lg hover:bg-[#e6f7f3] hover:text-[#2e9e02] transition-colors no-underline" style="box-sizing: border-box;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                  </svg>
+                  <span>Encuesta UX</span>
+                </a>
               </div>
 
               <!-- Botón de Cerrar Sesión con box-sizing para evitar desborde -->
@@ -209,9 +216,9 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
                 <a href="<?php echo BASE_URL; ?>login" class="flex-1 text-center py-2 px-1 rounded-lg text-[13px] font-semibold text-[var(--color-text-mid)] bg-white border border-[var(--color-border-main)] hover:border-[var(--color-green)] hover:text-[var(--color-green)] hover:bg-[var(--color-green-pale)] transition-colors btn-login no-underline">Iniciar sesión</a>
                 <a href="<?php echo BASE_URL; ?>register" class="flex-1 text-center py-2 px-1 rounded-lg text-[13px] font-semibold text-white bg-[var(--color-green)] hover:bg-[var(--color-green-lt)] transition-colors btn-register no-underline">Registrarse</a>
               </div>
-              <a href="#" class="flex items-center gap-2 p-2 mt-1 border-t border-[var(--color-border-lt)] text-xs text-[var(--color-text-muted)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors support-link no-underline">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                ⓘ Ayuda y Soporte
+              <a href="<?php echo BASE_URL; ?>feedback" class="flex items-center gap-2 p-2 mt-1 border-t border-[var(--color-border-lt)] text-xs text-[var(--color-text-muted)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors support-link no-underline">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Diagnóstico & Encuesta UX
               </a>
             </div>
           <?php endif; ?>
