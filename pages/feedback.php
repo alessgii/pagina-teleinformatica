@@ -34,7 +34,7 @@ $features = [
 .fb legend+*{clear:both}
 .fb h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin:0}
 .fb-bar{width:48px;height:5px;border-radius:99px;background:linear-gradient(90deg,var(--fb-accent),#10b981);margin-bottom:1.1rem}
-.fb-lead{margin:.9rem 0 0;font-size:1.05rem;line-height:1.6;color:#334e68;max-width:52ch}
+.fb-lead{margin:.9rem 0 0;font-size:1.05rem;line-height:1.6;color:#334e68;}
 .fb-progress{margin:1.75rem 0 1rem;display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--fb-muted)}
 .fb-track{flex:1;height:6px;border-radius:99px;background:var(--fb-line);overflow:hidden}
 .fb-fill{height:100%;width:0;background:linear-gradient(90deg,var(--fb-accent),#10b981);border-radius:99px;transition:width .35s ease}
@@ -82,7 +82,7 @@ $features = [
     <header>
         <div class="fb-bar"></div>
         <h1>Ayúdanos a mejorar el portal</h1>
-        <p class="fb-lead">Son cuatro calificaciones y algunas preguntas opcionales. Toma unos 2 minutos y es anónima: no guardamos tu nombre ni tu IP.</p>
+        <p class="fb-lead">Son cuatro calificaciones y algunas preguntas opcionales. Encuesta anónima.</p>
     </header>
 
     <form id="ux-feedback-form" novalidate>
