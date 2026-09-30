@@ -131,16 +131,16 @@ function abrirVisorNoticia(cardElement) {
 
     const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
 
-        if (btnEstado && txtEstado && btnEliminar) {
-            btnEstado.href = baseUrl + 'public/api/noticias/cambiar-estado.php?news_id=' + newsId;
-            btnEliminar.href = baseUrl + 'public/api/noticias/eliminar.php?news_id=' + newsId;
-            
-            if (status === 'publicado') {
-                txtEstado.innerText = 'Mover a borrador';
-            } else {
-                txtEstado.innerText = 'Publicar noticia';
-            }
+    if (btnEstado && txtEstado && btnEliminar) {
+        btnEstado.href = baseUrl + 'public/api/noticias/cambiar-estado.php?news_id=' + newsId;
+        btnEliminar.href = baseUrl + 'public/api/noticias/eliminar.php?news_id=' + newsId;
+        
+        if (status === 'publicado') {
+            txtEstado.innerText = 'Mover a borrador';
+        } else {
+            txtEstado.innerText = 'Publicar noticia';
         }
+    }
 
     const viewer = document.getElementById('news-viewer');
     if (viewer) {
@@ -167,8 +167,6 @@ function cerrarVisorNoticia() {
     document.body.style.overflow = 'auto';
 }
 
-// public/js/noticias.js
-
 // Función para mostrar / ocultar el modal
 function toggleNewsModal(show) {
     const modal = document.getElementById('news-modal');
@@ -188,6 +186,9 @@ function abrirModalCrearNoticia() {
     const form = document.getElementById('news-form');
     if (form) {
         form.reset();
+
+        const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
+        form.action = baseUrl + 'public/api/noticias/crear.php';
     }
 
     // Limpiar ID para asegurarnos de que es una NUEVA noticia
@@ -202,10 +203,14 @@ function abrirModalCrearNoticia() {
         inputStatus.value = 'publicado';
     }
 
-    // Restablecer el título del modal
+    // Restablecer el título del modal y texto de envío
     const modalTitle = document.getElementById('modal-form-title');
     if (modalTitle) {
         modalTitle.innerText = 'Agregar nueva noticia';
+    }
+    const submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) {
+        submitBtn.innerText = 'Publicar noticia';
     }
 
     // Ocultar previsualización de imagen si existía
@@ -226,25 +231,42 @@ function ejecutarEdicionDesdeVisor() {
 
     const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
 
-    document.getElementById('news_id').value = noticiaActualDatos.id;
-    document.getElementById('title').value = noticiaActualDatos.title;
-    document.getElementById('content').value = noticiaActualDatos.content;
-    document.getElementById('category_id').value = noticiaActualDatos.categoryId;
+    // Asignación segura de campos
+    const inputId = document.getElementById('news_id');
+    const inputTitle = document.getElementById('title');
+    const inputContent = document.getElementById('content');
+    const inputCategory = document.getElementById('category_id');
+    const inputStatus = document.getElementById('news_status');
 
-    document.getElementById('modal-form-title').innerText = 'Editar noticia';
-    document.getElementById('submit-btn').innerText = 'Guardar cambios';
+    if (inputId) inputId.value = noticiaActualDatos.id || '';
+    if (inputTitle) inputTitle.value = noticiaActualDatos.title || '';
+    if (inputContent) inputContent.value = noticiaActualDatos.content || '';
+    if (inputCategory) inputCategory.value = noticiaActualDatos.categoryId || '';
+    if (inputStatus) inputStatus.value = noticiaActualDatos.status || 'publicado';
 
+    // Ajustar textos de interfaz
+    const modalTitle = document.getElementById('modal-form-title');
+    if (modalTitle) modalTitle.innerText = 'Editar noticia';
+
+    const submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) submitBtn.innerText = 'Guardar cambios';
+
+    // Cambiar la ruta del formulario a editar.php
     const form = document.getElementById('news-form');
     if (form) {
         form.action = baseUrl + 'public/api/noticias/editar.php';
     }
 
+    // Previsualización de imagen existente
     const previewContainer = document.getElementById('preview-container');
     const previewImg = document.getElementById('preview-img');
+    const dropzonePrompt = document.getElementById('dropzone-prompt');
+
     if (noticiaActualDatos.img && previewContainer && previewImg) {
         previewImg.src = noticiaActualDatos.img;
         previewContainer.classList.remove('hidden');
         previewContainer.classList.add('flex');
+        if (dropzonePrompt) dropzonePrompt.classList.add('hidden');
     }
 
     cerrarVisorNoticia();
