@@ -9,12 +9,24 @@ let noticiaActualDatos = null;
 document.addEventListener('DOMContentLoaded', () => {
     aplicarEstilosInsignias();
     
+    // Cerrar visor o modal con la tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             cerrarVisorNoticia();
             toggleNewsModal(false);
         }
     });
+
+    // Cerrar visor al hacer clic en el backdrop oscuro
+    const viewer = document.getElementById('news-viewer');
+    const panel = document.getElementById('visor-panel');
+    if (viewer && panel) {
+        viewer.addEventListener('click', (e) => {
+            if (e.target === viewer) {
+                cerrarVisorNoticia();
+            }
+        });
+    }
 });
 
 /**
@@ -85,7 +97,8 @@ function aplicarEstilosInsignias() {
 }
 
 /**
- * Abre el Visor Modal estilo Lightbox y carga sus datos y enlaces de administración
+ * Abre el Visor Modal estilo Lightbox y carga sus datos y enlaces de administración.
+ * En escritorio proyecta la imagen con fondo difuminado y panel lateral unificado con galeria.php.
  */
 function abrirVisorNoticia(cardElement) {
     if (!cardElement) return;
@@ -99,7 +112,7 @@ function abrirVisorNoticia(cardElement) {
     const date = cardElement.dataset.date || cardElement.getAttribute('data-date');
     const status = cardElement.dataset.status || cardElement.getAttribute('data-status');
 
-    // Guardar referencia en memoria para editar
+    // Guardar referencia en memoria para edición
     noticiaActualDatos = {
         id: newsId,
         title: title,
@@ -111,14 +124,18 @@ function abrirVisorNoticia(cardElement) {
         status: status
     };
 
-    // Asignar los valores al modal visor
+    // Asignar los valores al visor
     const visorImg = document.getElementById('visor-img');
+    const visorBackdrop = document.getElementById('visor-backdrop');
     const visorTitle = document.getElementById('visor-title');
     const visorContent = document.getElementById('visor-content');
     const visorBadge = document.getElementById('visor-badge');
     const visorDate = document.getElementById('visor-date');
+    const viewer = document.getElementById('news-viewer');
+    const panel = document.getElementById('visor-panel');
 
     if (visorImg) visorImg.src = img;
+    if (visorBackdrop) visorBackdrop.style.backgroundImage = `url('${img}')`;
     if (visorTitle) visorTitle.textContent = title;
     if (visorContent) visorContent.textContent = content;
     if (visorBadge) visorBadge.textContent = category;
@@ -129,7 +146,7 @@ function abrirVisorNoticia(cardElement) {
     const txtEstado = document.getElementById('txt-visor-estado');
     const btnEliminar = document.getElementById('btn-visor-eliminar');
 
-    const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
+    const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : (window.APP_CONFIG?.baseUrl || '/pagina-teleinformatica/');
 
     if (btnEstado && txtEstado && btnEliminar) {
         btnEstado.href = baseUrl + 'public/api/noticias/cambiar-estado.php?news_id=' + newsId;
@@ -142,10 +159,17 @@ function abrirVisorNoticia(cardElement) {
         }
     }
 
-    const viewer = document.getElementById('news-viewer');
     if (viewer) {
         viewer.classList.remove('hidden');
         viewer.classList.add('flex');
+        requestAnimationFrame(() => {
+            viewer.classList.remove('opacity-0');
+            viewer.classList.add('opacity-100');
+            if (panel) {
+                panel.classList.remove('scale-95');
+                panel.classList.add('scale-100');
+            }
+        });
     }
     document.body.style.overflow = 'hidden';
 
@@ -156,18 +180,28 @@ function abrirVisorNoticia(cardElement) {
 }
 
 /**
- * Cierra el Visor Modal de Noticias
+ * Cierra el Visor Modal de Noticias con transición suave
  */
 function cerrarVisorNoticia() {
     const viewer = document.getElementById('news-viewer');
+    const panel = document.getElementById('visor-panel');
     if (!viewer) return;
 
-    viewer.classList.add('hidden');
-    viewer.classList.remove('flex');
-    document.body.style.overflow = 'auto';
+    viewer.classList.remove('opacity-100');
+    viewer.classList.add('opacity-0');
+    if (panel) {
+        panel.classList.remove('scale-100');
+        panel.classList.add('scale-95');
+    }
+    document.body.style.overflow = '';
+
+    setTimeout(() => {
+        viewer.classList.add('hidden');
+        viewer.classList.remove('flex');
+    }, 300);
 }
 
-// Función para mostrar / ocultar el modal
+// Función para mostrar / ocultar el modal de formulario
 function toggleNewsModal(show) {
     const modal = document.getElementById('news-modal');
     if (!modal) return;
@@ -177,6 +211,7 @@ function toggleNewsModal(show) {
         modal.classList.add('flex');
     } else {
         modal.classList.remove('flex');
+        modal.classList.hidden = true;
         modal.classList.add('hidden');
     }
 }
@@ -187,7 +222,7 @@ function abrirModalCrearNoticia() {
     if (form) {
         form.reset();
 
-        const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
+        const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : (window.APP_CONFIG?.baseUrl || '/pagina-teleinformatica/');
         form.action = baseUrl + 'public/api/noticias/crear.php';
     }
 
@@ -229,7 +264,7 @@ function abrirModalCrearNoticia() {
 function ejecutarEdicionDesdeVisor() {
     if (!noticiaActualDatos) return;
 
-    const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : '/pagina-teleinformatica/';
+    const baseUrl = typeof BASE_URL !== 'undefined' ? BASE_URL : (window.APP_CONFIG?.baseUrl || '/pagina-teleinformatica/');
 
     // Asignación segura de campos
     const inputId = document.getElementById('news_id');
@@ -274,18 +309,26 @@ function ejecutarEdicionDesdeVisor() {
 }
 
 /**
- * Filtra las noticias en el cliente por la categoría seleccionada desde los botones
+ * Filtra las noticias en el cliente adaptando los estilos y centrado de botones de galeria.php
  */
 function filtrarNoticiasPorCategoria(categoriaSeleccionada, botonActivo) {
+    const filterRow = document.getElementById('newsFilterRow');
     const botones = document.querySelectorAll('#newsFilterRow .filter-btn');
+
     botones.forEach(btn => {
-        btn.classList.remove('active', 'text-white', 'bg-navy', 'border-navy');
-        btn.classList.add('text-text-mid', 'bg-bg-main', 'border-border-main');
+        btn.classList.remove('active', 'bg-navy', 'border-navy', 'text-white', 'shadow-[0_6px_16px_rgba(9,64,116,0.28)]');
+        btn.classList.add('bg-bg-card', 'border-border-main', 'text-text-mid', 'hover:border-turq-acc', 'hover:text-navy');
     });
 
     if (botonActivo) {
-        botonActivo.classList.remove('text-text-mid', 'bg-bg-main', 'border-border-main');
-        botonActivo.classList.add('active', 'text-white', 'bg-navy', 'border-navy');
+        botonActivo.classList.remove('bg-bg-card', 'border-border-main', 'text-text-mid', 'hover:border-turq-acc', 'hover:text-navy');
+        botonActivo.classList.add('active', 'bg-navy', 'border-navy', 'text-white', 'shadow-[0_6px_16px_rgba(9,64,116,0.28)]');
+
+        // Desplazamiento suave centrado para el scrollbar horizontal en pantallas móviles
+        if (filterRow) {
+            const left = botonActivo.offsetLeft - (filterRow.clientWidth - botonActivo.offsetWidth) / 2;
+            filterRow.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+        }
     }
 
     const tarjetas = document.querySelectorAll('section[aria-label="Listado de noticias"] article');
@@ -306,7 +349,7 @@ function filtrarNoticiasPorCategoria(categoriaSeleccionada, botonActivo) {
 }
 
 /**
- * Filtra las noticias visibles a partir del valor seleccionado en un ComboBox
+ * Filtra las noticias visibles a partir del valor seleccionado en un ComboBox (si aplica)
  */
 function filtrarNoticiasPorComboBox(categoriaSeleccionada) {
     const tarjetas = document.querySelectorAll('section[aria-label="Listado de noticias"] article');
