@@ -1,7 +1,10 @@
 config/conn.php
+config/config.php
 pages/p.php
 .idea/
 desktop.ini
 node_modules/
 .bob/
 public/css/tailwind/output.css
+.agents/
+skills-lock.json

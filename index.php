@@ -46,6 +46,7 @@ $routes = [
     'showcase'             => 'pages/showcase.php',
     'login'                => 'pages/login.php',
     'register'             => 'pages/register.php',
+    'feedback'             => 'pages/feedback.php',
 ];
 
 $is404 = !array_key_exists($page, $routes);

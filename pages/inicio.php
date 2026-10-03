@@ -17,7 +17,7 @@
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
-        <a href="<?php echo BASE_URL; ?>index.php?page=malla_curricular"
+        <a href="<?php echo BASE_URL; ?>malla_curricular"
           class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-border-main text-base font-medium rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
           Ver malla curricular
         </a>
@@ -67,7 +67,6 @@
         class="w-full h-64 sm:h-80 object-cover rounded-2xl">
     </div>
   </div>
-  </div>
 </section>
 
 <!-- MISION Y VISION -->
@@ -81,7 +80,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       <div
-        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10" />
@@ -97,7 +96,7 @@
         </p>
       </div>
       <div
-        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-green-pale text-green flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -354,7 +353,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -373,7 +372,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="12" rx="2" />
@@ -388,7 +387,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path
@@ -402,7 +401,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -415,7 +414,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" />
@@ -427,7 +426,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path
@@ -440,7 +439,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" />
@@ -452,7 +451,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="12" rx="2" />
@@ -483,7 +482,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -507,7 +506,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -531,7 +530,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -555,7 +554,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -579,7 +578,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -603,7 +602,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -627,7 +626,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -651,7 +650,7 @@
       </div>
 
       <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div>
           <div class="flex items-start justify-between gap-2">
             <span
@@ -676,7 +675,7 @@
 
     </div>
     <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>malla_curricular.php?page=malla_curricular"
+      <a href="<?php echo BASE_URL; ?>malla_curricular"
         class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
         Explora a fondo el plan de estudios
         <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
@@ -698,7 +697,6 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-      <!-- Queda pendiente el como se abriran las noticias (pagina externa o una tarjeta)-->
       <div
         class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
         <div class="h-44 sm:h-48 overflow-hidden shrink-0">
@@ -775,7 +773,7 @@
     </div>
 
     <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>noticias.php?page=noticias"
+      <a href="<?php echo BASE_URL; ?>noticias"
         class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
         Explorar las noticias más recientes
         <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
@@ -834,7 +832,7 @@
     </div>
 
     <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>galeria.php?page=galeria"
+      <a href="<?php echo BASE_URL; ?>galeria"
         class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         Descubre más en nuestra galería
         <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
@@ -845,5 +843,3 @@
 
   </div>
 </section>
-
-<script src="<?php echo BASE_URL; ?>public/js/inicio.js"></script>

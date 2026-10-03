@@ -1,3 +1,7 @@
 <?php
+// config/config.php
 
-define('BASE_URL', '/pagina-teleinformatica/');
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/pagina-teleinformatica/');
+}
+?>
