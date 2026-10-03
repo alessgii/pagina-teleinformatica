@@ -151,3 +151,18 @@ CREATE TABLE news (
     CONSTRAINT fk_news_author FOREIGN KEY (user_id) 
         REFERENCES users(user_id) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+
+-- =====================================================
+-- 6. USER EXPERIENCE & FEEDBACK
+-- =====================================================
+CREATE TABLE feedback (
+    feedback_id INT AUTO_INCREMENT PRIMARY KEY,
+    role_reported VARCHAR(30) NOT NULL,
+    score_navigation TINYINT NOT NULL,
+    score_visual TINYINT NOT NULL,
+    score_speed TINYINT NOT NULL,
+    score_mobile TINYINT NOT NULL,
+    priority_features JSON NULL,
+    comments TEXT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE = InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

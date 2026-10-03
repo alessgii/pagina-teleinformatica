@@ -5,7 +5,7 @@
       <!-- Marca -->
       <div class="col-span-2 flex flex-col md:col-span-1">
         <a href="<?php echo BASE_URL; ?>inicio" class="self-start mb-3 md:mb-4">
-          <img src="<?php echo BASE_URL; ?>public/img/INTEL.png" class="w-36 md:w-48 h-auto object-contain" alt="INTEL">
+          <img src="<?php echo BASE_URL; ?>public/img/INTEL_White.png" class="w-36 md:w-48 h-auto object-contain" alt="INTEL">
         </a>
         <p class="text-[.82rem] md:text-sm text-gray-400 leading-relaxed max-w-[440px] md:max-w-none">
           Plataforma académica oficial del programa de Ingeniería en Teleinformática en la universidad CUCSur. Formando profesionales para la próxima era digital.
@@ -42,6 +42,7 @@
           <li><a href="<?php echo BASE_URL; ?>inicio" class="text-sm text-gray-400 hover:text-white no-underline">Preguntas Frecuentes</a></li>
           <li><a href="<?php echo BASE_URL; ?>malla_curricular" class="text-sm text-gray-400 hover:text-white no-underline">Plan de Estudios</a></li>
           <li><a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="text-sm text-gray-400 hover:text-white no-underline">Horarios de Clase</a></li>
+          <li><a href="<?php echo BASE_URL; ?>feedback" class="text-sm text-gray-400 hover:text-white no-underline"></span>Encuesta UX</a></li>
         </ul>
       </div>
 
