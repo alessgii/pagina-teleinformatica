@@ -1,4 +1,5 @@
 config/conn.php
+config/config.php
 pages/p.php
 .idea/
 desktop.ini
