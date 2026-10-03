@@ -9,6 +9,7 @@ require_once __DIR__ . '/../../config/conn.php';
 require_once __DIR__ . '/../../src/Models/User.php';
 require_once __DIR__ . '/../../src/Controllers/AuthController.php';
 require_once __DIR__ . '/../../src/Controllers/GalleryController.php';
+require_once __DIR__ . '/../../src/Controllers/ScheduleController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -20,6 +21,7 @@ $path = rtrim($path, '/');
 $userModel = new User($pdo);
 $authController = new AuthController($userModel);
 $galleryController = new GalleryController($pdo);
+$scheduleController = new ScheduleController($pdo);
 
 switch ($path) {
     // =====================================================
@@ -58,6 +60,18 @@ switch ($path) {
     case '/api/galeria':
         if ($method === 'GET') {
             $galleryController->getGaleria();
+        } else {
+            http_response_code(405);
+            echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET.']);
+        }
+        break;
+
+    // =====================================================
+    // 3. SCHEDULES
+    // =====================================================
+    case '/api/horarios':
+        if ($method === 'GET') {
+            $scheduleController->getSchedule();
         } else {
             http_response_code(405);
             echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET.']);

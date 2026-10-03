@@ -845,5 +845,3 @@
 
   </div>
 </section>
-
-<script src="<?php echo BASE_URL; ?>public/js/inicio.js"></script>
