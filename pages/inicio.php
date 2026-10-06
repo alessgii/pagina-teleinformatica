@@ -227,7 +227,112 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
 <!-- MISION Y VISION -->
+<section class="py-12 sm:py-16 bg-bg-main" id="mision-vision">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Misión y visión del programa</h2>
+      <p class="mt-2 text-sm sm:text-base text-text-muted">
+        Lo que buscamos para que tu formación sea de alta calidad y te lleve a donde quieres llegar.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+
+      <!-- BOTÓN MISIÓN -->
+      <button type="button"
+        onclick="abrirMisionVision(this)"
+        data-title="Misión"
+        data-content="El programa educativo tiene el compromiso social de formar Ingenieros en Teleinformática para aplicar conocimientos científicos y tecnológicos bajo estándares de calidad, con responsabilidad y pertinencia cultural, social y ambiental en beneficio de la prosperidad colectiva."
+        data-icon="mision"
+        data-icon-class="bg-turq-pale text-turq-acc"
+        class="group text-left p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer box-border">
+        <div data-icon-slot class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Misión</h3>
+        <span class="text-sm font-semibold text-turq-acc">Ver más →</span>
+      </button>
+
+      <!-- BOTÓN VISIÓN -->
+      <button type="button"
+        onclick="abrirMisionVision(this)"
+        data-title="Visión"
+        data-content="Ser la mejor opción de estudios en la región y del estado de Jalisco en el mediano y largo plazo, formando profesionistas líderes y competentes en el uso y administración de las tecnologías de redes y sistemas de información mediante el uso de tecnología de vanguardia."
+        data-icon="vision"
+        data-icon-class="bg-green-pale text-green"
+        class="group text-left p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer box-border">
+        <div data-icon-slot class="w-12 h-12 rounded-full bg-green-pale text-green flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Visión</h3>
+        <span class="text-sm font-semibold text-green">Ver más →</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- VISOR (CARD EMERGENTE) — ponlo justo antes de </body> o al final de la sección -->
+<!-- VISOR MISIÓN / VISIÓN -->
+<div id="mv-viewer"
+  onclick="cerrarMisionVision()"
+  class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center overflow-y-auto p-4 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+
+  <!-- Botón cerrar (igual al de noticias) -->
+  <button
+    onclick="cerrarMisionVision()"
+    type="button"
+    aria-label="Cerrar"
+    class="fixed top-3 right-3 sm:top-5 sm:right-5 lg:top-6 lg:right-6 z-20 flex items-center justify-center gap-2.5 w-11 h-11 lg:w-auto lg:px-5 rounded-full bg-white text-navy shadow-lg cursor-pointer transition-[transform,background-color] duration-200 hover:rotate-90 lg:hover:rotate-0 lg:hover:bg-bg-main">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+    <span class="hidden lg:inline text-sm font-semibold">Cerrar</span>
+    <kbd class="hidden lg:inline text-[.65rem] font-semibold text-text-muted border border-border-main rounded-md px-1.5 py-0.5 font-[inherit]">Esc</kbd>
+  </button>
+
+  <!-- Panel -->
+  <div id="mv-panel"
+    onclick="event.stopPropagation()"
+    class="relative w-full max-w-[860px] my-auto flex flex-col bg-bg-card rounded-2xl lg:rounded-[var(--radius-custom)] shadow-[0_24px_70px_rgba(0,0,0,0.5)] border border-border-lt overflow-hidden lg:grid lg:grid-cols-[300px_minmax(0,1fr)] scale-95 transition-transform duration-300">
+
+    <!-- Escenario del ícono (sustituye a la imagen) -->
+    <div class="relative flex items-center justify-center bg-navy-mid min-h-[160px] lg:min-h-[340px] overflow-hidden">
+      <div id="mv-icon-circle" class="w-24 h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-lg"></div>
+    </div>
+
+    
+    <div class="flex flex-col p-5 sm:p-7 lg:p-8 bg-bg-card border-t lg:border-t-0 lg:border-l border-border-lt">
+      <div class="space-y-3">
+        
+
+        <h2 id="mv-title" class="text-xl sm:text-2xl font-bold text-navy leading-snug tracking-tight"></h2>
+
+        <p id="mv-content" class="text-text-mid text-[.92rem] sm:text-base leading-relaxed whitespace-pre-line pt-1"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+ MISION Y VISION
 <section class="py-12 sm:py-16 bg-bg-main" id="mision-vision">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
@@ -271,6 +376,7 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- OBJETIVOS -->
 <section class="py-12 sm:py-16 bg-bg-card" id="objetivos">
@@ -327,13 +433,13 @@
 <section class="py-12 sm:py-16 bg-bg-main" id="perfiles">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Perfil de ingreso y de egreso</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">De dónde partes y hasta dónde te lleva el programa: lo que
-        necesitas para empezar y lo que te llevas al terminar.</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Perfil de <!--ingreso y de -->egreso</h2>
+      <p class="mt-2 text-sm sm:text-base text-text-muted">Lo que un egresado es capaz de hacer.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-      <!-- INGRESO -->
+
+    <!--  
+    INGRESO 
       <div class="bg-bg-card p-6 sm:p-8 rounded-custom border border-border-main shadow-custom">
         <h3 class="text-lg sm:text-xl font-extrabold text-navy mb-1">Perfil de ingreso</h3>
         <p class="text-xs text-text-muted mb-6">Características deseables en el aspirante</p>
@@ -425,75 +531,73 @@
             <span>Disposición para adaptarse al cambio y enfrentar retos tecnológicos.</span>
           </div>
         </div>
-      </div>
+      </div> 
+    -->
 
-      <!-- EGRESO -->
-      <div class="bg-bg-card p-6 sm:p-8 rounded-custom border border-border-main shadow-custom">
-        <h3 class="text-lg sm:text-xl font-extrabold text-navy mb-1">Perfil de egreso</h3>
-        <p class="text-xs text-text-muted mb-6">Lo que un egresado es capaz de hacer</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
-          <div class="p-4 bg-bg-main rounded-custom border border-border-lt">
-            <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
-            </div>
-            <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Desarrollo de software</h4>
-            <p class="text-xs text-text-muted">Aplicaciones de escritorio, móviles y web en distintos lenguajes de
-              programación.</p>
-          </div>
-          <div class="p-4 bg-bg-main rounded-custom border border-border-lt">
-            <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="1" fill="currentColor" />
-                <path d="M12 12v8" />
-                <path d="M8 20h8" />
-                <path d="M8.5 8.5a5 5 0 0 0 0 7" />
-                <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-                <path d="M12 5v2" />
-              </svg>
-            </div>
-            <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Redes de cómputo</h4>
-            <p class="text-xs text-text-muted">Diseño, configuración y administración de redes y equipos de
-              comunicación.</p>
-          </div>
-          <div class="p-4 bg-bg-main rounded-custom border border-border-lt">
-            <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <ellipse cx="12" cy="5" rx="9" ry="3" />
-                <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
-              </svg>
-            </div>
-            <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Sistemas de información</h4>
-            <p class="text-xs text-text-muted">Diseño y administración de plataformas para el manejo de información a
-              distancia.</p>
-          </div>
-          <div class="p-4 bg-bg-main rounded-custom border border-border-lt">
-            <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Mantenimiento técnico</h4>
-            <p class="text-xs text-text-muted">Mantenimiento preventivo y correctivo de equipos de cómputo y
-              comunicación.</p>
-          </div>
+    <!-- EGRESO -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
         </div>
-        <div class="flex flex-wrap gap-1.5 sm:gap-2">
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Diseño</span>
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Trabajo
-            colaborativo</span>
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Comunicación oral y
-            escrita</span>
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Pensamiento crítico</span>
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Innovación</span>
-          <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Emprendimiento</span>
-        </div>
+        <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Desarrollo de software</h4>
+        <p class="text-xs text-text-muted">Aplicaciones de escritorio, móviles y web en distintos lenguajes de
+          programación.</p>
+
       </div>
+      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1" fill="currentColor" />
+            <path d="M12 12v8" />
+            <path d="M8 20h8" />
+            <path d="M8.5 8.5a5 5 0 0 0 0 7" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            <path d="M12 5v2" />
+          </svg>
+        </div>
+        <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Redes de cómputo</h4>
+        <p class="text-xs text-text-muted">Diseño, configuración y administración de redes y equipos de
+          comunicación.</p>
+      </div>
+      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+          </svg>
+        </div>
+        <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Sistemas de información</h4>
+        <p class="text-xs text-text-muted">Diseño y administración de plataformas para el manejo de información a
+          distancia.</p>
+      </div>
+      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
+        </div>
+        <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Mantenimiento técnico</h4>
+        <p class="text-xs text-text-muted">Mantenimiento preventivo y correctivo de equipos de cómputo y
+          comunicación.</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 sm:gap-2">
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Diseño</span>
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Trabajo
+        colaborativo</span>
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Comunicación oral y
+        escrita</span>
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Pensamiento crítico</span>
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Innovación</span>
+      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Emprendimiento</span>
     </div>
   </div>
 </section>
@@ -844,61 +948,4 @@
   </div>
 </section>
 
-<!-- GALERIA -->
-<section class="py-12 sm:py-16 bg-bg-main" id="galeria">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Así se vive la carrera</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">
-        Laboratorios, proyectos, torneos y trabajo en equipo dentro y fuera del aula.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
-      <div
-        class="relative sm:col-span-2 sm:row-span-2 rounded-custom overflow-hidden group shadow-custom h-64 sm:h-auto">
-        <img src="public/img/inicio/alumnosintel.jpeg" alt="Comunidad INTEL" loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span
-          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Comunidad
-          INTEL</span>
-      </div>
-      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img1.jpeg" alt="Laboratorio" loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span
-          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Laboratorio</span>
-      </div>
-      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img3.jpeg" alt="Robótica" loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span
-          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
-      </div>
-      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/inicio/tallermantenimiento.jpeg" alt="Taller" loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span
-          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
-      </div>
-      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
-        <img src="public/img/galeria/img5.jpeg" alt="Trabajo en equipo" loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-        <span
-          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Programación</span>
-      </div>
-    </div>
-
-    <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>galeria"
-        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        Descubre más en nuestra galería
-        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
-      </a>
-    </div>
-
-  </div>
-</section>
+<script src="public/js/inicio.js"></script>
