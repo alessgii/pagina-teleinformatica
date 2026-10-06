@@ -69,6 +69,164 @@
   </div>
 </section>
 
+<!-- NOTICIAS -->
+<section class="py-12 sm:py-16 bg-bg-card" id="noticias">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Noticias del programa</h2>
+      <p class="mt-2 text-sm sm:text-base text-text-muted">
+        Descubre todo lo nuevo e interesante que sucede en el programa y su plantel.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
+          <img src="public/img/inicio/ganminisumo.jpeg" alt="Torneo de minisumo" loading="lazy"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <div class="mb-3">
+              <span
+                class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+                Competencias
+              </span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
+              Se gana el torneo de minisumo
+            </h3>
+            <p class="text-xs text-text-muted leading-relaxed mb-0">
+              Estudiantes del programa se llevan el primer lugar con un robot diseñado y programado íntegramente en los
+              laboratorios del centro universitario.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
+          <img src="public/img/inicio/ingenierias.jpeg" alt="Colaboración en ingenierías" loading="lazy"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <div class="mb-3">
+              <span
+                class="font-poppins text-[12px] bg-purple-200 text-purple-500 border border-purple-300 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+                Vinculación
+              </span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
+              INTEL y Mecatrónica juntos
+            </h3>
+            <p class="text-xs text-text-muted leading-relaxed mb-0">
+              Proyecto conjunto entre ambas ingenierías para integrar redes de sensores en sistemas automatizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
+        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
+          <img src="public/img/inicio/fechas_Calif.jpeg" alt="Fechas de calificaciónes" loading="lazy"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <div class="mb-3">
+              <span
+                class="font-poppins text-[12px] bg-turq-pale text-turq-acc border border-turq-acc/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
+                Aviso escolar
+              </span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
+              Periodo ordinario y extraordinario
+            </h3>
+            <p class="text-xs text-text-muted leading-relaxed mb-0">
+              Ya están publicadas las fechas de calificación del ciclo. Consulta el calendario para no perder ningún
+              trámite.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 sm:mt-12 text-center">
+      <a href="<?php echo BASE_URL; ?>noticias"
+        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
+        Explorar las noticias más recientes
+        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="py-12 sm:py-16 bg-bg-main" id="galeria">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Así se vive la carrera</h2>
+      <p class="mt-2 text-sm sm:text-base text-text-muted">
+        Laboratorios, proyectos, torneos y trabajo en equipo dentro y fuera del aula.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
+      <div
+        class="relative sm:col-span-2 sm:row-span-2 rounded-custom overflow-hidden group shadow-custom h-64 sm:h-auto">
+        <img src="public/img/inicio/alumnosintel.jpeg" alt="Comunidad INTEL" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Comunidad
+          INTEL</span>
+      </div>
+      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
+        <img src="public/img/galeria/img1.jpeg" alt="Laboratorio" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Laboratorio</span>
+      </div>
+      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
+        <img src="public/img/galeria/img3.jpeg" alt="Robótica" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
+      </div>
+      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
+        <img src="public/img/inicio/tallermantenimiento.jpeg" alt="Taller" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Taller</span>
+      </div>
+      <div class="relative rounded-custom overflow-hidden group shadow-custom h-48">
+        <img src="public/img/galeria/img5.jpeg" alt="Trabajo en equipo" loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <span
+          class="absolute bottom-3 left-3 bg-navy/80 text-white-custom text-xs px-3 py-1 rounded-full backdrop-blur-sm">Programación</span>
+      </div>
+    </div>
+
+    <div class="mt-8 sm:mt-12 text-center">
+      <a href="<?php echo BASE_URL; ?>galeria"
+        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        Descubre más en nuestra galería
+        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <!-- MISION Y VISION -->
 <section class="py-12 sm:py-16 bg-bg-main" id="mision-vision">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -683,105 +841,6 @@
         </svg>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- NOTICIAS -->
-<section class="py-12 sm:py-16 bg-bg-card" id="noticias">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Noticias del programa</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">
-        Descubre todo lo nuevo e interesante que sucede en el programa y su plantel.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-      <div
-        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
-        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/ganminisumo.jpeg" alt="Torneo de minisumo" loading="lazy"
-            class="w-full h-full object-cover">
-        </div>
-        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
-          <div>
-            <div class="mb-3">
-              <span
-                class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
-                Competencias
-              </span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
-              Se gana el torneo de minisumo
-            </h3>
-            <p class="text-xs text-text-muted leading-relaxed mb-0">
-              Estudiantes del programa se llevan el primer lugar con un robot diseñado y programado íntegramente en los
-              laboratorios del centro universitario.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
-        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/ingenierias.jpeg" alt="Colaboración en ingenierías" loading="lazy"
-            class="w-full h-full object-cover">
-        </div>
-        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
-          <div>
-            <div class="mb-3">
-              <span
-                class="font-poppins text-[12px] bg-purple-200 text-purple-500 border border-purple-300 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
-                Vinculación
-              </span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
-              INTEL y Mecatrónica juntos
-            </h3>
-            <p class="text-xs text-text-muted leading-relaxed mb-0">
-              Proyecto conjunto entre ambas ingenierías para integrar redes de sensores en sistemas automatizados.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="cursor-pointer bg-bg-card border border-border-main rounded-custom overflow-hidden shadow-custom flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 no-underline">
-        <div class="h-44 sm:h-48 overflow-hidden shrink-0">
-          <img src="public/img/inicio/fechas_Calif.jpeg" alt="Fechas de calificaciónes" loading="lazy"
-            class="w-full h-full object-cover">
-        </div>
-        <div class="p-5 flex flex-col flex-1 justify-between gap-3">
-          <div>
-            <div class="mb-3">
-              <span
-                class="font-poppins text-[12px] bg-turq-pale text-turq-acc border border-turq-acc/25 py-1 px-2.5 rounded-full whitespace-nowrap inline-block">
-                Aviso escolar
-              </span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold text-navy mb-2">
-              Periodo ordinario y extraordinario
-            </h3>
-            <p class="text-xs text-text-muted leading-relaxed mb-0">
-              Ya están publicadas las fechas de calificación del ciclo. Consulta el calendario para no perder ningún
-              trámite.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>noticias"
-        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
-        Explorar las noticias más recientes
-        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
-      </a>
-    </div>
-
   </div>
 </section>
 
