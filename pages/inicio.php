@@ -1,7 +1,7 @@
 <!-- HERO -->
 <section class="pt-6 md:pt-15 pb-12 md:pb-24 bg-bg-main overflow-x-hidden" id="hero">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-    <div class="justify-center lg:justify-start">
+    <div class="flex flex-col">
       <h1 class="font-poppins-bold text-4xl sm:text-4xl lg:text-5xl  text-navy tracking-tight leading-tight">
         Diseña las redes que <span class="text-green">conectan</span> al mundo
       </h1>
@@ -9,37 +9,40 @@
         Ingeniería en Teleinformática forma profesionistas capaces de diseñar, implementar y administrar
         redes de cómputo, sistemas de información y plataformas de comunicación de vanguardia.
       </p>
-      <div class="md:pt-1 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-        <a href="https://escolar.udg.mx/" target="_blank"
-          class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
-          Quiero registrarme
-          <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </a>
-        <a href="<?php echo BASE_URL; ?>malla_curricular"
-          class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-border-main text-base font-medium rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-          Ver malla curricular
-        </a>
-      </div>
+      <div class="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4 w-full">
+
+  <!-- Registro (ancho completo, arriba) -->
+  <a href="https://escolar.udg.mx/" target="_blank"
+    class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+    Registro
+    <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  </a>
+
+  <!-- 4 botones blancos: vertical en móvil, 4 columnas iguales desde sm -->
+  <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
+    <a href="<?php echo BASE_URL; ?>malla_curricular"
+      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      Malla curricular
+    </a>
+    <a href="<?php echo BASE_URL; ?>consulta_horarios"
+      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      Consultar horario
+    </a>
+    <a href="<?php echo BASE_URL; ?>becas"
+      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      Becas disponibles
+    </a>
+    <a href="<?php echo BASE_URL; ?>foro"
+      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      Foro
+    </a>
+  </div>
+
+</div>
 
       <div class="md:pt-3 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 sm:pt-8 border-t border-border-lt">
-        <div>
-          <b class="block text-lg sm:text-xl font-bold text-navy">3-9 PM</b>
-          <span class="text-xs text-text-muted">Horario vespertino</span>
-        </div>
-        <div>
-          <b class="block text-lg sm:text-xl font-bold text-navy">67</b>
-          <span class="text-xs text-text-muted">Unidades de aprendizaje</span>
-        </div>
-        <div>
-          <b class="block text-lg sm:text-xl font-bold text-navy">8</b>
-          <span class="text-xs text-text-muted">Semestres de estudio</span>
-        </div>
-        <div>
-          <b class="block text-lg sm:text-xl font-bold text-navy">CUCSur</b>
-          <span class="text-xs text-text-muted">Autlán de Navarro, Jal.</span>
-        </div>
       </div>
     </div>
     <img src="public/img/inicio/Antena.webp" alt="Estudiantes de INTEL instalando antena" loading="lazy"
@@ -227,74 +230,72 @@
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-<!-- MISION Y VISION -->
+<!-- MISION, VISION Y OBJETIVOS -->
 <section class="py-12 sm:py-16 bg-bg-main" id="mision-vision">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Misión y visión del programa</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Misión, visión y objetivos del programa</h2>
       <p class="mt-2 text-sm sm:text-base text-text-muted">
         Lo que buscamos para que tu formación sea de alta calidad y te lleve a donde quieres llegar.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-
-      <!-- BOTÓN MISIÓN -->
       <button type="button"
         onclick="abrirMisionVision(this)"
-        data-title="Misión"
-        data-content="El programa educativo tiene el compromiso social de formar Ingenieros en Teleinformática para aplicar conocimientos científicos y tecnológicos bajo estándares de calidad, con responsabilidad y pertinencia cultural, social y ambiental en beneficio de la prosperidad colectiva."
-        data-icon="mision"
-        data-icon-class="bg-turq-pale text-turq-acc"
+        data-contenido="contenido-mision-vision"
+        data-title="Misión y visión"
+        data-subtitle="Lo que busca el programa y hacia dónde quiere llegar"
         class="group text-left p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer box-border">
-        <div data-icon-slot class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <circle cx="12" cy="12" r="6" />
-            <circle cx="12" cy="12" r="2" />
-          </svg>
+        <div data-icon-slot class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <div class="w-12 h-12 rounded-full bg-green-pale text-green flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
         </div>
-        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Misión</h3>
+        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Misión y visión</h3>
+        <p class="text-sm text-text-mid mb-4">Conoce el compromiso del programa y hacia dónde quiere llegar.</p>
         <span class="text-sm font-semibold text-turq-acc">Ver más →</span>
       </button>
 
-      <!-- BOTÓN VISIÓN -->
+      <!-- BOTÓN OBJETIVOS -->
       <button type="button"
         onclick="abrirMisionVision(this)"
-        data-title="Visión"
-        data-content="Ser la mejor opción de estudios en la región y del estado de Jalisco en el mediano y largo plazo, formando profesionistas líderes y competentes en el uso y administración de las tecnologías de redes y sistemas de información mediante el uso de tecnología de vanguardia."
-        data-icon="vision"
-        data-icon-class="bg-green-pale text-green"
+        data-contenido="contenido-objetivos"
+        data-title="Objetivos educacionales"
+        data-subtitle="Las metas que el programa persigue de forma permanente"
         class="group text-left p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer box-border">
-        <div data-icon-slot class="w-12 h-12 rounded-full bg-green-pale text-green flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
+        <div data-icon-slot class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg>
+          </div>
         </div>
-        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Visión</h3>
-        <span class="text-sm font-semibold text-green">Ver más →</span>
+        <h3 class="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-sky-600 transition-colors">Objetivos educacionales</h3>
+        <p class="text-sm text-text-mid mb-4">Las metas que garantizan la calidad de tu formación (OE1 a OE4).</p>
+        <span class="text-sm font-semibold text-turq-acc">Ver más →</span>
       </button>
 
     </div>
   </div>
 </section>
 
-<!-- VISOR (CARD EMERGENTE) — ponlo justo antes de </body> o al final de la sección -->
-<!-- VISOR MISIÓN / VISIÓN -->
+<!-- VISOR EMERGENTE -->
 <div id="mv-viewer"
   onclick="cerrarMisionVision()"
-  class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center overflow-y-auto p-4 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+  class="fixed inset-0 z-50 hidden items-center justify-center pt-16 pb-4 px-4 sm:pt-20 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300">
 
-  <!-- Botón cerrar (igual al de noticias) -->
   <button
     onclick="cerrarMisionVision()"
     type="button"
@@ -308,236 +309,94 @@
     <kbd class="hidden lg:inline text-[.65rem] font-semibold text-text-muted border border-border-main rounded-md px-1.5 py-0.5 font-[inherit]">Esc</kbd>
   </button>
 
-  <!-- Panel -->
   <div id="mv-panel"
     onclick="event.stopPropagation()"
-    class="relative w-full max-w-[860px] my-auto flex flex-col bg-bg-card rounded-2xl lg:rounded-[var(--radius-custom)] shadow-[0_24px_70px_rgba(0,0,0,0.5)] border border-border-lt overflow-hidden lg:grid lg:grid-cols-[300px_minmax(0,1fr)] scale-95 transition-transform duration-300">
+    class="relative w-full max-w-[920px] max-h-[calc(100vh-6rem)] flex flex-col bg-bg-card rounded-2xl lg:rounded-[var(--radius-custom)] shadow-[0_24px_70px_rgba(0,0,0,0.5)] border border-border-lt overflow-hidden scale-95 transition-transform duration-300">
 
-    <!-- Escenario del ícono (sustituye a la imagen) -->
-    <div class="relative flex items-center justify-center bg-navy-mid min-h-[160px] lg:min-h-[340px] overflow-hidden">
-      <div id="mv-icon-circle" class="w-24 h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-lg"></div>
+    <div class="shrink-0 flex items-center gap-4 bg-navy-mid px-5 py-5 sm:px-8 sm:py-6">
+      <div id="mv-icons" class="flex items-center gap-3 shrink-0"></div>
+      <div class="min-w-0">
+        <h2 id="mv-title" class="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight"></h2>
+        <p id="mv-subtitle" class="mt-1 text-xs sm:text-sm text-white/70"></p>
+      </div>
     </div>
 
-    
-    <div class="flex flex-col p-5 sm:p-7 lg:p-8 bg-bg-card border-t lg:border-t-0 lg:border-l border-border-lt">
-      <div class="space-y-3">
-        
+    <div id="mv-body" class="flex-1 overflow-y-auto p-5 sm:p-8">
 
-        <h2 id="mv-title" class="text-xl sm:text-2xl font-bold text-navy leading-snug tracking-tight"></h2>
-
-        <p id="mv-content" class="text-text-mid text-[.92rem] sm:text-base leading-relaxed whitespace-pre-line pt-1"></p>
+      <!-- CONTENIDO: MISIÓN Y VISIÓN -->
+      <div id="contenido-mision-vision" data-bloque class="hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <div class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt border-t-4 border-t-turq-acc">
+            <h3 class="text-lg sm:text-xl font-bold text-navy mb-3">Misión</h3>
+            <p class="text-sm sm:text-base text-text-mid leading-relaxed">
+              El programa educativo tiene el compromiso social de formar Ingenieros en Teleinformática
+              para aplicar conocimientos científicos y tecnológicos bajo estándares de calidad, con responsabilidad
+              y pertinencia cultural, social y ambiental en beneficio de la prosperidad colectiva.
+            </p>
+          </div>
+          <div class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt border-t-4 border-t-green">
+            <h3 class="text-lg sm:text-xl font-bold text-navy mb-3">Visión</h3>
+            <p class="text-sm sm:text-base text-text-mid leading-relaxed">
+              Ser la mejor opción de estudios en la región y del estado de Jalisco en el mediano
+              y largo plazo, formando profesionistas líderes y competentes en el uso y administración
+              de las tecnologías de redes y sistemas de información mediante el uso de tecnología de vanguardia.
+            </p>
+          </div>
+        </div>
       </div>
+
+      <!-- CONTENIDO: OBJETIVOS -->
+      <div id="contenido-objetivos" data-bloque class="hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <div class="p-5 bg-bg-main rounded-custom border border-border-lt">
+            <span class="inline-block px-3 py-1 bg-navy text-white font-bold text-xs rounded-full mb-3">OE1</span>
+            <p class="text-sm text-text-mid leading-relaxed">
+              Los egresados participan en el diseño, gestión y/o evaluación de proyectos de
+              ingeniería para desarrollo de software o de infraestructura y servicios de telecomunicaciones
+              en los sectores público y privado.
+            </p>
+          </div>
+          <div class="p-5 bg-bg-main rounded-custom border border-border-lt">
+            <span class="inline-block px-3 py-1 bg-navy text-white font-bold text-xs rounded-full mb-3">OE2</span>
+            <p class="text-sm text-text-mid leading-relaxed">
+              Los egresados se integran en grupos multidisciplinarios en las organizaciones del
+              sector público o privado con ética y responsabilidad social.
+            </p>
+          </div>
+          <div class="p-5 bg-bg-main rounded-custom border border-border-lt">
+            <span class="inline-block px-3 py-1 bg-navy text-white font-bold text-xs rounded-full mb-3">OE3</span>
+            <p class="text-sm text-text-mid leading-relaxed">
+              Los egresados se incorporan al sector productivo y/o de servicios o son capaces
+              de crear su propia empresa relacionada con la Ingeniería en Teleinformática.
+            </p>
+          </div>
+          <div class="p-5 bg-bg-main rounded-custom border border-border-lt">
+            <span class="inline-block px-3 py-1 bg-navy text-white font-bold text-xs rounded-full mb-3">OE4</span>
+            <p class="text-sm text-text-mid leading-relaxed">
+              Los egresados mantienen un permanente interés en el desarrollo y mejoramiento de sus
+              competencias profesionales a través de cursos, diplomados o posgrados.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<!--
- MISION Y VISION
-<section class="py-12 sm:py-16 bg-bg-main" id="mision-vision">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Misión y visión del programa</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">
-        Lo que buscamos para que tu formación sea de alta calidad y te lleve a donde quieres llegar.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-      <div
-        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <circle cx="12" cy="12" r="6" />
-            <circle cx="12" cy="12" r="2" />
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-bold text-navy mb-3">Misión</h3>
-        <p class="text-sm sm:text-base text-text-mid leading-relaxed">
-          El programa educativo tiene el compromiso social de formar Ingenieros en Teleinformática
-          para aplicar conocimientos científicos y tecnológicos bajo estándares de calidad, con responsabilidad
-          y pertinencia cultural, social y ambiental en beneficio de la prosperidad colectiva.
-        </p>
-      </div>
-      <div
-        class="p-6 sm:p-8 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div class="w-12 h-12 rounded-full bg-green-pale text-green flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-bold text-navy mb-3">Visión</h3>
-        <p class="text-sm sm:text-base text-text-mid leading-relaxed">
-          Ser la mejor opción de estudios en la región y del estado de Jalisco en el mediano
-          y largo plazo, formando profesionistas líderes y competentes en el uso y administración
-          de las tecnologías de redes y sistemas de información mediante el uso de tecnología de vanguardia.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
--->
 
-<!-- OBJETIVOS -->
+<!-- PERFIL DE EGRESO -->
 <section class="py-12 sm:py-16 bg-bg-card" id="objetivos">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Objetivos educacionales</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Perfil de egreso</h2>
       <p class="mt-2 text-sm sm:text-base text-text-muted">
-        Las metas que el programa persigue de forma permanente para garantizar la calidad de tu formación.
+        Nuestros egresados son capaces de crear...
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <div
         class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <span
-          class="inline-block px-3 py-1 bg-navy text-white-custom font-bold text-xs rounded-full mb-3 sm:mb-4">OE1</span>
-        <p class="text-xs sm:text-sm text-text-mid leading-relaxed">
-          Los egresados participan en la diseño, gestión y/o evaluación de proyectos de
-          ingeniería para desarrollo de software o de infraestructura y servicios de telecomunicaciones
-          en los sectores público y privado.
-        </p>
-      </div>
-      <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <span
-          class="inline-block px-3 py-1 bg-navy text-white-custom font-bold text-xs rounded-full mb-3 sm:mb-4">OE2</span>
-        <p class="text-xs sm:text-sm text-text-mid leading-relaxed">
-          Los egresados se integran en grupos multidisciplinarios en las organizaciones del
-          sector público o privado con ética y responsabilidad social.
-        </p>
-      </div>
-      <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <span
-          class="inline-block px-3 py-1 bg-navy text-white-custom font-bold text-xs rounded-full mb-3 sm:mb-4">OE3</span>
-        <p class="text-xs sm:text-sm text-text-mid leading-relaxed">
-          Los egresados se incorporan al sector productivo y/o de servicios o son capaces
-          de crear su propia empresa relacionada con la Ingeniería en Teleinformática.
-        </p>
-      </div>
-      <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <span
-          class="inline-block px-3 py-1 bg-navy text-white-custom font-bold text-xs rounded-full mb-3 sm:mb-4">OE4</span>
-        <p class="text-xs sm:text-sm text-text-mid leading-relaxed">
-          Los egresados mantienen un permanente interés en el desarrollo y mejoramiento de sus
-          competencias profesionales a través de cursos, diplomados o posgrados.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INGRESO / EGRESO -->
-<section class="py-12 sm:py-16 bg-bg-main" id="perfiles">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy">Perfil de <!--ingreso y de -->egreso</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">Lo que un egresado es capaz de hacer.</p>
-    </div>
-
-
-    <!--  
-    INGRESO 
-      <div class="bg-bg-card p-6 sm:p-8 rounded-custom border border-border-main shadow-custom">
-        <h3 class="text-lg sm:text-xl font-extrabold text-navy mb-1">Perfil de ingreso</h3>
-        <p class="text-xs text-text-muted mb-6">Características deseables en el aspirante</p>
-        <div class="space-y-3 mb-8">
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Fundamentos de matemáticas, física y computación.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Principios básicos de electrónica y sistemas digitales.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Manejo básico de herramientas tecnológicas e informáticas.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Nociones generales sobre programación.</span>
-          </div>
-        </div>
-
-        <p class="text-xs text-text-muted mb-6">Habilidades deseables en el aspirante</p>
-        <div class="space-y-3 mb-8">
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Capacidad para el razonamiento lógico y la resolución de problemas.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Habilidad para el aprendizaje autónomo y el trabajo colaborativo.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Facilidad para comunicarse de forma clara, oral y escrita.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Capacidad de análisis y pensamiento estructurado.</span>
-          </div>
-        </div>
-
-        <p class="text-xs text-text-muted mb-6">Actitudes y valores deseables en el aspirante</p>
-        <div class="space-y-3 mb-8">
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Compromiso con el aprendizaje constante y la mejora continua.</span>
-          </div>
-
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Interés por el impacto social y ambiental de la tecnología.</span>
-          </div>
-          <div class="flex items-start text-xs sm:text-sm text-text-mid">
-            <svg class="w-4 h-4 text-green mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="3"
-              viewBox="0 0 24 24">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span>Disposición para adaptarse al cambio y enfrentar retos tecnológicos.</span>
-          </div>
-        </div>
-      </div> 
-    -->
-
-    <!-- EGRESO -->
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -548,9 +407,9 @@
         <h4 class="text-xs sm:text-sm font-bold text-navy mb-1">Desarrollo de software</h4>
         <p class="text-xs text-text-muted">Aplicaciones de escritorio, móviles y web en distintos lenguajes de
           programación.</p>
-
       </div>
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -566,7 +425,8 @@
         <p class="text-xs text-text-muted">Diseño, configuración y administración de redes y equipos de
           comunicación.</p>
       </div>
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -577,7 +437,8 @@
         <p class="text-xs text-text-muted">Diseño y administración de plataformas para el manejo de información a
           distancia.</p>
       </div>
-      <div class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+      <div
+        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path
@@ -588,16 +449,6 @@
         <p class="text-xs text-text-muted">Mantenimiento preventivo y correctivo de equipos de cómputo y
           comunicación.</p>
       </div>
-    </div>
-    <div class="flex flex-wrap gap-1.5 sm:gap-2">
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Diseño</span>
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Trabajo
-        colaborativo</span>
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Comunicación oral y
-        escrita</span>
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Pensamiento crítico</span>
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Innovación</span>
-      <span class="px-2.5 py-1 bg-green-pale text-green text-xs font-medium rounded-full">Emprendimiento</span>
     </div>
   </div>
 </section>
@@ -731,7 +582,7 @@
 </section>
 
 <!-- PLAN DE ESTUDIOS -->
-<section class="py-12 sm:py-16 bg-bg-main" id="plan-estudios">
+<!-- <section class="py-12 sm:py-16 bg-bg-main" id="plan-estudios">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-navy ">Plan de Estudios</h2>
@@ -946,6 +797,6 @@
       </a>
     </div>
   </div>
-</section>
+</section> -->
 
 <script src="public/js/inicio.js"></script>

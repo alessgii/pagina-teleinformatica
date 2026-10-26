@@ -1,40 +1,32 @@
-function abrirMisionVision(cardElement) {
-    if (!cardElement) return;
-
-    const title = cardElement.dataset.title;
-    const content = cardElement.dataset.content;
-    const iconClass = cardElement.dataset.iconClass || '';
-    const iconHtml = cardElement.querySelector('[data-icon-slot] svg')?.outerHTML || '';
+function abrirMisionVision(btn) {
+    if (!btn) return;
 
     const viewer = document.getElementById('mv-viewer');
     const panel = document.getElementById('mv-panel');
-    const mvTitle = document.getElementById('mv-title');
-    const mvContent = document.getElementById('mv-content');
-    const mvCircle = document.getElementById('mv-icon-circle');
+    const body = document.getElementById('mv-body');
+    const contenido = document.getElementById(btn.dataset.contenido);
+    if (!viewer || !body || !contenido) return;
 
-    if (mvTitle) mvTitle.textContent = title;
-    if (mvContent) mvContent.textContent = content;
+    document.getElementById('mv-title').textContent = btn.dataset.title || '';
+    document.getElementById('mv-subtitle').textContent = btn.dataset.subtitle || '';
+    document.getElementById('mv-icons').innerHTML =
+        btn.querySelector('[data-icon-slot]')?.innerHTML || '';
 
-    if (mvCircle) {
-        mvCircle.innerHTML = iconHtml;
-        // El círculo toma los colores de la tarjeta (turquesa o verde)
-        mvCircle.className = 'w-24 h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-lg ' + iconClass;
-        // Agrandar el SVG que se copió
-        mvCircle.querySelector('svg')?.setAttribute('class', 'w-12 h-12 lg:w-14 lg:h-14');
-    }
+    // Oculta todos los bloques y muestra solo el que corresponde al botón
+    body.querySelectorAll('[data-bloque]').forEach(b => b.classList.add('hidden'));
+    contenido.classList.remove('hidden');
+    body.scrollTop = 0;
 
-    if (viewer) {
-        viewer.classList.remove('hidden');
-        viewer.classList.add('flex');
-        requestAnimationFrame(() => {
-            viewer.classList.remove('opacity-0');
-            viewer.classList.add('opacity-100');
-            if (panel) {
-                panel.classList.remove('scale-95');
-                panel.classList.add('scale-100');
-            }
-        });
-    }
+    viewer.classList.remove('hidden');
+    viewer.classList.add('flex');
+    requestAnimationFrame(() => {
+        viewer.classList.remove('opacity-0');
+        viewer.classList.add('opacity-100');
+        if (panel) {
+            panel.classList.remove('scale-95');
+            panel.classList.add('scale-100');
+        }
+    });
     document.body.style.overflow = 'hidden';
 }
 
@@ -50,6 +42,7 @@ function cerrarMisionVision() {
         panel.classList.add('scale-95');
     }
 
+    // Espera a que termine la animación (300 ms) antes de ocultarlo
     setTimeout(() => {
         viewer.classList.remove('flex');
         viewer.classList.add('hidden');
@@ -57,6 +50,7 @@ function cerrarMisionVision() {
     }, 300);
 }
 
+// Cerrar con la tecla Escape
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') cerrarMisionVision();
 });
