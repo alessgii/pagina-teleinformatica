@@ -1,52 +1,80 @@
 <!-- HERO -->
 <section class="pt-6 md:pt-15 pb-12 md:pb-24 bg-bg-main overflow-x-hidden" id="hero">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
     <div class="flex flex-col">
-      <h1 class="font-poppins-bold text-4xl sm:text-4xl lg:text-5xl  text-navy tracking-tight leading-tight">
+      <h1 class="font-poppins-bold text-4xl sm:text-4xl lg:text-5xl text-navy tracking-tight leading-tight">
         Diseña las redes que <span class="text-green">conectan</span> al mundo
       </h1>
       <p class="mt-4 text-base sm:text-lg text-text-mid leading-relaxed">
         Ingeniería en Teleinformática forma profesionistas capaces de diseñar, implementar y administrar
         redes de cómputo, sistemas de información y plataformas de comunicación de vanguardia.
       </p>
-      <div class="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4 w-full">
+      
+      <div class="mt-8 flex flex-col gap-5 w-full">
+        <!-- Registro (ancho completo, arriba) -->
+        <a href="https://escolar.udg.mx/" target="_blank"
+          class="w-full inline-flex items-center justify-center px-6 py-3.5 border border-transparent text-base font-bold rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+          Inscribirse
+          <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
 
-  <!-- Registro (ancho completo, arriba) -->
-  <a href="https://escolar.udg.mx/" target="_blank"
-    class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-    Registro
-    <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  </a>
-
-  <!-- 4 botones blancos: vertical en móvil, 4 columnas iguales desde sm -->
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
-    <a href="<?php echo BASE_URL; ?>malla_curricular"
-      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-      Malla curricular
-    </a>
-    <a href="<?php echo BASE_URL; ?>consulta_horarios"
-      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-      Consultar horario
-    </a>
-    <a href="<?php echo BASE_URL; ?>becas"
-      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-      Becas disponibles
-    </a>
-    <a href="<?php echo BASE_URL; ?>foro"
-      class="w-full inline-flex items-center justify-center text-center px-3 py-3 border border-border-main text-base lg:text-sm font-medium leading-tight rounded-custom text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-      Foro
-    </a>
-  </div>
-
-</div>
-
-      <div class="md:pt-3 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 sm:pt-8 border-t border-border-lt">
+        <!-- 4 herramientas: Grid 2x2 en móvil, 4 columnas desde sm -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
+          <!-- Malla curricular -->
+          <a href="<?php echo BASE_URL; ?>malla_curricular"
+            class="group flex flex-col items-center justify-center text-center p-3 sm:p-4 border border-border-main rounded-2xl text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 box-border">
+            <div class="w-10 h-10 rounded-full bg-bg-main group-hover:bg-white text-turq-acc flex items-center justify-center mb-2 transition-colors">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold leading-tight">Malla curricular</span>
+          </a>
+          
+          <!-- Consultar horario -->
+          <a href="<?php echo BASE_URL; ?>consulta_de_horarios"
+            class="group flex flex-col items-center justify-center text-center p-3 sm:p-4 border border-border-main rounded-2xl text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 box-border">
+            <div class="w-10 h-10 rounded-full bg-bg-main group-hover:bg-white text-turq-acc flex items-center justify-center mb-2 transition-colors">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold leading-tight">Consultar horario</span>
+          </a>
+          
+          <!-- Becas -->
+          <a href="<?php echo BASE_URL; ?>becas"
+            class="group flex flex-col items-center justify-center text-center p-3 sm:p-4 border border-border-main rounded-2xl text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 box-border">
+            <div class="w-10 h-10 rounded-full bg-bg-main group-hover:bg-white text-turq-acc flex items-center justify-center mb-2 transition-colors">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold leading-tight">Becas disponibles</span>
+          </a>
+          
+          <!-- Foro -->
+          <a href="<?php echo BASE_URL; ?>foro"
+            class="group flex flex-col items-center justify-center text-center p-3 sm:p-4 border border-border-main rounded-2xl text-navy bg-bg-card hover:bg-turq-pale no-underline transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 box-border">
+            <div class="w-10 h-10 rounded-full bg-bg-main group-hover:bg-white text-turq-acc flex items-center justify-center mb-2 transition-colors">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold leading-tight">Foro</span>
+          </a>
+        </div>
       </div>
     </div>
-    <img src="public/img/inicio/Antena.webp" alt="Estudiantes de INTEL instalando antena" loading="lazy"
-      class="w-full h-full object-cover aspect-4/3 rounded-2xl">
+    
+    <div class="w-full mt-4 lg:mt-0">
+      <img src="public/img/inicio/Antena.webp" alt="Estudiantes de INTEL instalando antena" loading="lazy"
+        class="w-full h-auto object-cover aspect-4/3 rounded-2xl shadow-lg">
+    </div>
   </div>
 </section>
 
@@ -67,13 +95,13 @@
         administrar redes de cómputo, sistemas de información y plataformas de comunicación de vanguardia.
       </p>
       <img src="public/img/inicio/carrera.jpeg" alt="Estudiantes de Ingeniería en Teleinformática" loading="lazy"
-        class="w-full h-64 sm:h-80 object-cover rounded-2xl">
+        class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-custom">
     </div>
   </div>
 </section>
 
 <!-- NOTICIAS -->
-<section class="py-12 sm:py-16 bg-bg-card" id="noticias">
+<section class="py-12 sm:py-16 bg-bg-main" id="noticias">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-navy">Noticias del programa</h2>
@@ -172,7 +200,7 @@
 </section>
 
 <!-- GALERIA -->
-<section class="py-12 sm:py-16 bg-bg-main" id="galeria">
+<section class="py-12 sm:py-16 bg-bg-card" id="galeria">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
@@ -384,7 +412,6 @@
   </div>
 </div>
 
-
 <!-- PERFIL DE EGRESO -->
 <section class="py-12 sm:py-16 bg-bg-card" id="objetivos">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -454,7 +481,7 @@
 </section>
 
 <!-- CAMPO LABORAL -->
-<section class="py-12 sm:py-16 bg-bg-card" id="campo-laboral">
+<section class="py-12 sm:py-16 bg-bg-main" id="campo-laboral">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-navy ">Campo Laboral</h2>
@@ -466,7 +493,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -485,7 +512,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="12" rx="2" />
@@ -500,7 +527,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path
@@ -514,7 +541,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -527,7 +554,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z" />
@@ -539,7 +566,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path
@@ -552,7 +579,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" />
@@ -564,7 +591,7 @@
         </p>
       </div>
       <div
-        class="p-5 sm:p-6 bg-bg-main rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
+        class="p-5 sm:p-6 bg-bg-card rounded-custom border border-border-lt transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
         <div class="w-12 h-12 rounded-full bg-turq-pale text-turq-acc flex items-center justify-center mb-6">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="12" rx="2" />
@@ -580,223 +607,4 @@
     </div>
   </div>
 </section>
-
-<!-- PLAN DE ESTUDIOS -->
-<!-- <section class="py-12 sm:py-16 bg-bg-main" id="plan-estudios">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-navy ">Plan de Estudios</h2>
-      <p class="mt-2 text-sm sm:text-base text-text-muted">
-        Un recorrido de cuatro años bajo sistema de créditos, de las
-        ciencias básicas a la especialización en redes de nueva generación.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap ">
-              9 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Primer Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Aprende todo lo necesario para iniciar tu formación en esta ingeniería, con bases sólidas en computación,
-            redes y electrónica.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 51 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              8 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Segundo Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Refuerza tus conocimientos en programación y redes, y aprende a desarrollar programas y sistemas de
-            información.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 56 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              8 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Tercer Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Enfocado en el desarrollo y administración de redes, asi como programación enfocada en objetos
-            y sistemas electronicos digitales.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 57 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              8 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Cuarto Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Basado en un desarrollo de redes más complejo, las bases de datos, y ciberseguridad, así como la
-            administración de sistemas.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 62 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              8 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Quinto Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Aprende sobre sistemas operativos y de información, en conjunto con el desarrollo de redes
-            inalambricas y emergentes.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 57 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              9 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Sexto Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Aprende sobre la tecnología cliente-servidor, programación de sistemas, sistemas operativos
-            abiertos y programación avanzada.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 73 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              9 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Septimo Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Enfocado diseño y desarrollo de software, bases de datos distribuidas, etica profesional
-            y enrutamiento de redes.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-2 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 65 créditos
-          </span>
-        </div>
-      </div>
-
-      <div
-        class="bg-bg-card border border-border-main rounded-custom p-5 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 box-border">
-        <div>
-          <div class="flex items-start justify-between gap-2">
-            <span
-              class="font-poppins text-[12px] bg-green-pale text-green border border-green/25 py-1 px-2 rounded-full whitespace-nowrap">
-              8 Materias
-            </span>
-          </div>
-          <h3 class="mt-4 mb-0 font-poppins text-sm md:text-base font-bold text-navy leading-tight">
-            Octavo Semestre
-          </h3>
-          <p class="mt-3 mb-0 text-xs md:text-sm text-text-mid leading-relaxed">
-            Aquí desarrollarás tu proyecto final, aprenderas sistemas de control, auditoria informatica
-            y propiedades intelectuales.
-          </p>
-        </div>
-        <div class="mt-4 flex items-center pt-3 border-t border-border-lt">
-          <span class="mt-3 flex items-center gap-1 text-xs text-text-muted">
-            ◴ 60 créditos
-          </span>
-        </div>
-      </div>
-
-    </div>
-    <div class="mt-8 sm:mt-12 text-center">
-      <a href="<?php echo BASE_URL; ?>malla_curricular"
-        class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-custom text-white-custom bg-green hover:bg-green-lt no-underline transition-all duration-300 shadow-md hover:shadow-xl  hover:-translate-y-0.5 box-border">
-        Explora a fondo el plan de estudios
-        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
-      </a>
-    </div>
-  </div>
-</section> -->
-
 <script src="public/js/inicio.js"></script>
