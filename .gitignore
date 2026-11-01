@@ -1,4 +1,4 @@
-config/conn.php
+.env
 config/config.php
 pages/p.php
 .idea/
