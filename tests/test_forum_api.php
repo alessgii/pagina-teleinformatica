@@ -63,15 +63,24 @@ assert(count($commentsList) === 2, "La lista debe contener 2 comentarios");
 assert($commentsList[0]['comment_text'] === "Primer comentario de prueba", "Orden cronológico correcto");
 echo "[OK] Listado de comentarios ordenados cronológicamente verificado\n";
 
-// 7. Probar actualización del post
+// 7. Probar actualización del post y categoría
 $updateSuccess = $forumModel->updatePost($newPostId, [
-    'title'   => 'Título Editado ' . time(),
-    'content' => 'Contenido modificado para prueba de actualización.'
+    'category' => 'redes',
+    'title'    => 'Título Editado ' . time(),
+    'content'  => 'Contenido modificado para prueba de actualización.'
 ]);
 assert($updateSuccess === true, "Fallo al actualizar post");
 $updatedDetail = $forumModel->getPostById($newPostId);
 assert(str_starts_with($updatedDetail['title'], 'Título Editado'), "El título actualizado debe persistir");
-echo "[OK] Actualización del post verificada\n";
+assert($updatedDetail['category'] === 'redes', "La categoría actualizada debe ser redes");
+echo "[OK] Actualización del post y categoría verificada\n";
+
+// 7b. Probar toggleLike (voto útil)
+$likeRes1 = $forumModel->toggleLike($newPostId, $userId);
+assert($likeRes1['liked'] === true && $likeRes1['likes_count'] === 1, "Debe registrar el voto útil");
+$likeRes2 = $forumModel->toggleLike($newPostId, $userId);
+assert($likeRes2['liked'] === false && $likeRes2['likes_count'] === 0, "Debe retirar el voto útil al repetir");
+echo "[OK] Sistema de reacciones (toggleLike) verificado\n";
 
 // 8. Probar borrado de un comentario individual
 $deleteCommentSuccess = $forumModel->deleteComment($commentId1);

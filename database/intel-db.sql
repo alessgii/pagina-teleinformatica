@@ -108,6 +108,7 @@ CREATE TABLE schedules (
 CREATE TABLE posts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    category ENUM('general', 'electronica', 'sistemas', 'programacion', 'redes') NOT NULL DEFAULT 'general',
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     file_url VARCHAR(255) NULL,
@@ -115,6 +116,17 @@ CREATE TABLE posts (
     external_link VARCHAR(255) NULL,
     publication_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_posts_user FOREIGN KEY (user_id) 
+        REFERENCES users(user_id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+CREATE TABLE post_likes (
+    post_id INT NOT NULL,
+    user_id INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (post_id, user_id),
+    CONSTRAINT fk_likes_post FOREIGN KEY (post_id) 
+        REFERENCES posts(post_id) ON DELETE CASCADE,
+    CONSTRAINT fk_likes_user FOREIGN KEY (user_id) 
         REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 

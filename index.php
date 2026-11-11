@@ -38,6 +38,7 @@ $routes = [
     'consulta_de_horarios' => 'pages/consulta_horarios.php',
     'malla_curricular'     => 'pages/malla_curricular.php',
     'foro'                 => 'pages/foro.php',
+    'foro_post'            => 'pages/foro_post.php',
     'galeria'              => 'pages/galeria.php',
     'noticias'             => 'pages/noticias.php',
     'academia'             => 'pages/academia.php',
@@ -48,6 +49,11 @@ $routes = [
     'register'             => 'pages/register.php',
     'feedback'             => 'pages/feedback.php',
 ];
+
+if (preg_match('#^foro/(\d+)$#', $page, $matches)) {
+    $_GET['id'] = (int) $matches[1];
+    $page = 'foro_post';
+}
 
 $is404 = !array_key_exists($page, $routes);
 

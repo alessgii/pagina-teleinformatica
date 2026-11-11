@@ -138,6 +138,18 @@ switch ($path) {
 // 2. RUTAS DINÁMICAS (EXPRESIONES REGULARES)
 // =========================================================================
 
+// POST /api/posts/{id}/like
+if (preg_match('#^/api/posts/(\d+)/like$#', $path, $matches)) {
+    $postId = (int)$matches[1];
+    if ($method === 'POST') {
+        $forumController->toggleLike($postId);
+    } else {
+        http_response_code(405);
+        echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza POST.']);
+    }
+    return;
+}
+
 // GET /api/posts/{id}/comments o POST /api/posts/{id}/comments
 if (preg_match('#^/api/posts/(\d+)/comments$#', $path, $matches)) {
     $postId = (int)$matches[1];
@@ -152,18 +164,18 @@ if (preg_match('#^/api/posts/(\d+)/comments$#', $path, $matches)) {
     return;
 }
 
-// GET, PUT, PATCH, DELETE /api/posts/{id}
+// GET, POST, PUT, PATCH, DELETE /api/posts/{id}
 if (preg_match('#^/api/posts/(\d+)$#', $path, $matches)) {
     $postId = (int)$matches[1];
     if ($method === 'GET') {
         $forumController->show($postId);
-    } elseif ($method === 'PUT' || $method === 'PATCH') {
+    } elseif ($method === 'PUT' || $method === 'PATCH' || $method === 'POST') {
         $forumController->update($postId);
     } elseif ($method === 'DELETE') {
         $forumController->destroy($postId);
     } else {
         http_response_code(405);
-        echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET, PUT o DELETE.']);
+        echo json_encode(['success' => false, 'message' => 'Método no permitido. Utiliza GET, POST, PUT o DELETE.']);
     }
     return;
 }

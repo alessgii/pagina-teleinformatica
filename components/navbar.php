@@ -81,11 +81,11 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
         </button>
         <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-48 z-50 dropdown-panel">
           <div class="flex flex-col p-2 bg-white border border-[var(--color-border-main)] rounded-xl shadow-lg dropdown">
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Programación</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Redes</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>General</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=electronica" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Electrónica</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=sistemas" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Sistemas</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=programacion" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Programación</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=redes" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Redes</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=general" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>General</a>
           </div>
         </div>
       </li>
@@ -275,11 +275,11 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
             <svg class="w-5 h-5 shrink-0 transition-transform group-aria-expanded:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div id="mm-foro" class="hidden pb-2 bg-[var(--color-navy-mid)]">
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Programación</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Redes</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">General</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=electronica" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Electrónica</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=sistemas" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Sistemas</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=programacion" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Programación</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=redes" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Redes</a>
+            <a href="<?php echo BASE_URL; ?>foro?categoria=general" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">General</a>
           </div>
         </li>
 
