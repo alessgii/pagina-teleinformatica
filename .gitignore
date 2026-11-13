@@ -8,3 +8,6 @@ node_modules/
 public/css/tailwind/output.css
 .agents/
 skills-lock.json
+
+public/uploads/forum/*
+!public/uploads/forum/.gitkeep
