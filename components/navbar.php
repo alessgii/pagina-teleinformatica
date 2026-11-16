@@ -32,7 +32,49 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
   <style>
     .nav-item.open > .dropdown-panel,
     .nav-right.open > .user-dropdown-panel {
-      display: block !important;
+      display: block;
+    }
+
+    #menu-movil {
+      position: fixed;
+      inset: 4rem 0 0;
+      width: 100vw;
+      max-width: 100vw;
+      height: calc(100vh - 4rem);
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--color-navy);
+      z-index: 40;
+    }
+
+    #menu-movil,
+    #menu-movil * {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    #menu-movil a,
+    #menu-movil span,
+    #menu-movil div {
+      color: inherit;
+    }
+
+    #menu-movil a:hover,
+    #menu-movil a:focus,
+    #menu-movil a:active {
+      color: var(--color-green);
+    }
+
+    #menu-movil .mobile-section-title,
+    #menu-movil .mobile-section-title * {
+      color: var(--color-green);
+    }
+
+    body.menu-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
     }
   </style>
 
@@ -48,70 +90,69 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
   </script>
 </head>
 
-<!-- m-0 p-0: elimina el margen de 8px que el navegador aplica por defecto al <body> -->
-<body class="m-0 p-0 bg-[var(--color-bg-main)]">
+<body class="m-0 p-0 bg-bg-main">
 
-  <nav class="sticky top-0 z-50 flex items-center justify-between h-16 px-4 sm:px-10 bg-[var(--color-navy)] border-b border-[var(--color-border-main)] shadow-sm gap-1">
+  <nav class="sticky top-0 z-50 flex items-center justify-between h-16 px-4 sm:px-10 bg-navy border-b border-border-main shadow-sm gap-1">
 
     <!-- Logo -->
-    <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center shrink-0" aria-label="Ir al inicio">
+    <a href="<?php echo BASE_URL; ?>" class="flex items-center shrink-0" aria-label="Ir al inicio">
       <img src="<?php echo BASE_URL; ?>public/img/INTEL_White.png" class="w-24 sm:w-auto h-10 object-contain" alt="INTEL">
     </a>
 
-    <!-- ===== Menú de escritorio (oculto en celular) ===== -->
+    <!-- ===== Menú de escritorio ===== -->
     <ul class="hidden md:flex items-center justify-end gap-1 my-0 ml-auto p-0 list-none nav-links">
 
       <li class="relative group nav-item" id="ni-inicio">
-        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-inicio')">
+        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-green-pale hover:text-green transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-inicio')">
           Inicio
         </button>
         <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-48 z-50 dropdown-panel">
-          <div class="flex flex-col p-2 bg-white border border-[var(--color-border-main)] rounded-xl shadow-lg dropdown">
-            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Noticias</a>
-            <a href="<?php echo BASE_URL; ?>galeria" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Galería</a>
-            <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Sobre Nosotros</a>
-            <a href="<?php echo BASE_URL; ?>showcase" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Showcase de Proyectos</a>
+          <div class="flex flex-col p-2 bg-white border border-border-main rounded-xl shadow-lg dropdown">
+            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Noticias</a>
+            <a href="<?php echo BASE_URL; ?>galeria" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Galería</a>
+            <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Sobre Nosotros</a>
+            <a href="<?php echo BASE_URL; ?>showcase" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Showcase de Proyectos</a>
           </div>
         </div>
       </li>
 
       <li class="relative group nav-item" id="ni-foro">
-        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-foro')">
+        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-green-pale hover:text-green transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-foro')">
           Foro
         </button>
         <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-48 z-50 dropdown-panel">
-          <div class="flex flex-col p-2 bg-white border border-[var(--color-border-main)] rounded-xl shadow-lg dropdown">
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Programación</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Redes</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>General</a>
+          <div class="flex flex-col p-2 bg-white border border-border-main rounded-xl shadow-lg dropdown">
+            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Electrónica</a>
+            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Sistemas</a>
+            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Programación</a>
+            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Redes</a>
+            <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>General</a>
           </div>
         </div>
       </li>
 
       <li class="relative group nav-item" id="ni-blogs">
-        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-blogs')">
+        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-green-pale hover:text-green transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-blogs')">
           Blogs
         </button>
         <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-48 z-50 dropdown-panel">
-          <div class="flex flex-col p-2 bg-white border border-[var(--color-border-main)] rounded-xl shadow-lg dropdown">
-            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Programación</a>
+          <div class="flex flex-col p-2 bg-white border border-border-main rounded-xl shadow-lg dropdown">
+            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Electrónica</a>
+            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Sistemas</a>
+            <a href="<?php echo BASE_URL; ?>noticias" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Programación</a>
           </div>
         </div>
       </li>
 
       <li class="relative group nav-item" id="ni-academia">
-        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-academia')">
+        <button type="button" class="flex items-center px-3 py-2 text-sm font-medium text-white bg-transparent border border-transparent rounded-lg hover:bg-green-pale hover:text-green transition-colors whitespace-nowrap nav-btn" onclick="toggleNav('ni-academia')">
           Academia
         </button>
         <div class="absolute right-0 top-full pt-2 hidden group-hover:block w-48 z-50 dropdown-panel">
-          <div class="flex flex-col p-2 bg-white border border-[var(--color-border-main)] rounded-xl shadow-lg dropdown">
-            <a href="<?php echo BASE_URL; ?>malla_curricular" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Malla Curricular</a>
-            <a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Horarios</a>
-            <a href="<?php echo BASE_URL; ?>becas" class="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-mid)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-green)] opacity-0 dot"></span>Becas</a>
+          <div class="flex flex-col p-2 bg-white border border-border-main rounded-xl shadow-lg dropdown">
+            <a href="<?php echo BASE_URL; ?>malla_curricular" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Malla Curricular</a>
+            <a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Horarios</a>
+            <a href="<?php echo BASE_URL; ?>becas" class="flex items-center gap-2 px-3 py-2 text-sm text-text-mid rounded-lg hover:bg-green-pale hover:text-green transition-colors no-underline"><span class="w-1.5 h-1.5 rounded-full bg-green opacity-0 dot"></span>Becas</a>
           </div>
         </div>
       </li>
@@ -123,9 +164,9 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
 
       <!-- Ícono / Avatar de usuario -->
       <div class="relative shrink-0 group nav-right" id="user-menu-container">
-        <button type="button" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[var(--color-border-main)] text-[var(--color-text-muted)] hover:border-[var(--color-green)] hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors user-btn shadow-sm cursor-pointer" onclick="toggleUser(event)" title="<?php echo $isLoggedIn ? htmlspecialchars($userName) : 'Mi cuenta'; ?>" aria-label="Mi cuenta">
+        <button type="button" id="btn-user-toggle" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-border-main text-text-muted hover:border-green hover:bg-green-pale hover:text-green transition-colors user-btn shadow-sm cursor-pointer" title="<?php echo $isLoggedIn ? htmlspecialchars($userName) : 'Mi cuenta'; ?>" aria-label="Mi cuenta" aria-expanded="false">
           <?php if ($isLoggedIn): ?>
-            <span class="text-xs sm:text-sm font-bold text-[var(--color-navy)]"><?php echo htmlspecialchars($userInitial); ?></span>
+            <span class="text-xs sm:text-sm font-bold text-navy"><?php echo htmlspecialchars($userInitial); ?></span>
           <?php else: ?>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="8" r="4" />
@@ -138,24 +179,21 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
         <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50 user-dropdown-panel" id="user-dropdown-panel" style="width: 310px; min-width: 290px; max-width: calc(100vw - 20px);">
           <?php if ($isLoggedIn): ?>
             <!-- Estado: Sesión Iniciada -->
-            <div class="bg-white border border-[#d5e2ef] rounded-2xl shadow-2xl overflow-hidden" id="user-dd" style="width: 100%; box-sizing: border-box; box-shadow: 0 10px 30px rgba(9, 64, 116, 0.12);">
-              <!-- Cabecera con datos del usuario -->
-              <div style="padding: 14px 16px; border-bottom: 1px solid #e8f0f9; background: linear-gradient(to bottom, #ffffff, #f9fafb); box-sizing: border-box;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                  <!-- Avatar redondo garantizado sin desbordes -->
-                  <div style="width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%; background-color: #094074; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem; flex-shrink: 0; box-shadow: 0 2px 6px rgba(9, 64, 116, 0.25);">
+            <div class="w-full overflow-hidden rounded-2xl border border-[#d5e2ef] bg-white shadow-[0_10px_30px_rgba(9,64,116,0.12)]" id="user-dd">
+              <div class="border-b border-[#e8f0f9] bg-gradient-to-b from-white to-[#f9fafb] px-4 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-base font-bold text-white shadow-[0_2px_6px_rgba(9,64,116,0.25)]">
                     <?php echo htmlspecialchars($userInitial); ?>
                   </div>
-                  <!-- Nombre, correo y rol con overflow controlado y sin wrap forzado -->
-                  <div style="min-width: 0; flex: 1; overflow: hidden;">
-                    <div style="font-weight: 700; font-size: 14px; color: #094074; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="<?php echo htmlspecialchars($userName); ?>">
+                  <div class="min-w-0 flex-1 overflow-hidden">
+                    <div class="truncate text-sm font-bold leading-5 text-navy" title="<?php echo htmlspecialchars($userName); ?>">
                       <?php echo htmlspecialchars($userName); ?>
                     </div>
-                    <div style="font-size: 12px; color: #7a94b0; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="<?php echo htmlspecialchars($userEmail); ?>">
+                    <div class="mt-0.5 truncate text-[12px] text-text-muted" title="<?php echo htmlspecialchars($userEmail); ?>">
                       <?php echo htmlspecialchars($userEmail); ?>
                     </div>
-                    <div style="margin-top: 6px;">
-                      <span style="display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 9px; border-radius: 9999px; background-color: #e6f7f3; color: #2e9e02; border: 1px solid #c3edd9;">
+                    <div class="mt-1.5">
+                      <span class="inline-block rounded-full border border-[#c3edd9] bg-[#e6f7f3] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.05em] text-[#2e9e02]">
                         <?php echo htmlspecialchars($userRoleName); ?>
                       </span>
                     </div>
@@ -164,21 +202,21 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
               </div>
 
               <!-- Enlaces rápidos -->
-              <div style="padding: 6px 8px; display: flex; flex-direction: column; gap: 2px; box-sizing: border-box;">
-                <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[#3a567a] rounded-lg hover:bg-[#e6f7f3] hover:text-[#2e9e02] transition-colors no-underline" style="box-sizing: border-box;">
+              <div class="flex flex-col gap-1 px-2 py-1.5">
+                <a href="<?php echo BASE_URL; ?>inicio" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-text-mid transition-colors no-underline hover:bg-green-pale hover:text-green">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                   </svg>
                   <span>Inicio</span>
                 </a>
-                <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[#3a567a] rounded-lg hover:bg-[#e6f7f3] hover:text-[#2e9e02] transition-colors no-underline" style="box-sizing: border-box;">
+                <a href="<?php echo BASE_URL; ?>foro" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-text-mid transition-colors no-underline hover:bg-green-pale hover:text-green">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                   </svg>
                   <span>Comunidad & Foro</span>
                 </a>
-                <a href="<?php echo BASE_URL; ?>feedback" class="flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[#3a567a] rounded-lg hover:bg-[#e6f7f3] hover:text-[#2e9e02] transition-colors no-underline" style="box-sizing: border-box;">
+                <a href="<?php echo BASE_URL; ?>feedback" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-text-mid transition-colors no-underline hover:bg-green-pale hover:text-green">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 20h9"></path>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
@@ -187,9 +225,9 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
                 </a>
               </div>
 
-              <!-- Botón de Cerrar Sesión con box-sizing para evitar desborde -->
-              <div style="padding: 10px 14px; border-top: 1px solid #e8f0f9; background-color: #ffffff; box-sizing: border-box;">
-                <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-sizing: border-box; padding: 9px 12px; border-radius: 10px; font-size: 13px; font-weight: 700; color: #dc2626; background-color: #fef2f2; border: 1px solid #fecaca; text-decoration: none; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#fee2e2'; this.style.color='#b91c1c';" onmouseout="this.style.backgroundColor='#fef2f2'; this.style.color='#dc2626';">
+              <!-- Botón de Cerrar Sesión -->
+              <div class="border-t border-[#e8f0f9] bg-white px-3.5 py-2.5">
+                <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" class="flex w-full items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-[13px] font-bold text-red-600 no-underline transition-colors hover:bg-red-100 hover:text-red-700">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                     <polyline points="16 17 21 12 16 7"></polyline>
@@ -200,23 +238,23 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
               </div>
             </div>
           <?php else: ?>
-            <!-- Estado: No Autenticado / Invitado -->
-            <div class="bg-white border border-[var(--color-border-main)] rounded-2xl p-4 shadow-xl" id="user-dd" style="width: 100%; box-sizing: border-box;">
-              <div class="text-center pb-3 mb-2 border-b border-[var(--color-border-lt)] user-no-found">
-                <div class="flex items-center justify-center w-12 h-12 mx-auto mb-2 rounded-full bg-white border border-dashed border-[var(--color-border-main)] text-[var(--color-text-muted)] user-avatar-lg">
+            <!-- Estado: No Autenticado -->
+            <div class="w-full rounded-2xl border border-border-main bg-white p-4 shadow-xl" id="user-dd">
+              <div class="mb-2 border-b border-border-lt pb-3 text-center user-no-found">
+                <div class="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full border border-dashed border-border-main bg-white text-text-muted user-avatar-lg">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="12" cy="8" r="4" />
                     <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                   </svg>
                 </div>
-                <strong class="block text-sm font-bold text-[var(--color-text-main)] mb-1">Usuario no identificado</strong>
-                <p class="text-xs text-[var(--color-text-muted)] mt-1">Inicia sesión para acceder a tu cuenta</p>
+                <strong class="mb-1 block text-sm font-bold text-text-main">Usuario no identificado</strong>
+                <p class="mt-1 text-xs text-text-muted">Inicia sesión para acceder a tu cuenta</p>
               </div>
-              <div class="flex gap-2 py-1 auth-btns">
-                <a href="<?php echo BASE_URL; ?>login" class="flex-1 text-center py-2 px-1 rounded-lg text-[13px] font-semibold text-[var(--color-text-mid)] bg-white border border-[var(--color-border-main)] hover:border-[var(--color-green)] hover:text-[var(--color-green)] hover:bg-[var(--color-green-pale)] transition-colors btn-login no-underline">Iniciar sesión</a>
-                <a href="<?php echo BASE_URL; ?>register" class="flex-1 text-center py-2 px-1 rounded-lg text-[13px] font-semibold text-white bg-[var(--color-green)] hover:bg-[var(--color-green-lt)] transition-colors btn-register no-underline">Registrarse</a>
+              <div class="auth-btns flex gap-2 py-1">
+                <a href="<?php echo BASE_URL; ?>login" class="btn-login flex-1 rounded-lg border border-border-main bg-white px-1 py-2 text-center text-[13px] font-semibold text-text-mid no-underline transition-colors hover:border-green hover:text-green hover:bg-green-pale">Iniciar sesión</a>
+                <a href="<?php echo BASE_URL; ?>register" class="btn-register flex-1 rounded-lg bg-green px-1 py-2 text-center text-[13px] font-semibold text-white no-underline transition-colors hover:bg-green-lt">Registrarse</a>
               </div>
-              <a href="<?php echo BASE_URL; ?>feedback" class="flex items-center gap-2 p-2 mt-1 border-t border-[var(--color-border-lt)] text-xs text-[var(--color-text-muted)] rounded-lg hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors support-link no-underline">
+              <a href="<?php echo BASE_URL; ?>feedback" class="support-link mt-1 flex items-center gap-2 rounded-lg border-t border-border-lt p-2 text-xs text-text-muted no-underline transition-colors hover:bg-green-pale hover:text-green">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 Diagnóstico & Encuesta UX
               </a>
@@ -225,23 +263,24 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
         </div>
       </div>
 
-      <!-- Botón hamburguesa (solo celular) -->
+      <!-- Botón hamburguesa (celular) -->
       <button
         type="button"
-        class="group md:hidden flex items-center justify-center w-9 h-9 rounded-lg text-white bg-transparent border border-transparent hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors cursor-pointer"
+        id="btn-menu-toggle"
+        class="group md:hidden flex items-center justify-center w-9 h-9 rounded-lg text-white bg-transparent border border-transparent hover:bg-green-pale hover:text-green transition-colors cursor-pointer"
         data-menu-toggle
         aria-label="Abrir menú"
         aria-controls="menu-movil"
         aria-expanded="false"
       >
         <!-- Ícono hamburguesa -->
-        <svg class="w-6 h-6 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <svg id="icon-hamburger" class="w-6 h-6 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <line x1="4" y1="7" x2="20" y2="7"></line>
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="17" x2="20" y2="17"></line>
         </svg>
         <!-- Ícono cerrar -->
-        <svg class="w-6 h-6 hidden group-aria-expanded:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <svg id="icon-close" class="w-6 h-6 hidden group-aria-expanded:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <line x1="6" y1="6" x2="18" y2="18"></line>
           <line x1="18" y1="6" x2="6" y2="18"></line>
         </svg>
@@ -251,96 +290,84 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
     <!-- ===== Panel del menú móvil ===== -->
     <div
       id="menu-movil"
-      class="hidden md:hidden absolute top-full inset-x-0 max-h-[calc(100vh-4rem)] overflow-y-auto bg-[var(--color-navy)] border-t border-white/10 shadow-lg"
+      class="hidden md:hidden bg-navy border-t border-white/10 shadow-lg"
       data-menu-panel
     >
-      <ul class="my-0 p-0 list-none">
+      <div class="p-4 space-y-4">
 
-        <li class="border-b border-white/10">
-          <button type="button" class="group flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium text-white bg-transparent border-0 cursor-pointer hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors" data-accordion-btn aria-controls="mm-inicio" aria-expanded="false">
-            Inicio
-            <svg class="w-5 h-5 shrink-0 transition-transform group-aria-expanded:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div id="mm-inicio" class="hidden pb-2 bg-[var(--color-navy-mid)]">
-            <a href="<?php echo BASE_URL; ?>noticias" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Noticias</a>
-            <a href="<?php echo BASE_URL; ?>galeria" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Galería</a>
-            <a href="<?php echo BASE_URL; ?>inicio" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Sobre Nosotros</a>
-            <a href="<?php echo BASE_URL; ?>showcase" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Showcase de Proyectos</a>
-          </div>
-        </li>
-
-        <li class="border-b border-white/10">
-          <button type="button" class="group flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium text-white bg-transparent border-0 cursor-pointer hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors" data-accordion-btn aria-controls="mm-foro" aria-expanded="false">
-            Foro
-            <svg class="w-5 h-5 shrink-0 transition-transform group-aria-expanded:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div id="mm-foro" class="hidden pb-2 bg-[var(--color-navy-mid)]">
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Programación</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Redes</a>
-            <a href="<?php echo BASE_URL; ?>foro" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">General</a>
-          </div>
-        </li>
-
-        <li class="border-b border-white/10">
-          <button type="button" class="group flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium text-white bg-transparent border-0 cursor-pointer hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors" data-accordion-btn aria-controls="mm-blogs" aria-expanded="false">
-            Blogs
-            <svg class="w-5 h-5 shrink-0 transition-transform group-aria-expanded:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div id="mm-blogs" class="hidden pb-2 bg-[var(--color-navy-mid)]">
-            <a href="<?php echo BASE_URL; ?>noticias" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Electrónica</a>
-            <a href="<?php echo BASE_URL; ?>noticias" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Sistemas</a>
-            <a href="<?php echo BASE_URL; ?>noticias" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Programación</a>
-          </div>
-        </li>
-
-        <li class="border-b border-white/10">
-          <button type="button" class="group flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium text-white bg-transparent border-0 cursor-pointer hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors" data-accordion-btn aria-controls="mm-academia" aria-expanded="false">
-            Academia
-            <svg class="w-5 h-5 shrink-0 transition-transform group-aria-expanded:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div id="mm-academia" class="hidden pb-2 bg-[var(--color-navy-mid)]">
-            <a href="<?php echo BASE_URL; ?>malla_curricular" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Malla Curricular</a>
-            <a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Horarios</a>
-            <a href="<?php echo BASE_URL; ?>becas" class="block px-8 py-3 text-sm text-white/80 no-underline hover:bg-[var(--color-green-pale)] hover:text-[var(--color-green)] transition-colors">Becas</a>
-          </div>
-        </li>
-
-        <!-- Mobile User Panel -->
-        <li class="p-4 bg-[var(--color-navy-mid)]">
-          <?php if ($isLoggedIn): ?>
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <div style="width: 42px; height: 42px; min-width: 42px; min-height: 42px; border-radius: 50%; background-color: #094074; border: 1px solid rgba(255,255,255,0.2); color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">
+        <?php if ($isLoggedIn): ?>
+          <div class="border-b border-white/10 pb-3">
+            <div class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green text-sm font-bold text-navy">
                 <?php echo htmlspecialchars($userInitial); ?>
               </div>
-              <div style="min-width: 0; flex: 1; overflow: hidden;">
-                <p style="font-size: 14px; font-weight: 600; color: #ffffff; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo htmlspecialchars($userName); ?></p>
-                <p style="font-size: 12px; color: rgba(255,255,255,0.7); margin: 2px 0 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo htmlspecialchars($userEmail); ?></p>
-                <div style="margin-top: 4px;">
-                  <span style="display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 9999px; background-color: rgba(255,255,255,0.15); color: #e6f7f3;">
-                    <?php echo htmlspecialchars($userRoleName); ?>
-                  </span>
-                </div>
+              <div class="min-w-0 flex-1">
+                <div class="truncate text-sm font-semibold text-white" title="<?php echo htmlspecialchars($userName); ?>"><?php echo htmlspecialchars($userName); ?></div>
+                <div class="text-[11px] font-medium uppercase tracking-wide text-green"><?php echo htmlspecialchars($userRoleName); ?></div>
               </div>
             </div>
-            <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #ffffff; background-color: rgba(220, 38, 38, 0.9); text-decoration: none; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#dc2626';" onmouseout="this.style.backgroundColor='rgba(220, 38, 38, 0.9)';">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" class="mt-3 flex items-center justify-center gap-2 rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-2 text-sm font-semibold text-red-200 no-underline transition-colors hover:bg-red-500/20 hover:text-white">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                 <polyline points="16 17 21 12 16 7"></polyline>
                 <line x1="21" y1="12" x2="9" y2="12"></line>
               </svg>
               <span>Cerrar sesión</span>
             </a>
-          <?php else: ?>
-            <div class="flex gap-2">
-              <a href="<?php echo BASE_URL; ?>login" class="flex-1 text-center py-2.5 px-3 rounded-lg text-sm font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors no-underline">Iniciar sesión</a>
-              <a href="<?php echo BASE_URL; ?>register" class="flex-1 text-center py-2.5 px-3 rounded-lg text-sm font-semibold text-white bg-[var(--color-green)] hover:bg-[var(--color-green-lt)] transition-colors no-underline">Registrarse</a>
+          </div>
+        <?php else: ?>
+          <div class="border-b border-white/10 pb-3">
+            <div class="grid grid-cols-2 gap-2">
+              <a href="<?php echo BASE_URL; ?>login" class="flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-3 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:border-green hover:bg-white/10">Iniciar sesión</a>
+              <a href="<?php echo BASE_URL; ?>register" class="flex items-center justify-center rounded-lg bg-green px-3 py-2.5 text-sm font-semibold text-navy no-underline transition-colors hover:bg-green-lt hover:text-white">Registrarse</a>
             </div>
-          <?php endif; ?>
-        </li>
+          </div>
+        <?php endif; ?>
 
-      </ul>
+        <!-- Sección: Inicio -->
+        <div class="border-b border-white/10 pb-3">
+          <span class="mobile-section-title block px-3 py-1 text-xs font-bold uppercase tracking-wider text-green">Inicio</span>
+          <div class="mt-1 flex flex-col space-y-0.5">
+            <a href="<?php echo BASE_URL; ?>noticias" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Noticias</a>
+            <a href="<?php echo BASE_URL; ?>galeria" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Galería</a>
+            <a href="<?php echo BASE_URL; ?>inicio" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Sobre Nosotros</a>
+            <a href="<?php echo BASE_URL; ?>showcase" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Showcase de Proyectos</a>
+          </div>
+        </div>
+
+        <!-- Sección: Foro -->
+        <div class="border-b border-white/10 pb-3">
+          <span class="mobile-section-title block px-3 py-1 text-xs font-bold uppercase tracking-wider text-green">Foro</span>
+          <div class="mt-1">
+            <a href="<?php echo BASE_URL; ?>foro" class="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">
+              <span>Ir al foro</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sección: Blogs -->
+        <div class="border-b border-white/10 pb-3">
+          <span class="mobile-section-title block px-3 py-1 text-xs font-bold uppercase tracking-wider text-green">Blogs</span>
+          <div class="mt-1">
+            <a href="<?php echo BASE_URL; ?>noticias" class="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">
+              <span>Ir al blog</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sección: Academia -->
+        <div class="border-b border-white/10 pb-1">
+          <span class="mobile-section-title block px-3 py-1 text-xs font-bold uppercase tracking-wider text-green">Academia</span>
+          <div class="mt-1 flex flex-col space-y-0.5">
+            <a href="<?php echo BASE_URL; ?>malla_curricular" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Malla Curricular</a>
+            <a href="<?php echo BASE_URL; ?>consulta_de_horarios" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Horarios</a>
+            <a href="<?php echo BASE_URL; ?>becas" class="block px-3 py-2 text-sm text-white hover:text-green hover:bg-white/5 rounded-lg no-underline transition-colors">Becas</a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </nav>

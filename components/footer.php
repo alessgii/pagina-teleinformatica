@@ -1,4 +1,4 @@
-<footer class="m-0 bg-[var(--color-navy)] text-white pt-10 pb-6 px-5 sm:px-8 md:pt-12 border-t border-gray-700">
+<footer class="m-0 bg-navy text-white pt-10 pb-6 px-5 sm:px-8 md:pt-12 border-t border-white">
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-2 gap-x-6 gap-y-8 mb-8 md:grid-cols-4 md:gap-8 md:mb-10">
 
@@ -67,7 +67,6 @@
 </footer>
 
 <script src="<?php echo BASE_URL; ?>public/js/navbar.js"></script>
-<script src="<?php echo BASE_URL; ?>public/js/menu-movil.js"></script>
 
 </body>
 
