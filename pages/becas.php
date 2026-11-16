@@ -1,7 +1,7 @@
 <!-- ========================================== -->
 <!-- MÓDULO BECAS -->
 <!-- ========================================== -->
-<main class="max-w-[1140px] mx-auto px-4 sm:px-6 pb-16 font-sans text-[#0d2b4e] antialiased">
+<main class="max-w-[1140px] mx-auto px-4 sm:px-6 pb-16 font-poppins text-[#0d2b4e] antialiased">
 
     <!-- SECCIÓN: HERO HEADER (TÍTULO Y DESCRIPCIÓN PRINCIPAL) -->
     <header class="pt-12 px-2 sm:px-6 pb-10 text-center">
@@ -33,7 +33,7 @@
         
         <!-- Botón Visitar Facebook -->
         <a href="https://www.facebook.com/UBIACUCOSTASUR/" target="_blank" rel="noopener noreferrer" 
-           class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#094074] hover:bg-[#042b50] text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-md shrink-0 no-underline">
+           class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#094074] hover:bg-navy-mid text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-md shrink-0 no-underline">
             Visitar Facebook
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -100,10 +100,6 @@
         </article>
 
     </div>
-
-    <!-- ========================================== -->
-    <!-- SECCIÓN: VENTANAS MODALES -->
-    <!-- ========================================== -->
 
     <!-- Modal PEEES -->
     <div id="modal-peees" onclick="closeModalOutside(event, 'modal-peees')" 
