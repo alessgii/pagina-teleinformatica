@@ -1,54 +1,429 @@
-# Web de la Carrera - Estructura Base de Desarrollo
+# Página institucional de la carrera de Teleinformática
 
-Este es el repositorio central con la arquitectura del proyecto unificada. Ya está todo automatizado con un sistema de rutas dinámicas en PHP para que **no tengan que preocuparse por pegar el Navbar ni el Footer** en cada página; el servidor lo hace solo.
+Este proyecto es una aplicación web en PHP para la carrera de Teleinformática de la UDG CU Costa Sur. Su objetivo principal es ofrecer una presencia institucional dinámica con contenido académico, noticias, galería, horarios, login/registro, foro y mecanismos de retroalimentación UX.
 
----
+La estructura del proyecto combina:
 
-## Cómo ejecutar el proyecto en tu computadora (Localhost)
-
-Para poder ver los cambios de tus diseños en tiempo real junto con el Navbar y Footer globales, **es obligatorio correr el proyecto a través de Apache**. Si solo abres el archivo PHP arrastrándolo al navegador, no va a funcionar.
-
-### Pasos para configurar en Windows (XAMPP):
-1. **Descarga/Clona este repositorio** dentro de tu carpeta de proyectos de XAMPP (normalmente en `C:\xampp\htdocs\`).
-2. Asegúrate de que la carpeta del proyecto tenga un nombre limpio en minúsculas (ejemplo: `pagina-teleinformatica`).
-3. Abre el **XAMPP Control Panel** y enciende el módulo de **Apache** (botón *Start*).
-4. Abre tu navegador web e ingresa a: `http://localhost/pagina-teleinformatica/` (ejemplo: `http://localhost/web-carrera/`).
-
-*Nota: No se preocupen por configurar bases de datos ni MariaDB, la conexión está desactivada temporalmente para la fase de diseño estático. Les va a cargar a la primera.*
+- PHP vanilla para la lógica servidor y enrutamiento
+- HTML + CSS + JavaScript para la capa visual
+- Tailwind para estilos
+- MySQL como sistema de persistencia
+- API REST interna para consumo por frontend
 
 ---
 
-## 🛠️ Reglas estrictas para subir tu sección (Frontend)
+## Estado actual del proyecto
 
-Para evitar que tu código rompa el diseño global de la página, debes seguir estas 3 reglas de integración al crear tus archivos:
+Este README refleja la estructura actual del repositorio y su funcionamiento real. El proyecto ya incluye:
 
-### 1. 📂 Organización de tus archivos
-* Tu archivo de diseño va dentro de la carpeta `/pages/`.
-* Tu archivo CSS va dentro de `/public/css/pages/`.
-* Tus imágenes locales van dentro de `/public/img/[nombre_de_tu_seccion]/`.
-
-### 2. Todo en MINÚSCULAS
-El servidor final corre en Linux. **Está estrictamente prohibido usar mayúsculas o espacios** en los nombres de archivos, carpetas o extensiones.
-* ❌ `malla_curricular.html` | `mi foto.JPG`
-* `malla_curricular.php` | `mifoto.jpg`
-
-### 3. Código Modular
-Dado que el `index.php` principal ya envuelve tu página con el `<head>`, `<body>`, `Navbar` y `Footer` globales, **TU ARCHIVO NO DEBE LLEVAR ESTAS ETIQUETAS**.
-* Tu archivo en `pages/` debe empezar directamente en tu etiqueta `<main>` o `<section>`.
-* Si tu archivo tiene etiquetas `<html>`, `<head>` o `<body>`, se duplicarán en pantalla y romperán los estilos de los demás.
-
-## 4. Enlazar estilos
-De manera temporal, la primera linea de tu archivo HTML o PHP (usando solo HTML) debe ser el enlace al archivo CSS especifico de esa pagina. 
+- Enrutamiento central desde `index.php`
+- Páginas principales bajo `pages/`
+- Componentes reutilizables bajo `components/`
+- API central bajo `public/api/index.php`
+- Modelos y controladores bajo `src/`
+- Base de datos MySQL con esquema en `database/intel-db.sql`
+- Estilos generados con Tailwind
 
 ---
 
-## 🔗 Cómo usar las imágenes y enlaces locales
+## Stack tecnológico
 
-Como ahora el sitio corre de forma centralizada, las rutas relativas normales (`../../img/`) se rompen. Para solucionarlo, en la raíz del proyecto existe la variable `BASE_URL`.
+### Frontend
+- PHP embebido en vistas
+- HTML5
+- CSS3
+- JavaScript vanilla
+- Tailwind CSS 4
 
-Cada vez que pongas una imagen o un enlace a otra página del sitio, debes poner la etiqueta de PHP al principio del `src` o `href`:
+### Backend
+- PHP 8+
+- MySQL / MariaDB
+- PDO para acceso a bases de datos
+- Sesiones PHP para autenticación
 
-```html
-<img src="<?php echo BASE_URL; ?>public/img/galeria/foto1.jpg" alt="Foto">
+### Herramientas de desarrollo
+- Node.js + npm
+- `@tailwindcss/cli`
+- Apache / XAMPP / LAMP
 
-<a href="<?php echo BASE_URL; ?>index.php?page=contacto">Contacto</a>
+---
+
+## Requisitos
+
+### Requerimientos mínimos
+- PHP 8.1 o superior
+- MySQL 8.0 o MariaDB 10.x
+- Apache con mod_rewrite o un virtual host funcional
+- Node.js 18+ para Tailwind
+- Git para control de versiones
+
+### Requisitos de entorno local
+Se recomienda usar la estructura de proyectos de Apache, por ejemplo:
+
+```bash
+C:\xampp\htdocs\pagina-teleinformatica
+```
+
+o en Linux/Mac:
+
+```bash
+/var/www/html/pagina-teleinformatica
+```
+
+El sitio se basa en la ruta base:
+
+```php
+define('BASE_URL', '/pagina-teleinformatica/');
+```
+
+Si se mueve a otra carpeta o dominio, debe actualizarse ese valor en `config/config.php`.
+
+---
+
+## Estructura del proyecto
+
+```text
+pagina-teleinformatica/
+├── components/
+│   ├── footer.php
+│   ├── navbar.php
+│   └── pagination.php
+├── config/
+│   ├── config.php
+│   ├── config.php.example
+│   ├── conn.php
+│   └── conn.php.example
+├── database/
+│   └── intel-db.sql
+├── pages/
+│   ├── 404.php
+│   ├── academia.php
+│   ├── becas.php
+│   ├── consulta_horarios.php
+│   ├── feedback.php
+│   ├── foro.php
+│   ├── galeria.php
+│   ├── inicio.php
+│   ├── login.php
+│   ├── malla_curricular.php
+│   ├── noticias.php
+│   ├── register.php
+│   └── showcase.php
+├── public/
+│   ├── api/
+│   │   ├── index.php
+│   │   └── noticias/
+│   │       ├── cambiar-estado.php
+│   │       ├── crear.php
+│   │       ├── editar.php
+│   │       ├── eliminar.php
+│   │       └── incrementar-vista.php
+│   ├── css/
+│   │   ├── fonts/
+│   │   ├── pages/
+│   │   └── tailwind/
+│   ├── img/
+│   └── js/
+├── src/
+│   ├── Controllers/
+│   │   ├── AuthController.php
+│   │   ├── FeedbackController.php
+│   │   ├── GalleryController.php
+│   │   ├── NewsController.php
+│   │   └── ScheduleController.php
+│   ├── Middlewares/
+│   │   └── AuthMiddleware.php
+│   └── Models/
+│       ├── Feedback.php
+│       └── User.php
+├── index.php
+├── package.json
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Flujo de enrutamiento principal
+
+La aplicación usa `index.php` como punto de entrada central. El archivo define una tabla de rutas y carga la vista correspondiente según el parámetro `page`:
+
+```php
+$raw_page = $_GET['page'] ?? 'inicio';
+```
+
+### Rutas principales
+
+```php
+$routes = [
+    'inicio'               => 'pages/inicio.php',
+    'consulta_de_horarios' => 'pages/consulta_horarios.php',
+    'malla_curricular'     => 'pages/malla_curricular.php',
+    'foro'                 => 'pages/foro.php',
+    'galeria'              => 'pages/galeria.php',
+    'noticias'             => 'pages/noticias.php',
+    'academia'             => 'pages/academia.php',
+    'becas'                => 'pages/becas.php',
+    'blogs'                => 'pages/noticias.php',
+    'showcase'             => 'pages/showcase.php',
+    'login'                => 'pages/login.php',
+    'register'             => 'pages/register.php',
+    'feedback'             => 'pages/feedback.php',
+];
+```
+
+### Comportamiento
+- Las páginas regulares incluyen `navbar` y `footer` de forma centralizada.
+- `login` y `register` se cargan como páginas autónomas.
+- Si la ruta no existe, se muestra `pages/404.php`.
+
+### Ejemplos de navegación
+
+```text
+http://localhost/pagina-teleinformatica/index.php?page=inicio
+http://localhost/pagina-teleinformatica/index.php?page=noticias
+http://localhost/pagina-teleinformatica/index.php?page=consulta_de_horarios
+http://localhost/pagina-teleinformatica/index.php?page=login
+```
+
+---
+
+## Configuración base
+
+### `config/config.php`
+Este archivo define la URL base del proyecto:
+
+```php
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/pagina-teleinformatica/');
+}
+```
+
+Esto se usa para construir rutas absolutas de imágenes, CSS, JS y navegación sin romper al mover la aplicación.
+
+### `config/conn.php`
+Aquí se configura la conexión a MySQL usando PDO.
+
+```php
+$host     = 'localhost';
+$db       = 'tu_db';
+$user     = 'root';
+$password = '';
+```
+
+---
+
+## Base de datos
+
+La estructura inicial del esquema se encuentra en:
+
+- `database/intel-db.sql`
+
+### Entidades principales
+- `roles`
+- `users`
+- `careers`
+- `semesters`
+- `subjects`
+- `student_groups`
+- `teachers`
+- `classrooms`
+- `schedules`
+- `posts`
+- `comments`
+- `categories`
+- `news`
+- `feedback`
+
+---
+
+## Autenticación y sesiones
+
+La autenticación se implementa con sesiones PHP y `User` + `AuthController`.
+
+### Modelo `User`
+`src/Models/User.php`
+
+Responsabilidades:
+- buscar usuario por correo institucional
+- crear usuarios nuevos
+
+### Controlador `AuthController`
+`src/Controllers/AuthController.php`
+
+Responsabilidades:
+- `login()`
+- `register()`
+- `logout()`
+
+### Flujo de login
+1. Se valida que lleguen email y contraseña.
+2. Se busca el usuario por `institutional_email`.
+3. Se verifica con `password_verify()`.
+4. Si es correcto, se almacenan datos en sesión.
+5. Se devuelve JSON con la respuesta del login.
+
+### Middleware 
+`src/Middlewares/AuthMiddleware.php`
+
+Proporciona validación para:
+- APIs protegidas (`requireApiAuth`)
+- páginas web restringidas (`requirePageAuth`)
+
+---
+
+## API principal
+
+La API central está en:
+
+- `public/api/index.php`
+
+Esta ruta recibe todas las peticiones al prefijo `/api` y despacha según el path solicitado.
+
+### Endpoints implementados
+
+#### Autenticación
+- `POST /api/login`
+- `POST /api/register`
+- `GET|POST /api/logout`
+
+#### Galería
+- `GET /api/galeria`
+
+#### Horarios
+- `GET /api/horarios?semester=3&group=A`
+
+#### Feedback UX
+- `POST /api/feedback`
+
+#### Noticias (acciones específicas)
+- `public/api/noticias/crear.php`
+- `public/api/noticias/editar.php`
+- `public/api/noticias/eliminar.php`
+- `public/api/noticias/cambiar-estado.php`
+- `public/api/noticias/incrementar-vista.php`
+
+### Patrón API actual
+- Uso de `header('Content-Type: application/json; charset=utf-8');`
+- Respuestas JSON con `success`, `message`, `data`
+- Códigos HTTP estandarizados: 200, 201, 400, 401, 403, 404, 500
+
+---
+
+## Páginas y módulos del frontend
+
+### `pages/`
+Cada página corresponde a un módulo del sitio:
+
+- `inicio.php` – landing institucional
+- `noticias.php` – listado y gestión de noticias
+- `galeria.php` – catálogo visual
+- `malla_curricular.php` – plan de estudios
+- `consulta_horarios.php` – vista de horarios escolares
+- `academia.php` – información académica
+- `becas.php` – becas y ayudas
+- `foro.php` – comunidad / discusión
+- `showcase.php` – proyectos estudiantiles
+- `feedback.php` – encuesta UX
+- `login.php` y `register.php` – acceso a usuarios
+- `404.php` – error de ruta
+
+### `components/`
+
+- `navbar.php`: navegación global y menú móvil
+- `footer.php`: pie de página global
+- `pagination.php`: componente de paginación reutilizable
+
+**Regla importante**: muchas vistas se montan con `index.php` y no deberían incluir etiquetas HTML completas (`html`, `head`, `body`) porque se integran dentro del layout global.
+
+---
+
+## Asset y estilos
+
+### Tailwind
+El proyecto usa Tailwind para el diseño visual. La compilación se realiza con:
+
+```bash
+npm install
+npm run dev
+```
+
+El script definido en `package.json` es:
+
+```json
+"dev": "npx @tailwindcss/cli -i ./public/css/tailwind/input.css -o ./public/css/tailwind/output.css --watch"
+```
+
+### Carpetas de assets
+- `public/css/pages/` – CSS específico por página
+- `public/css/tailwind/` – entrada y salida de Tailwind
+- `public/img/` – recursos visuales
+- `public/js/` – scripts front-end por módulo
+
+---
+
+## Guía de instalación y ejecución local
+
+### Opción 1: XAMPP / WAMP / LAMP
+1. Clonar el repositorio dentro del directorio de proyectos web.
+2. Iniciar Apache y MySQL.
+3. Crear la base de datos y ejecutar el script SQL:
+
+```bash
+mysql -u root -p < database/intel-db.sql
+```
+
+4. Confirmar que la base de datos `intel` exista.
+5. Ajustar la configuración de `config/config.php` y `config/conn.php`.
+6. Abrir en navegador:
+
+```text
+http://localhost/pagina-teleinformatica/
+```
+
+### Opción 2: servidor Apache + virtual host
+
+Ejemplo de vhost:
+
+```apache
+<VirtualHost *:80>
+    ServerName pagina-teleinformatica.local
+    DocumentRoot "/var/www/html/pagina-teleinformatica"
+    <Directory "/var/www/html/pagina-teleinformatica">
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+Y agregar en hosts:
+
+```text
+127.0.0.1 pagina-teleinformatica.local
+```
+
+---
+
+## Comandos útiles
+
+### Instalar dependencias de Tailwind
+```bash
+npm install
+```
+
+### Ejecutar watcher de Tailwind
+```bash
+npm run dev
+```
+
+### Validar PHP sintáctico
+```bash
+php -l index.php
+php -l config/config.php
+php -l config/conn.php
+```
+
+### Revisar estructura de archivos importantes
+```bash
+find . -maxdepth 3 -type f | sort
+```
