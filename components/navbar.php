@@ -226,8 +226,8 @@ $userInitial = mb_strtoupper(mb_substr($userName, 0, 1, 'UTF-8'), 'UTF-8');
               </div>
 
               <!-- Botón de Cerrar Sesión -->
-              <div class="border-t border-[#e8f0f9] bg-white px-3.5 py-2.5">
-                <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" class="flex w-full items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-[13px] font-bold text-red-600 no-underline transition-colors hover:bg-red-100 hover:text-red-700">
+              <div class="border-t border-[#e8f0f9] bg-white px-3.5 py-2.5 flex items-center justify-center">
+                <a href="<?php echo BASE_URL; ?>logout" onclick="logoutUser(event)" class="flex grow items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-[13px] font-bold text-red-600 no-underline transition-colors hover:bg-red-100 hover:text-red-700">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                     <polyline points="16 17 21 12 16 7"></polyline>
